@@ -1,0 +1,9 @@
+node_modules/
+.DS_Store
+.env
+__pycache__/
+*.pyc
+enrich_iucn.py
+audio/*.wav
+audio/*.mp3
+models/*.glb

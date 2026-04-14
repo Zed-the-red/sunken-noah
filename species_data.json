@@ -1,0 +1,1978 @@
+{
+  "meta": {
+    "version": "1.0",
+    "generated": "2026-04-06",
+    "description": "Sunken Noah — données espèces. endangered = bateaux, extinct = mausolée de l'Arche."
+  },
+  "endangered": [
+    {
+      "name": "Rhinocéros de Java",
+      "status": "Critique",
+      "count": "~60 individus",
+      "text": "Il vivait dans les forêts denses de Java. Aucun enregistrement de son cri n'existe.",
+      "danger": 0.95,
+      "photo_url": "https://lepetitjournal.com/sites/default/files/2025-09/Rhino-LPJ.jpg",
+      "photo_manual": true,
+      "name_en": "Javan Rhinoceros",
+      "status_en": "Critically Endangered",
+      "text_en": "It lived in the dense forests of Java. No recording of its call has ever been made.",
+      "iucn": {
+        "iucn_taxon_id": 19495,
+        "iucn_assessment_id": 18493900,
+        "iucn_status_code": "CR",
+        "iucn_status_fr": "Critique",
+        "iucn_status_en": "Critically Endangered",
+        "iucn_danger": 0.95,
+        "iucn_year": "2020",
+        "iucn_url": "https://www.iucnredlist.org/species/19495/18493900",
+        "iucn_population": "Based on camera trap data, an estimated 68 animals (29 adult males, 24 adult females, and 15 juveniles), live in Ujung Kulon National Park on the western tip of Java (Ujung Kulon National Park 2018). It is not known how many of the adult animals are reproductive, but we infer that perhaps 33% of adults might breed. The addition of camera traps throughout the park has led to much more accurate population data. Camera trap data from studies conducted in 2013-2014, with coverage of the entire park,",
+        "iucn_rationale": "Based on camera trap data, an estimated 68 animals live in Ujung Kulon National Park on the western tip of Java, but only the 33% are inferred to be reproductive individuals. Therefore this species is listed as Critically Endangered under criterion D."
+      },
+      "iucn_population": "Based on camera trap data, an estimated 68 animals (29 adult males, 24 adult females, and 15 juveniles), live in Ujung Kulon National Park on the western tip of Java (Ujung Kulon National Park 2018). It is not known how many of the adult animals are reproductive, but we infer that perhaps 33% of adults might breed. The addition of camera traps throughout the park has led to much more accurate population data. Camera trap data from studies conducted in 2013-2014, with coverage of the entire park,"
+    },
+    {
+      "name": "Vaquita marina",
+      "status": "Critique",
+      "count": "~10 individus",
+      "text": "Le marsouin le plus rare du monde. Peut-être déjà disparu au moment où vous lisez ceci.",
+      "danger": 0.95,
+      "photo_url": "https://tvguanajuato.com/wp-content/uploads/2025/10/Confirman-el-nacimiento-de-una-cria-de-vaquita-marina-en-el-Alto-Golfo-de-California.jpg",
+      "photo_manual": true,
+      "name_en": "Vaquita",
+      "status_en": "Critically Endangered",
+      "text_en": "The world's rarest porpoise. Perhaps already gone by the time you read this.",
+      "iucn": {
+        "iucn_taxon_id": 17028,
+        "iucn_assessment_id": 214541137,
+        "iucn_status_code": "CR",
+        "iucn_status_fr": "Critique",
+        "iucn_status_en": "Critically Endangered",
+        "iucn_danger": 0.95,
+        "iucn_year": "2022",
+        "iucn_url": "https://www.iucnredlist.org/species/17028/214541137",
+        "iucn_population": "There have been three rangewide surveys for Vaquitas, resulting in abundance estimates as follows: in 1997 abundance was estimated to be 567 (95% CI, 177-1,073; Jaramillo-Legorreta <em>et al. </em>1999), in 2008 it was estimated to be 245 animals (95% CI, 68-884; Gerrodette <em>et al.</em> 2011), and in 2015 it was estimated to be 59 (95% CRI 22-145, Taylor <em>et al.</em> 2016).&#160;&#160;These three abundance estimates revealed that a catastrophic population decline had been occurring, and an",
+        "iucn_rationale": "The Vaquita qualifies for listing as Critically Endangered based on criteria A2a, C1, C2a(ii), D and E. The generation length for the Vaquita is estimated as 10 years (Rojas-Bracho and Taylor 1999), therefore three generation lengths is approximately 30 years. <strong>Criterion A2a</strong>: The best estimate of total population size is from 2018:&#160;posterior mean = 9 (median = 8), 95% Credibility Interval (CRI): 6 to 19) (Jaramillo-Legorreta <em>et al.</em> 2019). The estimated number of ind"
+      },
+      "iucn_population": "There have been three rangewide surveys for Vaquitas, resulting in abundance estimates as follows: in 1997 abundance was estimated to be 567 (95% CI, 177-1,073; Jaramillo-Legorreta <em>et al. </em>1999), in 2008 it was estimated to be 245 animals (95% CI, 68-884; Gerrodette <em>et al.</em> 2011), and in 2015 it was estimated to be 59 (95% CRI 22-145, Taylor <em>et al.</em> 2016).&#160;&#160;These three abundance estimates revealed that a catastrophic population decline had been occurring, and an"
+    },
+    {
+      "name": "Gorille de montagne",
+      "status": "Critique",
+      "count": "~1 000 individus",
+      "text": "L'un des rares cas où l'histoire pourrait ne pas se terminer ici.",
+      "danger": 0.95,
+      "photo_url": "https://www.wwf.fr/sites/default/files/styles/key_visual_large_16_10/public/2023-06/gorille-montagnes-foret-ouganda.jpg?h=c3635fa2&itok=O7uls3Rz",
+      "photo_manual": true,
+      "name_en": "Mountain Gorilla",
+      "status_en": "Critically Endangered",
+      "text_en": "One of the rare cases where this story might not end here.",
+      "iucn": {
+        "iucn_taxon_id": 39994,
+        "iucn_assessment_id": 115576640,
+        "iucn_status_code": "CR",
+        "iucn_status_fr": "Critique",
+        "iucn_status_en": "Critically Endangered",
+        "iucn_danger": 0.95,
+        "iucn_year": "2019",
+        "iucn_url": "https://www.iucnredlist.org/species/39994/115576640",
+        "iucn_population": "It is likely that fewer than 5,000 Eastern Gorillas remain.&#160;<em>Gorilla b. beringei</em>&#160;lives in two isolated populations in three countries: DRC, Rwanda and Uganda. The first surveys of the Virunga Mountain Gorillas estimated a population size of 274 individuals in 1971–73 (Harcourt and Groom 1972, Groom 1973). The population fell to a low of 254 individuals in 1981 (Aveling and Harcourt 1981, Weber and Vedder 1983). Since then, protection measures have enabled the population to reco",
+        "iucn_rationale": "Eastern Gorillas (<em>Gorilla beringei</em>) live in the mountainous forests of eastern Democratic Republic of Congo, northwest Rwanda and southwest Uganda. This region was the epicentre of Africa's \"world war\", to which Gorillas have also fallen victim. The Mountain Gorilla subspecies (<em>Gorilla beringei beringei</em>), was listed as Critically Endangered since 1996. Although a drastic reduction of the Grauer’s Gorilla subspecies (<em>Gorilla beringei graueri</em>), has long been suspected, q"
+      },
+      "iucn_population": "It is likely that fewer than 5,000 Eastern Gorillas remain.&#160;<em>Gorilla b. beringei</em>&#160;lives in two isolated populations in three countries: DRC, Rwanda and Uganda. The first surveys of the Virunga Mountain Gorillas estimated a population size of 274 individuals in 1971–73 (Harcourt and Groom 1972, Groom 1973). The population fell to a low of 254 individuals in 1981 (Aveling and Harcourt 1981, Weber and Vedder 1983). Since then, protection measures have enabled the population to reco"
+    },
+    {
+      "name": "Éléphant de forêt d'Afrique",
+      "status": "Critique",
+      "count": "Déclin de 86% en 31 ans",
+      "text": "Il creuse des puits que d'autres boivent. Quand il part, la forêt change.",
+      "danger": 0.95,
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Forest_elephant_family_%286987538203%29.jpg/960px-Forest_elephant_family_%286987538203%29.jpg",
+      "name_en": "African Forest Elephant",
+      "status_en": "Critically Endangered",
+      "text_en": "It digs wells that others drink from. When it leaves, the forest changes.",
+      "iucn": {
+        "iucn_taxon_id": 181007989,
+        "iucn_assessment_id": 204404464,
+        "iucn_status_code": "CR",
+        "iucn_status_fr": "Critique",
+        "iucn_status_en": "Critically Endangered",
+        "iucn_danger": 0.95,
+        "iucn_year": "2021",
+        "iucn_url": "https://www.iucnredlist.org/species/181007989/204404464",
+        "iucn_population": "Over the past century, African Forest Elephant populations have declined across most of their range. The African Elephant Status Report 2016 estimated a continental population of 415,428 (+/- 95% C.I. 20,111) for both African Savanna and African Forest Elephants combined and reported a continental decline of approximately 111,000 elephants since 2006 (Thouless <em>et al</em>. 2016). An assessment of African Forest Elephants in the central African range (representing approximately 95% of their pr",
+        "iucn_rationale": "The African Forest Elephant (<em>Loxodonta cyclotis</em>) is assessed as Critically Endangered A2abd. Analysis of estimates from 161 localities across the species range indicates a reduction of more than 80% of the continental population in the past three generations (93 years) that is understood to be continuing and likely irreversible. The continental trend is not, however, spatially uniform with some subpopulations increasing or stable while others are declining significantly faster than the "
+      },
+      "iucn_population": "Over the past century, African Forest Elephant populations have declined across most of their range. The African Elephant Status Report 2016 estimated a continental population of 415,428 (+/- 95% C.I. 20,111) for both African Savanna and African Forest Elephants combined and reported a continental decline of approximately 111,000 elephants since 2006 (Thouless <em>et al</em>. 2016). An assessment of African Forest Elephants in the central African range (representing approximately 95% of their pr"
+    },
+    {
+      "name": "Pangolin de Chine",
+      "status": "Critique",
+      "count": "Quasi-éteint à l'état sauvage",
+      "text": "L'animal le plus braconné du monde. Il se roule en boule face au danger. Ça ne suffit plus.",
+      "danger": 0.95,
+      "photo_url": "https://newsfr.cgtn.com/n/BfJEA-CIA-DAA/BaFecEA.jpg",
+      "photo_manual": true,
+      "name_en": "Chinese Pangolin",
+      "status_en": "Critically Endangered",
+      "text_en": "The world's most trafficked animal. It curls into a ball when threatened. That is no longer enough.",
+      "iucn": {
+        "iucn_taxon_id": 12764,
+        "iucn_assessment_id": 168392151,
+        "iucn_status_code": "CR",
+        "iucn_status_fr": "Critique",
+        "iucn_status_en": "Critically Endangered",
+        "iucn_danger": 0.95,
+        "iucn_year": "2019",
+        "iucn_url": "https://www.iucnredlist.org/species/12764/168392151",
+        "iucn_population": "There is very little information available on population levels at any level (local, national or global) with few exceptions, and there is a paucity of research on abundance. This species is rarely observed, principally due to its increasing rarity, but also because it is secretive, solitary and primarily nocturnal. Evidence indicates it has been extirpated from parts of its current range as a result of over-exploitation, and is otherwise in steep decline across most of its range (Zhang 2008, Na",
+        "iucn_rationale": "This species is listed as Critically Endangered A3d+4d as declines of &gt;80% are suspected over a time frame of three generations (looking forward three generations [2019-2040] and looking forward two generations and backwards one generation [2012-2033] based on indiscriminate hunting and poaching across the species range for local and international use which has been demonstrated to cause the extirpation of the species at some sites and areas. This is compounded by the likelihood that governan"
+      },
+      "iucn_population": "There is very little information available on population levels at any level (local, national or global) with few exceptions, and there is a paucity of research on abundance. This species is rarely observed, principally due to its increasing rarity, but also because it is secretive, solitary and primarily nocturnal. Evidence indicates it has been extirpated from parts of its current range as a result of over-exploitation, and is otherwise in steep decline across most of its range (Zhang 2008, Na"
+    },
+    {
+      "name": "Lémurien de Coquerel",
+      "status": "Critique",
+      "count": "Population fragmentée",
+      "text": "Endémique de Madagascar. Sa forêt brûle. Il n'a nulle part où aller.",
+      "danger": 0.95,
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Propithecus_coquereli_02.jpg/960px-Propithecus_coquereli_02.jpg",
+      "photo_manual": true,
+      "name_en": "Coquerel's Sifaka",
+      "status_en": "Critically Endangered",
+      "text_en": "Endemic to Madagascar. Its forest is burning. It has nowhere to go.",
+      "iucn": {
+        "iucn_taxon_id": 18355,
+        "iucn_assessment_id": 115572275,
+        "iucn_status_code": "CR",
+        "iucn_status_fr": "Critique",
+        "iucn_status_en": "Critically Endangered",
+        "iucn_danger": 0.95,
+        "iucn_year": "2020",
+        "iucn_url": "https://www.iucnredlist.org/species/18355/115572275",
+        "iucn_population": "Population figures are suspected to be in steep decline due to severe habitat loss due to slash and burn activities and agricultural shifts and hunting. It is suspected that, in the past, the population declined by 80% (over a three generation period of 30 years) due to habitat loss and degradation and human population growth. An estimated 200,000 individuals were thought to remain as of Mittermeier&#160;<em>et al.&#160;</em>2010; however, severe fragmentation and loss of habitat in the protecte",
+        "iucn_rationale": "Listed formerly as Endangered A2acd (circa 2012), this species is suspected to have undergone a population decline of ≥80% over a period of 30 years (three generations), due primarily to observed continuing decline in area, extent and quality of habitat due to slash-and-burn for agriculture, annual burning to generate new pasture for livestock, and forests cut to produce charcoal, in addition to exploitation through unsustainable hunting pressure.<span class=\"apple-converted-space\"> These causes"
+      },
+      "iucn_population": "Population figures are suspected to be in steep decline due to severe habitat loss due to slash and burn activities and agricultural shifts and hunting. It is suspected that, in the past, the population declined by 80% (over a three generation period of 30 years) due to habitat loss and degradation and human population growth. An estimated 200,000 individuals were thought to remain as of Mittermeier&#160;<em>et al.&#160;</em>2010; however, severe fragmentation and loss of habitat in the protecte"
+    },
+    {
+      "name": "Orang-outan de Tapanuli",
+      "status": "Critique",
+      "count": "~800 individus",
+      "text": "La population de grands singes la plus petite du monde. Découverte en 2017. Déjà mourante.",
+      "danger": 0.95,
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Duduk_Manis.jpg/960px-Duduk_Manis.jpg",
+      "name_en": "Tapanuli Orangutan",
+      "status_en": "Critically Endangered",
+      "text_en": "The world's smallest great ape population. Discovered in 2017. Already dying.",
+      "iucn": {
+        "iucn_taxon_id": 120588639,
+        "iucn_assessment_id": 259042400,
+        "iucn_status_code": "CR",
+        "iucn_status_fr": "Critique",
+        "iucn_status_en": "Critically Endangered",
+        "iucn_danger": 0.95,
+        "iucn_year": "2024",
+        "iucn_url": "https://www.iucnredlist.org/species/120588639/259042400",
+        "iucn_population": "With a population estimate of fewer than 800 individuals (Wich <em>et al</em>. 2016), <em>Pongo tapanuliensis</em> is the least numerous of all great ape species. Its distribution is separated by around 100 km from the closest population of <em>P. abelii</em> to the north. A combination of small population size and geographic isolation is of particularly high conservation concern, as it may lead to inbreeding depression (Hedrick and Kalinowski 2000) and threaten population persistence (Allendorf",
+        "iucn_rationale": "Due to high levels of habitat conversion and fragmentation, and illegal killing, <em>Pongo tapanuliensis</em> is estimated to have experienced a significant population reduction in recent decades. Forest loss data indicate that orangutan habitat below 500 m asl of both <em>P. tapanuliensis</em> and <em>P. abelii</em> was reduced by 60% between 1985 and 2007 (Wich <em>et al.</em> 2008, 2011). It is thought that this reduction will continue for the Tapanuli Orangutan as forests within its range re"
+      },
+      "iucn_population": "With a population estimate of fewer than 800 individuals (Wich <em>et al</em>. 2016), <em>Pongo tapanuliensis</em> is the least numerous of all great ape species. Its distribution is separated by around 100 km from the closest population of <em>P. abelii</em> to the north. A combination of small population size and geographic isolation is of particularly high conservation concern, as it may lead to inbreeding depression (Hedrick and Kalinowski 2000) and threaten population persistence (Allendorf"
+    },
+    {
+      "name": "Mérou bagnard",
+      "status": "Critique",
+      "count": "Effondrement des populations",
+      "text": "Il change de sexe au cours de sa vie. La mer se souviendra de lui plus longtemps que nous.",
+      "danger": 0.95,
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/2017%2C_cuba%2C_jardines_aggressor%2C_los_indios%2C_nassau_grouper_maw_%2836883128693%29.jpg/960px-2017%2C_cuba%2C_jardines_aggressor%2C_los_indios%2C_nassau_grouper_maw_%2836883128693%29.jpg",
+      "name_en": "Nassau Grouper",
+      "status_en": "Critically Endangered",
+      "text_en": "It changes sex during its lifetime. The sea will remember it longer than we will.",
+      "iucn": {
+        "iucn_taxon_id": 7862,
+        "iucn_assessment_id": 46909843,
+        "iucn_status_code": "CR",
+        "iucn_status_fr": "Critique",
+        "iucn_status_en": "Critically Endangered",
+        "iucn_danger": 0.95,
+        "iucn_year": "2018",
+        "iucn_url": "https://www.iucnredlist.org/species/7862/46909843",
+        "iucn_population": "Within its range, this species was naturally abundant in areas with large shelf platform habitat, such as Belize, the Bahamas, Cuba and others of the Greater Antilles, and less abundant in areas such as continental South America (e.g., Colombia and Venezuela; Y. Sadovy pers. comm. 2017). There&#160;is evidence that there is strong genetic differentiation among Nassau Grouper subpopulations in the Caribbean region (Jackson<em>&#160;et al</em>. 2014). A summary of population status and trends in T",
+        "iucn_rationale": "This species is widely distributed in the greater Caribbean where it inhabits coral and rocky reef habitat. It is highly-valued by commercial and recreational fisheries throughout its range, and heavy fishing pressure has caused severe declines in most countries where it was previously naturally abundant. It is especially susceptible to rapid population declines when heavy fishing effort occurs on the large seasonal spawning aggregations that the species forms at the same sites each year. Due to"
+      },
+      "iucn_population": "Within its range, this species was naturally abundant in areas with large shelf platform habitat, such as Belize, the Bahamas, Cuba and others of the Greater Antilles, and less abundant in areas such as continental South America (e.g., Colombia and Venezuela; Y. Sadovy pers. comm. 2017). There&#160;is evidence that there is strong genetic differentiation among Nassau Grouper subpopulations in the Caribbean region (Jackson<em>&#160;et al</em>. 2014). A summary of population status and trends in T"
+    },
+    {
+      "name": "Condor de Californie",
+      "status": "Critique",
+      "count": "~500 individus (réintroduction)",
+      "text": "Neuf individus en 1987. On a recommencé depuis zéro.",
+      "danger": 0.95,
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/1/11/California-condor-gymnogyps-californianus-078_%2821196759264%29.jpg",
+      "photo_manual": true,
+      "name_en": "California Condor",
+      "status_en": "Critically Endangered",
+      "text_en": "Nine individuals in 1987. We started again from zero.",
+      "iucn": {
+        "iucn_taxon_id": 22697636,
+        "iucn_assessment_id": 181151405,
+        "iucn_status_code": "CR",
+        "iucn_status_fr": "Critique",
+        "iucn_status_en": "Critically Endangered",
+        "iucn_danger": 0.95,
+        "iucn_year": "2020",
+        "iucn_url": "https://www.iucnredlist.org/species/22697636/181151405",
+        "iucn_population": "There are currently 201 adults in the wild that are old enough to breed (age 5 and older), and 93 have produced viable offspring.&#160;Twenty-three wild birds turned five years old in 2019 and 17 more will turn five years old in 2020.&#160; A total of 141 wild birds are 8 years old or older, the observed average age of productivity (i.e. producing young when greater than or equal to eight years of age). Since mature individuals (as defined by IUCN) only includes individuals in the wild that are ",
+        "iucn_rationale": "After the removal of all surviving birds into captivity in 1987, an intensive conservation programme involving reintroduction and release of captive-bred birds has led to a small but increasing population of this species in the wild. However, the population in the wild remains dependent on intensive conservation management efforts. The population currently numbers 93 mature individuals, with 62 mature individuals in the largest subpopulation and as a result, it currently meets the threshold for "
+      },
+      "iucn_population": "There are currently 201 adults in the wild that are old enough to breed (age 5 and older), and 93 have produced viable offspring.&#160;Twenty-three wild birds turned five years old in 2019 and 17 more will turn five years old in 2020.&#160; A total of 141 wild birds are 8 years old or older, the observed average age of productivity (i.e. producing young when greater than or equal to eight years of age). Since mature individuals (as defined by IUCN) only includes individuals in the wild that are "
+    },
+    {
+      "name": "Cœlacanthe",
+      "status": "Critique",
+      "count": "Très rare",
+      "text": "Un poisson-fossile vivant. Il nage depuis 400 millions d'années. Il n'avait pas prévu nous.",
+      "danger": 0.95,
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Coelacanth_off_Pumula_on_the_KwaZulu-Natal_South_Coast%2C_South_Africa%2C_on_22_November_2019.png/960px-Coelacanth_off_Pumula_on_the_KwaZulu-Natal_South_Coast%2C_South_Africa%2C_on_22_November_2019.png",
+      "name_en": "Coelacanth",
+      "status_en": "Critically Endangered",
+      "text_en": "A living fossil fish. It has been swimming for 400 million years. It had not planned for us.",
+      "iucn": {
+        "iucn_taxon_id": 11375,
+        "iucn_assessment_id": 3274618,
+        "iucn_status_code": "CR",
+        "iucn_status_fr": "Critique",
+        "iucn_status_en": "Critically Endangered",
+        "iucn_danger": 0.95,
+        "iucn_year": "2000",
+        "iucn_url": "https://www.iucnredlist.org/species/11375/3274618"
+      }
+    },
+    {
+      "name": "Cacatoès noir de Baudin",
+      "status": "Critique",
+      "count": "Population fragmentée",
+      "text": "Un perroquet noir d'Australie. Son cri ressemble à un pleur.",
+      "danger": 0.95,
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Baudin%27s_Black_Cockatoo%2C_Vancouver_Peninsula%2C_Albany%2C_Western_Australia_1.jpg/960px-Baudin%27s_Black_Cockatoo%2C_Vancouver_Peninsula%2C_Albany%2C_Western_Australia_1.jpg",
+      "name_en": "Baudin's Black Cockatoo",
+      "status_en": "Critically Endangered",
+      "text_en": "A black parrot from Australia. Its call sounds like a cry.",
+      "iucn": {
+        "iucn_taxon_id": 22684727,
+        "iucn_assessment_id": 210840935,
+        "iucn_status_code": "CR",
+        "iucn_status_fr": "Critique",
+        "iucn_status_en": "Critically Endangered",
+        "iucn_danger": 0.95,
+        "iucn_year": "2022",
+        "iucn_url": "https://www.iucnredlist.org/species/22684727/210840935",
+        "iucn_population": "The population of this species is well monitored by annual counts of roost sites that combined are believed to constitute 90-95% of the species' total population size. From these counts, the total number of Baudin's Black-cockatoos&#160;was estimated at 10,000–15,000 individuals in 1995–2004 and&#160;5,000–8,000&#160;in 2017 of which 2,500–4,000 are estimated to be mature individuals (TSSC 2018). Following Johnstone <em>et al</em>. (2021), the best estimate is placed at 3,250 mature individuals.",
+        "iucn_rationale": "This species is experiencing very rapid declines exceeding a rate of 90% over the past three generations due to nest hollow shortages, displacement by other species, hunting and increasing declines in the quality of habitat caused by fires and drought. There is no reason to suggest these declines will cease with nest hollow shortages continuing to afflict the species with low productivity, and fire and drought impacts projected to worsen with ongoing anthropogenic climate change. With a relative"
+      },
+      "iucn_population": "The population of this species is well monitored by annual counts of roost sites that combined are believed to constitute 90-95% of the species' total population size. From these counts, the total number of Baudin's Black-cockatoos&#160;was estimated at 10,000–15,000 individuals in 1995–2004 and&#160;5,000–8,000&#160;in 2017 of which 2,500–4,000 are estimated to be mature individuals (TSSC 2018). Following Johnstone <em>et al</em>. (2021), the best estimate is placed at 3,250 mature individuals."
+    },
+    {
+      "name": "Orque de l'Atlantique Nord",
+      "status": "Critique",
+      "count": "~350 individus",
+      "text": "Elle chante. Ses chants changent chaque année. Quand elle disparaîtra, ses chants mourront avec elle.",
+      "danger": 0.95,
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/GRNMS_-_Right_Whales_%2831361234602%29.jpg/960px-GRNMS_-_Right_Whales_%2831361234602%29.jpg",
+      "photo_manual": true,
+      "name_en": "North Atlantic Right Whale",
+      "status_en": "Critically Endangered",
+      "text_en": "It sings. Its songs change every year. When it is gone, its songs will die with it.",
+      "iucn": {
+        "iucn_taxon_id": 41712,
+        "iucn_assessment_id": 221073107,
+        "iucn_status_code": "CR",
+        "iucn_status_fr": "Critique",
+        "iucn_status_en": "Critically Endangered",
+        "iucn_danger": 0.95,
+        "iucn_year": "2023",
+        "iucn_url": "https://www.iucnredlist.org/species/41712/221073107",
+        "iucn_population": "<strong>Structure</strong> Several hypotheses have been proposed with regard to the pre-exploitation population structure of Right Whales in the North Atlantic, particularly concerning the degree of separation between the western and eastern Atlantic (Reeves and Mitchell 1986, Frasier <em>et al</em>. 2022). Evidence for separation exists in the form of separate calving grounds and migration routes on each side of the Atlantic, and especially in the lack of repopulation of the eastern Atlantic fo",
+        "iucn_rationale": "European regional assessment: Critically Endangered (CR) The main reduction through whaling&#160;occurred prior to the three-generation window (1916–2023) that would trigger the population reduction (A) criterion. Based on the wide distribution of historical and contemporary records, the species has an extensive potential range in the European assessment area including the Atlantic seaboard of Europe and a broad swathe from Norway to the east coast of Greenland; it does not qualify under criteri"
+      },
+      "iucn_population": "<strong>Structure</strong> Several hypotheses have been proposed with regard to the pre-exploitation population structure of Right Whales in the North Atlantic, particularly concerning the degree of separation between the western and eastern Atlantic (Reeves and Mitchell 1986, Frasier <em>et al</em>. 2022). Evidence for separation exists in the form of separate calving grounds and migration routes on each side of the Atlantic, and especially in the lack of repopulation of the eastern Atlantic fo"
+    },
+    {
+      "name": "Rhinocéros noir",
+      "status": "Critique",
+      "count": "~5 500 individus",
+      "text": "Trois sous-espèces ont déjà disparu. Celle-ci tient encore. Pour combien de temps ?",
+      "danger": 0.95,
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/2012_Black_Rhinoceros_Gemsbokvlakte.jpg/960px-2012_Black_Rhinoceros_Gemsbokvlakte.jpg",
+      "name_en": "Black Rhinoceros",
+      "status_en": "Critically Endangered",
+      "text_en": "Three subspecies have already disappeared. This one still holds. For how long?",
+      "iucn": {
+        "iucn_taxon_id": 6557,
+        "iucn_assessment_id": 152728945,
+        "iucn_status_code": "CR",
+        "iucn_status_fr": "Critique",
+        "iucn_status_en": "Critically Endangered",
+        "iucn_danger": 0.95,
+        "iucn_year": "2020",
+        "iucn_url": "https://www.iucnredlist.org/species/6557/152728945",
+        "iucn_population": "Throughout most of the 20th century, the Black Rhino was the most numerous of the world's rhino species. Relentless hunting of the species and clearances of land for settlement and agriculture reduced numbers and by 1960 only an estimated 100,000 remained. Between 1960 and 1995, large-scale poaching caused a dramatic 98% collapse in numbers with numbers bottoming out in the mid 1990s. Over this period numbers only increased in South Africa and Namibia (Emslie and Brooks 1999). From 1992–1997 tot",
+        "iucn_rationale": "<strong>Qualifies for listing as Critically Endangered (CR) under criteria A2abd+4abd.&#160;</strong>See Figures 8 and 9 and Tables 4 and 5 in the Supplementary Information&#160;document. While Black Rhino numbers have more than doubled since bottoming out in the mid 1990s (due to increased protection and enhanced biological management to keep more subpopulations productive), the species qualifies as CR due to the scale of the decline in numbers over the past three generations as a result of ver"
+      },
+      "iucn_population": "Throughout most of the 20th century, the Black Rhino was the most numerous of the world's rhino species. Relentless hunting of the species and clearances of land for settlement and agriculture reduced numbers and by 1960 only an estimated 100,000 remained. Between 1960 and 1995, large-scale poaching caused a dramatic 98% collapse in numbers with numbers bottoming out in the mid 1990s. Over this period numbers only increased in South Africa and Namibia (Emslie and Brooks 1999). From 1992–1997 tot"
+    },
+    {
+      "name": "Tortue de mer de Kemp",
+      "status": "Critique",
+      "count": "Population en légère hausse",
+      "text": "La plus petite des tortues marines. La seule à pondre principalement au Mexique.",
+      "danger": 0.95,
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/c/c5/2009_Kemp%27s_ridley_sea_turtle_project_at_Padre_Island_National_Seashore_%289f74a803-a05f-4adf-aab8-951a59fed856%29.jpg",
+      "name_en": "Kemp's Ridley Sea Turtle",
+      "status_en": "Critically Endangered",
+      "text_en": "The smallest of sea turtles. The only one to nest primarily in Mexico.",
+      "iucn": {
+        "iucn_taxon_id": 11533,
+        "iucn_assessment_id": 155057916,
+        "iucn_status_code": "CR",
+        "iucn_status_fr": "Critique",
+        "iucn_status_en": "Critically Endangered",
+        "iucn_danger": 0.95,
+        "iucn_year": "2019",
+        "iucn_url": "https://www.iucnredlist.org/species/11533/155057916",
+        "iucn_population": "The global population of the Kemp's Ridley is represented by a single population with no known subpopulations (Bowen <em>et al</em>. 1991, Bowen and Karl 2007). This species primarily occurs in the Gulf of Mexico, with a single primary nesting beach located in the western Gulf of Mexico near Rancho Nuevo, Mexico. Population assessment methods for sea turtles have been addressed recently (Committee on Sea Turtle Population Assessment Methods 2010, Bjorndal <em>et al.</em>&#160;2011, Caillouet <em",
+        "iucn_rationale": "The global population of the Kemp's Ridley is represented by a single population with no known subpopulations (Bowen 1991, Bowen and Karl 2007). This species primarily occurs in the Gulf of Mexico, with approximately 71.2% of nesting for the species occurring on a single, 30.4 km stretch of nesting beach located in the western Gulf of Mexico (GoM) at Rancho Nuevo, Mexico. The Kemp's Ridley qualifies as Critically Endangered under the IUCN Red List Criterion A2bd based on an observed population s"
+      },
+      "iucn_population": "The global population of the Kemp's Ridley is represented by a single population with no known subpopulations (Bowen <em>et al</em>. 1991, Bowen and Karl 2007). This species primarily occurs in the Gulf of Mexico, with a single primary nesting beach located in the western Gulf of Mexico near Rancho Nuevo, Mexico. Population assessment methods for sea turtles have been addressed recently (Committee on Sea Turtle Population Assessment Methods 2010, Bjorndal <em>et al.</em>&#160;2011, Caillouet <em"
+    },
+    {
+      "name": "Gorille de l'Ouest",
+      "name_en": "Western Gorilla",
+      "status": "Critique",
+      "status_en": "Critically Endangered",
+      "count": "~100 000 individus",
+      "text": "Le gorille de l'Ouest vit dans les forêts denses d'Afrique centrale. Le virus Ebola a décimé des populations entières en quelques années. La chasse et la déforestation font le reste.",
+      "text_en": "The Western Gorilla lives in the dense forests of Central Africa. Ebola wiped out entire populations within years. Hunting and deforestation do the rest.",
+      "danger": 0.95,
+      "scientific_name": "Gorilla gorilla",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Brehm%27s_Life_of_animals_%28Page_10%29_%286220147509%29.jpg/960px-Brehm%27s_Life_of_animals_%28Page_10%29_%286220147509%29.jpg"
+    },
+    {
+      "name": "Requin-marteau halicorne",
+      "name_en": "Scalloped Hammerhead",
+      "status": "Critique",
+      "status_en": "Critically Endangered",
+      "count": "Déclin > 80% en 25 ans",
+      "text": "Requin pélagique reconnaissable à sa tête en forme de marteau festonné. Chassé pour ses ailerons, sa population mondiale s'est effondrée de plus de 80% en un quart de siècle. Un prédateur apex qui disparaît des océans.",
+      "text_en": "Pelagic shark recognizable by its scalloped hammer-shaped head. Hunted for its fins, its global population has collapsed by over 80% in a quarter century. An apex predator vanishing from the oceans.",
+      "danger": 0.95,
+      "scientific_name": "Sphyrna lewini",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Hammer_Head.jpg/960px-Hammer_Head.jpg"
+    },
+    {
+      "name": "Galuchat géant",
+      "name_en": "Giant Guitar Fish",
+      "status": "Critique",
+      "status_en": "Critically Endangered",
+      "count": "Population inconnue, en chute libre",
+      "text": "Raie-guitare de deux mètres. Corps aplati entre requin et raie. Capturée dans les filets de pêche de l'Indo-Pacifique, elle disparaît avant même d'avoir été vraiment étudiée.",
+      "text_en": "A two-meter guitarfish. Body flattened somewhere between shark and ray. Caught in Indo-Pacific fishing nets, disappearing before we truly understood it.",
+      "danger": 0.95,
+      "scientific_name": "Glaucostegus typus",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Dubai_Mall_inside4.jpg/960px-Dubai_Mall_inside4.jpg"
+    },
+    {
+      "name": "Tigre de Sumatra",
+      "status": "En danger",
+      "count": "~400 individus",
+      "text": "La dernière sous-espèce de tigre vivant en Indonésie. Chassé, fragmenté, oublié.",
+      "danger": 0.75,
+      "photo_url": "https://lumigny-safari-reserve.com/wp-content/uploads/2019/02/tigre-de-sumatra.webp",
+      "photo_manual": true,
+      "name_en": "Sumatran Tiger",
+      "status_en": "Endangered",
+      "text_en": "The last tiger subspecies living in Indonesia. Hunted, fragmented, forgotten.",
+      "iucn": {
+        "iucn_taxon_id": 15955,
+        "iucn_assessment_id": 214862019,
+        "iucn_status_code": "EN",
+        "iucn_status_fr": "En danger",
+        "iucn_status_en": "Endangered",
+        "iucn_danger": 0.75,
+        "iucn_year": "2022",
+        "iucn_url": "https://www.iucnredlist.org/species/15955/214862019",
+        "iucn_population": "The Tiger population estimate of between 3,726 and 5,578 individuals (not including cubs; see Assessment Rationale and Supplementary Information) is the first reasonably rigorous estimate of global Tiger numbers, based largely on capture-recapture and occupancy methodologies. Based on IUCN definitions of mature individuals (which we estimate at comprising ~70% of the camera-trapped population of Tigers; see Supplementary Information), this gives an estimated range of between 2,608 and 3,905 matu",
+        "iucn_rationale": "The Tiger is listed as Endangered under criterion A2abcd. Based on the evidence of Tiger population and/or range declines across the 30-year assessment period (upper bound of GL (7-10 years)) in at least nine of the 13 countries, which had extant Tiger subpopulations at the beginning of the assessment period, we applied a conservative precautionary approach to the assessment. However, we recognize that there are several uncertainties (see below) in the available data from the past and that the c"
+      },
+      "iucn_population": "The Tiger population estimate of between 3,726 and 5,578 individuals (not including cubs; see Assessment Rationale and Supplementary Information) is the first reasonably rigorous estimate of global Tiger numbers, based largely on capture-recapture and occupancy methodologies. Based on IUCN definitions of mature individuals (which we estimate at comprising ~70% of the camera-trapped population of Tigers; see Supplementary Information), this gives an estimated range of between 2,608 and 3,905 matu"
+    },
+    {
+      "name": "Requin-baleine",
+      "status": "En danger",
+      "count": "Déclin de 50% en 75 ans",
+      "text": "Le plus grand poisson du monde. Il filtre des tonnes d'eau. L'eau se réchauffe.",
+      "danger": 0.75,
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Male_whale_shark_at_Georgia_Aquarium.jpg/960px-Male_whale_shark_at_Georgia_Aquarium.jpg",
+      "name_en": "Whale Shark",
+      "status_en": "Endangered",
+      "text_en": "The largest fish in the world. It filters tons of water. The water is warming.",
+      "iucn": {
+        "iucn_taxon_id": 19488,
+        "iucn_assessment_id": 126673248,
+        "iucn_status_code": "EN",
+        "iucn_status_fr": "En danger",
+        "iucn_status_en": "Endangered",
+        "iucn_danger": 0.75,
+        "iucn_year": "2025",
+        "iucn_url": "https://www.iucnredlist.org/species/19488/126673248",
+        "iucn_population": "<strong>Global population structure</strong> Two global-scale genetic studies on Whale Sharks have estimated genetic effective population size (the number of breeding adults), albeit based on small sample sizes of 70 (Castro <em>et al</em>. 2007) and 68 sharks (Schmidt <em>et al</em>. 2009). Castro <em>et al</em>. (2007) used mitochondrial DNA to estimate current genetic effective population size to be 119,000–238,000 female sharks. Schmidt <em>et al</em>. (2009) estimated genetic effective popu",
+        "iucn_rationale": "The Whale Shark (<em>Rhincodon typus</em>) is a large (to 18–20 m total length) shark that occurs across tropical and warm temperate oceans. This highly mobile species is found in coastal and oceanic habitats to a depth of at least 1,928 m. Genetic results indicate that two major subpopulations exist, in the Atlantic Ocean and Indo-Pacific, respectively. Pronounced size- and sex-based segregation is present in most of the species’ known feeding and transit areas, with coastal sites typically dom"
+      },
+      "iucn_population": "<strong>Global population structure</strong> Two global-scale genetic studies on Whale Sharks have estimated genetic effective population size (the number of breeding adults), albeit based on small sample sizes of 70 (Castro <em>et al</em>. 2007) and 68 sharks (Schmidt <em>et al</em>. 2009). Castro <em>et al</em>. (2007) used mitochondrial DNA to estimate current genetic effective population size to be 119,000–238,000 female sharks. Schmidt <em>et al</em>. (2009) estimated genetic effective popu"
+    },
+    {
+      "name": "Okapi",
+      "status": "En danger",
+      "count": "Population en déclin",
+      "text": "Mi-girafe, mi-zèbre. Il vivait caché dans les forêts du Congo. Maintenant c'est lui qui disparaît.",
+      "danger": 0.75,
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Saint-Aignan_%28Loir-et-Cher%29._Okapi.jpg/960px-Saint-Aignan_%28Loir-et-Cher%29._Okapi.jpg",
+      "photo_manual": true,
+      "name_en": "Okapi",
+      "status_en": "Endangered",
+      "text_en": "Half giraffe, half zebra. It lived hidden in the forests of the Congo. Now it is the one disappearing.",
+      "iucn": {
+        "iucn_taxon_id": 15188,
+        "iucn_assessment_id": 51140517,
+        "iucn_status_code": "EN",
+        "iucn_status_fr": "En danger",
+        "iucn_status_en": "Endangered",
+        "iucn_danger": 0.75,
+        "iucn_year": "2015",
+        "iucn_url": "https://www.iucnredlist.org/species/15188/51140517",
+        "iucn_population": "East (1999) estimated that the total population may be over 10,000 and Hart (2013) estimated 35,000-50,000, though both sets of figures are perhaps better regarded as ‘guesstimates’ as they rely on extrapolation of a limited number of patchily distributed, dung-based surveys. Individual Okapi are rarely encountered and in much of their range they are uncommon or dispersed in localized areas, with dung found at low densities, commonly resulting in inadequate sample sizes for statistical analysis.",
+        "iucn_rationale": "Okapi have been undergoing a decline since at least 1995 that is ongoing and projected to continue, in the face of severe, intensifying threats and lack of effective conservation action which is hindered by the lack of security. The rate of decline is estimated to have exceeded 50% over three generations (24 years), based on figures from surveys in the Okapi Wildlife Reserve (Réserve de Faune à Okapis; RFO) suggesting a 43% decline over the period 1995-2007, which some reports suggest continued "
+      },
+      "iucn_population": "East (1999) estimated that the total population may be over 10,000 and Hart (2013) estimated 35,000-50,000, though both sets of figures are perhaps better regarded as ‘guesstimates’ as they rely on extrapolation of a limited number of patchily distributed, dung-based surveys. Individual Okapi are rarely encountered and in much of their range they are uncommon or dispersed in localized areas, with dung found at low densities, commonly resulting in inadequate sample sizes for statistical analysis."
+    },
+    {
+      "name": "Hippopotame nain",
+      "status": "En danger",
+      "count": "~2 500 individus",
+      "text": "Le cousin solitaire de l'hippopotame. Il vit seul dans les forêts de Côte d'Ivoire.",
+      "danger": 0.75,
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Choeropsis_liberiensis%2C_Pretoria-dieretuin.jpg/960px-Choeropsis_liberiensis%2C_Pretoria-dieretuin.jpg",
+      "name_en": "Pygmy Hippopotamus",
+      "status_en": "Endangered",
+      "text_en": "The solitary cousin of the hippopotamus. It lives alone in the forests of Côte d'Ivoire.",
+      "iucn": {
+        "iucn_taxon_id": 10032,
+        "iucn_assessment_id": 18567171,
+        "iucn_status_code": "EN",
+        "iucn_status_fr": "En danger",
+        "iucn_status_en": "Endangered",
+        "iucn_danger": 0.75,
+        "iucn_year": "2015",
+        "iucn_url": "https://www.iucnredlist.org/species/10032/18567171",
+        "iucn_population": "The total size of the wild population is unknown. The 1993 IUCN Status Survey and Action Plan estimated the population at \"a few thousand at most\" (Eltringham 1993). This estimate was cited as \"2,000-3,000\" in the 2008 IUCN Red List assessment (Lewison and Oliver 2008) who&#160; suggested that even that figure may be too high. However, some much higher population estimates, originally published in GTZ reports (Hoppe-Dominik 1999) and in university theses (Bülow 1988, Hentschel 1990), have been m",
+        "iucn_rationale": "Published figures on population size are contradictory, with some reports from Côte d'Ivoire indicating that numbers are probably higher than pre-existing estimates (Robinson 2013). However, evidence from camera trapping and sign surveys indicates that densities are low, particularly in key sites, such as Sapo National Park, Liberia. Large areas of the original forest habitat, especially in Côte d'Ivoire, have been destroyed or degraded by commercial plantations of oil palm and other products, s"
+      },
+      "iucn_population": "The total size of the wild population is unknown. The 1993 IUCN Status Survey and Action Plan estimated the population at \"a few thousand at most\" (Eltringham 1993). This estimate was cited as \"2,000-3,000\" in the 2008 IUCN Red List assessment (Lewison and Oliver 2008) who&#160; suggested that even that figure may be too high. However, some much higher population estimates, originally published in GTZ reports (Hoppe-Dominik 1999) and in university theses (Bülow 1988, Hentschel 1990), have been m"
+    },
+    {
+      "name": "Aye-aye",
+      "status": "En danger",
+      "count": "Population inconnue",
+      "text": "Les Malgaches pensaient qu'il portait malheur. Ils le tuaient à vue.",
+      "danger": 0.75,
+      "photo_url": "https://www.sciencesetavenir.fr/assets/img/2022/11/02/cover-r4x3w1200-636284c834eba-young-aye-aye-reaching-for-camera-copyright-david-haring-and-duke-lemur-center.jpg",
+      "photo_manual": true,
+      "name_en": "Aye-aye",
+      "status_en": "Endangered",
+      "text_en": "The Malagasy believed it brought bad luck. They killed it on sight.",
+      "iucn": {
+        "iucn_taxon_id": 6302,
+        "iucn_assessment_id": 115560793,
+        "iucn_status_code": "EN",
+        "iucn_status_fr": "En danger",
+        "iucn_status_en": "Endangered",
+        "iucn_danger": 0.75,
+        "iucn_year": "2020",
+        "iucn_url": "https://www.iucnredlist.org/species/6302/115560793",
+        "iucn_population": "Based solely from feeding trace signs and rare direct sightings, the species is known to occur in many different habitat types and regions as described under the geographic range section. Population numbers are certainly in decline due to habitat loss and hunting. However, there is little understanding of population size and dynamics due to its secretive nocturnal behavior. <em>Daubentonia madagascariensis</em> is suspected to have the lowest genetic diversity of all the lemur taxa (Perry <em>et",
+        "iucn_rationale": "Listed as Endangered as the species is suspected to have undergone a population decline of ≥50% over a period of 36 years (three generations), due primarily to continuing decline in area, extent and quality of habitat, and exploitation through unsustainable levels of hunting.<span class=\"apple-converted-space\"> These causes have not ceased and will to a large extent not be easily reversible. A population reduction of ≥50% over the next 3 generations&#160;is also projected due to the same causes."
+      },
+      "iucn_population": "Based solely from feeding trace signs and rare direct sightings, the species is known to occur in many different habitat types and regions as described under the geographic range section. Population numbers are certainly in decline due to habitat loss and hunting. However, there is little understanding of population size and dynamics due to its secretive nocturnal behavior. <em>Daubentonia madagascariensis</em> is suspected to have the lowest genetic diversity of all the lemur taxa (Perry <em>et"
+    },
+    {
+      "name": "Grue américaine",
+      "status": "En danger",
+      "count": "~800 individus",
+      "text": "L'oiseau le plus grand d'Amérique du Nord. Quasi-éteint en 1941. Revenu lentement.",
+      "danger": 0.75,
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/8/86/Whooping_Crane_%2825840442840%29.jpg",
+      "photo_manual": true,
+      "name_en": "Whooping Crane",
+      "status_en": "Endangered",
+      "text_en": "The tallest bird in North America. Nearly extinct in 1941. Slowly returning.",
+      "iucn": {
+        "iucn_taxon_id": 22692156,
+        "iucn_assessment_id": 181242855,
+        "iucn_status_code": "EN",
+        "iucn_status_fr": "En danger",
+        "iucn_status_en": "Endangered",
+        "iucn_danger": 0.75,
+        "iucn_year": "2020",
+        "iucn_url": "https://www.iucnredlist.org/species/22692156/181242855",
+        "iucn_population": "The total population in the wild numbers c.483 individuals. However, the only self-sustaining population breeding in Northwest Territories/Alberta, Canada and wintering in Texas, USA numbers 329 individuals, fewer than 250 of which are mature. Hence we retain a precautionary estimate of 50-249 mature individuals. Despite this however, the latest evidence from the Crane Conservation Strategy (Smith 2019) suggests that both the self-sustaining Aransas-Wood Buffalo population and additional reintro",
+        "iucn_rationale": "This species is listed as Endangered because it has a very small population. However, the conservation status of the species is improving, with not only increases in the natural wild population but also establishment of reintroduced flocks that may become self-sustaining. As a result, the number of mature individuals is continuing to increase and this species may merit downlisting to Vulnerable in the near future."
+      },
+      "iucn_population": "The total population in the wild numbers c.483 individuals. However, the only self-sustaining population breeding in Northwest Territories/Alberta, Canada and wintering in Texas, USA numbers 329 individuals, fewer than 250 of which are mature. Hence we retain a precautionary estimate of 50-249 mature individuals. Despite this however, the latest evidence from the Crane Conservation Strategy (Smith 2019) suggests that both the self-sustaining Aransas-Wood Buffalo population and additional reintro"
+    },
+    {
+      "name": "Tapir de Baird",
+      "status": "En danger",
+      "count": "Population en déclin",
+      "text": "Cousin lointain du rhinocéros. Gardien de la forêt tropicale. Mange des graines, plante des arbres.",
+      "danger": 0.75,
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Baird%27s_Tapir_imported_from_iNaturalist_photo_111744070_on_6_January_2024.jpg/960px-Baird%27s_Tapir_imported_from_iNaturalist_photo_111744070_on_6_January_2024.jpg",
+      "name_en": "Baird's Tapir",
+      "status_en": "Endangered",
+      "text_en": "A distant relative of the rhinoceros. Guardian of the rainforest. Eats seeds, plants trees.",
+      "iucn": {
+        "iucn_taxon_id": 21471,
+        "iucn_assessment_id": 45173340,
+        "iucn_status_code": "EN",
+        "iucn_status_fr": "En danger",
+        "iucn_status_en": "Endangered",
+        "iucn_danger": 0.75,
+        "iucn_year": "2016",
+        "iucn_url": "https://www.iucnredlist.org/species/21471/45173340",
+        "iucn_population": "There are recent reports of Baird's Tapir population in the Caribbean coast of Nicaragua (Jordan <em>et al. </em>2010) and Panama (Meyer <em>et al.</em> 2013) where population's status were unconfirmed or thought to be extinct. Despite these new records, populations of this species are expected to be in a continuing decline due to the existing threats in the region. Also, a new report reveals the extreme rarity of the species in central Panama where it was thought to be resident (N. Meyer pers. ",
+        "iucn_rationale": "<em>Tapirus bairdii</em> continues to be listed as Endangered. Population declines are estimated to be greater than 50% in the past three generation (33 years) mainly due to habitat loss and hunting.&#160; It is estimated that around 70% of Central American forest areas have been lost through deforestation and alteration over the last 40 years (Primack <em>et al.</em> 1997), in addition the species has been consistently hunted throughout most its range. We therefore estimate that the population "
+      },
+      "iucn_population": "There are recent reports of Baird's Tapir population in the Caribbean coast of Nicaragua (Jordan <em>et al. </em>2010) and Panama (Meyer <em>et al.</em> 2013) where population's status were unconfirmed or thought to be extinct. Despite these new records, populations of this species are expected to be in a continuing decline due to the existing threats in the region. Also, a new report reveals the extreme rarity of the species in central Panama where it was thought to be resident (N. Meyer pers. "
+    },
+    {
+      "name": "Requin pèlerin",
+      "status": "En danger",
+      "count": "Population inconnue",
+      "text": "Le deuxième plus grand poisson du monde. Nage lentement, gueule ouverte. La mer lui passe au travers.",
+      "danger": 0.75,
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Cetorhinus_maximus_by_greg_skomal.JPG/960px-Cetorhinus_maximus_by_greg_skomal.JPG",
+      "photo_manual": true,
+      "name_en": "Basking Shark",
+      "status_en": "Endangered",
+      "text_en": "The second largest fish in the world. Swims slowly, mouth open. The sea passes through it.",
+      "iucn": {
+        "iucn_taxon_id": 4292,
+        "iucn_assessment_id": 194720078,
+        "iucn_status_code": "EN",
+        "iucn_status_fr": "En danger",
+        "iucn_status_en": "Endangered",
+        "iucn_danger": 0.75,
+        "iucn_year": "2021",
+        "iucn_url": "https://www.iucnredlist.org/species/4292/194720078",
+        "iucn_population": "There are no data on the absolute global population size, although it is likely to be greater than 20,000 individuals (and thus not approaching the thresholds for criterion C: small population size and decline). Genetic results indicate one global population&#160;(Noble <em>et al.</em> 2006, Francis 2017). Basking Shark total abundances have been estimated for a number of regions: 4,200 and 632 (CI: 377–1,058) in the Bay of Fundy, Canada in 2007 and 2011, respectively (Campana <em>et al.</em> 20",
+        "iucn_rationale": "The Basking Shark (<em>Cetorhinus maximus</em>) is a very large (to ~1,100 cm total length), highly migratory, filter-feeding shark distributed mainly in the Atlantic and Pacific Oceans in coastal and pelagic habitats from the surface to 1,264 m. It occurs near the surface in temperate waters and deeper, below the thermocline, in tropical waters. The species has low biological productivity with limited fecundity and late age-at-maturity. Although no longer targeted, it is still caught as bycatch"
+      },
+      "iucn_population": "There are no data on the absolute global population size, although it is likely to be greater than 20,000 individuals (and thus not approaching the thresholds for criterion C: small population size and decline). Genetic results indicate one global population&#160;(Noble <em>et al.</em> 2006, Francis 2017). Basking Shark total abundances have been estimated for a number of regions: 4,200 and 632 (CI: 377–1,058) in the Bay of Fundy, Canada in 2007 and 2011, respectively (Campana <em>et al.</em> 20"
+    },
+    {
+      "name": "Tigre de l'Amour",
+      "name_en": "Amur Tiger",
+      "status": "En danger",
+      "status_en": "Endangered",
+      "count": "~500 individus",
+      "text": "Le plus grand félin sauvage. Forêts de Sibérie orientale, neige et silence. Cinq siècles de chasse et de déforestation l'ont réduit à quelques centaines d'ombres entre les bouleaux.",
+      "text_en": "The largest wild cat. Forests of eastern Siberia, snow and silence. Five centuries of hunting and deforestation have reduced it to a few hundred shadows among the birches.",
+      "danger": 0.75,
+      "scientific_name": "Panthera tigris altaica",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Berlin_Tierpark_Friedrichsfelde_12-2015_img23_Siberian_tiger.jpg/960px-Berlin_Tierpark_Friedrichsfelde_12-2015_img23_Siberian_tiger.jpg"
+    },
+    {
+      "name": "Éléphant d'Asie",
+      "name_en": "Asian Elephant",
+      "status": "En danger",
+      "status_en": "Endangered",
+      "count": "~40 000 individus",
+      "text": "L'éléphant d'Asie parcourait autrefois un territoire continu de la Syrie à la Chine. Aujourd'hui, ses trois sous-espèces survivent dans des fragments de forêts isolés. Plus petit que son cousin africain, il porte une mémoire sociale complexe qui s'efface avec chaque troupeau dispersé.",
+      "text_en": "The Asian elephant once roamed continuously from Syria to China. Today, its three subspecies survive in isolated forest fragments across South and Southeast Asia. Smaller than its African cousin, it carries a complex social memory that fades with each scattered herd.",
+      "danger": 0.75,
+      "scientific_name": "Elephas maximus",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Asian_elephant_-_melbourne_zoo.jpg/960px-Asian_elephant_-_melbourne_zoo.jpg"
+    },
+    {
+      "name": "Manchot du Cap",
+      "name_en": "African Penguin",
+      "status": "En danger",
+      "status_en": "Endangered",
+      "count": "~10 000 couples reproducteurs",
+      "text": "Le manchot du Cap est le seul manchot d'Afrique. En un siècle, 97% de la population a disparu — victimes de la surpêche qui vide leurs eaux, des marées noires, du réchauffement qui déplace leurs proies.",
+      "text_en": "The African penguin is Africa's only penguin species. In a century, 97% of the population has vanished — victims of overfishing depleting their waters, oil spills, and warming seas pushing their prey away.",
+      "danger": 0.75,
+      "scientific_name": "Spheniscus demersus",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/African_penguin%2C_Cape_Town_%28_1050598%29.jpg/960px-African_penguin%2C_Cape_Town_%28_1050598%29.jpg"
+    },
+    {
+      "name": "Loup gris d'Éthiopie",
+      "name_en": "Ethiopian Wolf",
+      "status": "En danger",
+      "status_en": "Endangered",
+      "count": "~500 individus",
+      "text": "Le loup gris d'Éthiopie est le canidé le plus rare au monde. Endémique des hauts plateaux éthiopiens, il chasse les rongeurs dans les prairies d'altitude. Avec lui disparaîtrait le dernier loup d'Afrique.",
+      "text_en": "The Ethiopian wolf is the world's rarest canid. Endemic to the Ethiopian highlands, it hunts rodents in high-altitude grasslands. With it would vanish Africa's last wolf.",
+      "danger": 0.75,
+      "scientific_name": "Canis simensis",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Canis_simensis_Oromia.jpg/960px-Canis_simensis_Oromia.jpg"
+    },
+    {
+      "name": "Singe araignée de Geoffroy",
+      "name_en": "Black-handed Spider Monkey",
+      "status": "En danger",
+      "status_en": "Endangered",
+      "count": "Populations fragmentées, en déclin",
+      "text": "Le singe araignée de Geoffroy parcourait la canopée d'Amérique centrale, suspendu par sa queue préhensile. La fragmentation des forêts le condamne à l'isolement dans des îlots de verdure qui rétrécissent.",
+      "text_en": "Geoffroy's spider monkey once swung through Central American canopy, hanging by its prehensile tail. Forest fragmentation now condemns it to isolation in shrinking green islands.",
+      "danger": 0.75,
+      "scientific_name": "Ateles geoffroyi",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Ateles_geoffroyi_176666227.jpg/960px-Ateles_geoffroyi_176666227.jpg"
+    },
+    {
+      "name": "Dugong",
+      "status": "Vulnérable",
+      "count": "Population en déclin",
+      "text": "La vache de mer. Elle inspire la légende des sirènes. Bientôt, il ne restera que la légende.",
+      "danger": 0.55,
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Dugong.jpg/960px-Dugong.jpg",
+      "name_en": "Dugong",
+      "status_en": "Vulnerable",
+      "text_en": "The sea cow. It inspired the legend of mermaids. Soon, only the legend will remain.",
+      "iucn": {
+        "iucn_taxon_id": 6909,
+        "iucn_assessment_id": 160756767,
+        "iucn_status_code": "VU",
+        "iucn_status_fr": "Vulnérable",
+        "iucn_status_en": "Vulnerable",
+        "iucn_danger": 0.55,
+        "iucn_year": "2019",
+        "iucn_url": "https://www.iucnredlist.org/species/6909/160756767",
+        "iucn_population": "Five countries/territories (Australia, Bahrain, Papua New Guinea, Qatar and the United Arabian Emirates) support substantial subpopulations of Dugongs (thousands) with tens of thousands of Dugongs in northern Australia/Papua New Guinea alone (Marsh <em>et al.&#160;</em>2011, unpublished). The percentage of mature individuals is likely to vary between various subpopulations, but is likely to be somewhere between 45% and 70% (Marsh <em>et al.</em> 2011). Genetic information on Dugong stocks is mos",
+        "iucn_rationale": "Marsh <em>et al.</em> (2011) made a crude estimate of the Dugong’s extent of occurrence (EOO) as 860,000 km<sup>2</sup> based on potential habitat (waters &lt;10 m deep in its known range). This spans approximately 128,000 km of coastline across at least 37, and up to 44, countries and territories. Although the Dugong still occurs at the extremes of its range, Husar (1978) and IUCN (2009) list the Dugong as extinct in the waters of several islands including: the Maldives, the Lakshadweep Islands"
+      },
+      "iucn_population": "Five countries/territories (Australia, Bahrain, Papua New Guinea, Qatar and the United Arabian Emirates) support substantial subpopulations of Dugongs (thousands) with tens of thousands of Dugongs in northern Australia/Papua New Guinea alone (Marsh <em>et al.&#160;</em>2011, unpublished). The percentage of mature individuals is likely to vary between various subpopulations, but is likely to be somewhere between 45% and 70% (Marsh <em>et al.</em> 2011). Genetic information on Dugong stocks is mos"
+    },
+    {
+      "name": "Tortue luth",
+      "status": "Vulnérable",
+      "count": "Côtes en effondrement",
+      "text": "Elle navigue depuis 100 millions d'années. Peut-être pas à nous.",
+      "danger": 0.55,
+      "photo_url": "https://aninu.de/cdn/shop/articles/Lederschildkroete_2-127529.jpg?v=1707297283",
+      "photo_manual": true,
+      "name_en": "Leatherback Sea Turtle",
+      "status_en": "Vulnerable",
+      "text_en": "It has been navigating for 100 million years. Perhaps not through us.",
+      "iucn": {
+        "iucn_taxon_id": 6494,
+        "iucn_assessment_id": 43526147,
+        "iucn_status_code": "VU",
+        "iucn_status_fr": "Vulnérable",
+        "iucn_status_en": "Vulnerable",
+        "iucn_danger": 0.55,
+        "iucn_year": "2013",
+        "iucn_url": "https://www.iucnredlist.org/species/6494/43526147",
+        "iucn_population": "Leatherbacks are a single species globally comprising seven biologically described regional management units (RMUs; Wallace <em>et al</em>. 2010), which describe biologically and geographically explicit population segments by integrating information from nesting sites, mitochondrial and nuclear DNA studies, movements and habitat use by all life stages. RMUs are functionally equivalent to IUCN subpopulations, thus providing the appropriate demographic unit for Red List assessments. There are seve",
+        "iucn_rationale": "<em>Rationale</em> The global population of Leatherback turtles (<em>Dermochelys coriacea</em>) comprises seven subpopulations (see Figure 2 in Supplementary Material) that vary widely in population size, geographic range, and population trends, and are the appropriate units for assessment of global conservation status for this species (Wallace <em>et al</em>. 2010, 2011). As such, we performed assessments for each of the seven subpopulations, in addition to the combined global population assess"
+      },
+      "iucn_population": "Leatherbacks are a single species globally comprising seven biologically described regional management units (RMUs; Wallace <em>et al</em>. 2010), which describe biologically and geographically explicit population segments by integrating information from nesting sites, mitochondrial and nuclear DNA studies, movements and habitat use by all life stages. RMUs are functionally equivalent to IUCN subpopulations, thus providing the appropriate demographic unit for Red List assessments. There are seve"
+    },
+    {
+      "name": "Albatros hurleur",
+      "status": "Vulnérable",
+      "count": "Déclin continu",
+      "text": "Il passe sa vie en vol au-dessus des océans. Il ne se pose que pour mourir.",
+      "danger": 0.55,
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/1/10/070226_wandering_albatross_off_Kaikoura_3.jpg",
+      "name_en": "Wandering Albatross",
+      "status_en": "Vulnerable",
+      "text_en": "It spends its life in flight above the oceans. It only lands to die.",
+      "iucn": {
+        "iucn_taxon_id": 22698305,
+        "iucn_assessment_id": 132640680,
+        "iucn_status_code": "VU",
+        "iucn_status_fr": "Vulnérable",
+        "iucn_status_en": "Vulnerable",
+        "iucn_danger": 0.55,
+        "iucn_year": "2018",
+        "iucn_url": "https://www.iucnredlist.org/species/22698305/132640680",
+        "iucn_population": "In 1998, the total annual breeding population was estimated at 8,500 pairs, equivalent to c. 28,000 mature individuals (Gales 1998). However, current estimates are 1,553 pairs on South Georgia (Georgias del Sur) (Poncet <em>et al.</em> 2006), 1,800 pairs on Prince Edward Island (2008, Ryan <em>et al. </em>2009), c. 1,900 pairs on Marion Island (2013, ACAP 2009), c. 340 pairs on Iles Crozet (CNRS Chinzè Monitoring Database 2010), c. 354 pairs in Iles Kerguelen (CNRS Chinzè Monitoring Database 201",
+        "iucn_rationale": "Overall past and predicted future declines amount to a rapid population reduction over a period of three generations, qualifying the species as Vulnerable. At South Georgia, this species is undergoing a rapid decline over three generations (70 years). On the Crozet and Kerguelen Islands, the populations rapidly declined between 1970-1986, then stabilised, but have recently declined again. Longline fishing is likely to be the main cause of decline in this species, causing reductions in adult surv"
+      },
+      "iucn_population": "In 1998, the total annual breeding population was estimated at 8,500 pairs, equivalent to c. 28,000 mature individuals (Gales 1998). However, current estimates are 1,553 pairs on South Georgia (Georgias del Sur) (Poncet <em>et al.</em> 2006), 1,800 pairs on Prince Edward Island (2008, Ryan <em>et al. </em>2009), c. 1,900 pairs on Marion Island (2013, ACAP 2009), c. 340 pairs on Iles Crozet (CNRS Chinzè Monitoring Database 2010), c. 354 pairs in Iles Kerguelen (CNRS Chinzè Monitoring Database 201"
+    },
+    {
+      "name": "Lynx ibérique",
+      "status": "Vulnérable",
+      "count": "~1 000 individus",
+      "text": "Le félin le plus menacé d'Europe. Il est revenu de l'extinction. Fragile, encore.",
+      "danger": 0.55,
+      "photo_url": "https://natureetzoo.fr/wp-content/uploads/2024/05/IMG_1073.jpg",
+      "photo_manual": true,
+      "name_en": "Iberian Lynx",
+      "status_en": "Vulnerable",
+      "text_en": "The most endangered felid in Europe. It came back from extinction. Still fragile.",
+      "iucn": {
+        "iucn_taxon_id": 12520,
+        "iucn_assessment_id": 218695618,
+        "iucn_status_code": "VU",
+        "iucn_status_fr": "Vulnérable",
+        "iucn_status_en": "Vulnerable",
+        "iucn_danger": 0.55,
+        "iucn_year": "2024",
+        "iucn_url": "https://www.iucnredlist.org/species/12520/218695618",
+        "iucn_population": "The estimated population size in 2022 was 1,668 lynxes, including both mature and immature individuals. Raw data includes estimates of the number of mature females (Lynxconnect LIFE Project 2023). The number of mature individuals was calculated as twice the number of territorial females because monogamy and intra-sexual territoriality is the most common pattern of social organisation (Ferreras <em>et al. </em>1997, Sarmento <em>et al. </em>2017), and because adult sex- ratio closely approaches 0",
+        "iucn_rationale": "Around 2001, the Iberian Lynx reached the minimum population size recorded since the species has been monitored. This was the result of a long-term decline that started 50 years back. The Iberian Lynx was listed as Critically Endangered (CR) in 2002 and this category was maintained in the 2008 release of the Red List. In the year 2015 the species was down-listed to Endangered because the negative population trend was reversed, no population reduction had been observed during the preceding 18 yea"
+      },
+      "iucn_population": "The estimated population size in 2022 was 1,668 lynxes, including both mature and immature individuals. Raw data includes estimates of the number of mature females (Lynxconnect LIFE Project 2023). The number of mature individuals was calculated as twice the number of territorial females because monogamy and intra-sexual territoriality is the most common pattern of social organisation (Ferreras <em>et al. </em>1997, Sarmento <em>et al. </em>2017), and because adult sex- ratio closely approaches 0"
+    },
+    {
+      "name": "Léopard des neiges",
+      "status": "Vulnérable",
+      "count": "4 000-6 500 individus",
+      "text": "Il vit dans les montagnes d'Asie centrale. On ne le voit presque jamais. C'est peut-être pour ça qu'il survit encore.",
+      "danger": 0.55,
+      "photo_url": "https://www.monde-animal.fr/wp-content/uploads/2020/06/fiche-animale-monde-animal-panthere-des-neiges-leopard.jpg",
+      "photo_manual": true,
+      "name_en": "Snow Leopard",
+      "status_en": "Vulnerable",
+      "text_en": "It lives in the mountains of Central Asia. Almost never seen. Perhaps that is why it still survives.",
+      "iucn": {
+        "iucn_taxon_id": 22732,
+        "iucn_assessment_id": 50664030,
+        "iucn_status_code": "VU",
+        "iucn_status_fr": "Vulnérable",
+        "iucn_status_en": "Vulnerable",
+        "iucn_danger": 0.55,
+        "iucn_year": "2017",
+        "iucn_url": "https://www.iucnredlist.org/species/22732/50664030",
+        "iucn_population": "There are no robust estimates of Snow Leopard global population size and the various figures available are best regarded as guesses: 4,080-6,500 (McCarthy and Chapron 2003); 4,500-7,500 (Jackson <em><em><em><em><em><em><em><em><em><em><em><em><em><em><em>et al.</em></em></em></em></em></em></em></em></em></em></em></em></em></em></em> 2010), and 3,920-6,390 (Snow Leopard Working Secretariat 2013). There are several difficulties to overcome in making reliable estimates of Snow Leopard population ",
+        "iucn_rationale": "The Snow Leopard is assessed as Vulnerable because the global population is estimated to number more than 2,500 but fewer than 10,000 mature individuals, and there is an estimated and projected decline of at least 10% over 22.62 years (3 generations). There have been five attempts to compile national estimates, of varying data quality, to determine global Snow Leopard global population size. Two sets contain estimates largely dating prior to 2003: 4,080-6,500 (McCarthy and Chapron 2003) and 3,92"
+      },
+      "iucn_population": "There are no robust estimates of Snow Leopard global population size and the various figures available are best regarded as guesses: 4,080-6,500 (McCarthy and Chapron 2003); 4,500-7,500 (Jackson <em><em><em><em><em><em><em><em><em><em><em><em><em><em><em>et al.</em></em></em></em></em></em></em></em></em></em></em></em></em></em></em> 2010), and 3,920-6,390 (Snow Leopard Working Secretariat 2013). There are several difficulties to overcome in making reliable estimates of Snow Leopard population "
+    },
+    {
+      "name": "Macaque de Barbarie",
+      "status": "NA",
+      "count": "~8 000 individus",
+      "text": "Le seul primate sauvage d'Europe. Il vit sur le Rocher de Gibraltar. Sa forêt marocaine disparaît.",
+      "danger": 0.5,
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Barbary_macaque_in_Cap_Carbon_%28Gouraya_National_Park%29.jpg/960px-Barbary_macaque_in_Cap_Carbon_%28Gouraya_National_Park%29.jpg",
+      "name_en": "Barbary Macaque",
+      "status_en": "NA",
+      "text_en": "The only wild primate in Europe. It lives on the Rock of Gibraltar. Its Moroccan forest is vanishing.",
+      "iucn": {
+        "iucn_taxon_id": 12561,
+        "iucn_assessment_id": 214379024,
+        "iucn_status_code": "NA",
+        "iucn_status_fr": "NA",
+        "iucn_status_en": "NA",
+        "iucn_danger": 0.5,
+        "iucn_year": "2024",
+        "iucn_url": "https://www.iucnredlist.org/species/12561/214379024",
+        "iucn_population": "On Gibraltar, the population is maintained at ca.200-300 animals but now occurs in six small groups (Majolo and Maréchal 2021). Majolo and Maréchal (2021) report that the population is maintained at c.200 individuals, with regular monitoring in place. In 2003, around half (c.25? individuals) was culled (Schiermeier 2003). Some of these groups often range in built-up areas and have caused serious conflict with residents, and one such group was captured and sent to a captive collection in the UK (",
+        "iucn_rationale": "European regional assessment: Not Applicable (NA) EU 27 regional assessment: Not Applicable (NA) In the European region, the Barbary Macaques only occur, as a semi-wild subpopulation, in Gibraltar. There are no fossil or subfossil remains known from Gibraltar, suggesting that the species is not native to this promontory, and there is no conclusive evidence that the Barbary Macaque occurred as native in Gibraltar before the 1700s. Consequently, the Gibraltar subpopulation is regarded as a relativ"
+      },
+      "iucn_population": "On Gibraltar, the population is maintained at ca.200-300 animals but now occurs in six small groups (Majolo and Maréchal 2021). Majolo and Maréchal (2021) report that the population is maintained at c.200 individuals, with regular monitoring in place. In 2003, around half (c.25? individuals) was culled (Schiermeier 2003). Some of these groups often range in built-up areas and have caused serious conflict with residents, and one such group was captured and sent to a captive collection in the UK ("
+    },
+    {
+      "name": "Hippopotame commun",
+      "name_en": "Common Hippopotamus",
+      "status": "Vulnérable",
+      "status_en": "Vulnerable",
+      "count": "~115 000 à 130 000 individus",
+      "text": "L'hippopotame commun, deuxième plus grand mammifère terrestre après l'éléphant. Chassé pour l'ivoire de ses dents et sa viande, il voit ses zones humides africaines disparaître. Avec lui s'effacent les cours d'eau qu'il façonne et fertilise depuis des millénaires.",
+      "text_en": "The common hippopotamus, second largest land mammal after the elephant. Hunted for the ivory of its teeth and its meat, it watches its African wetlands vanish. With it disappear the waterways it has shaped and fertilized for millennia.",
+      "danger": 0.5,
+      "scientific_name": "Hippopotamus amphibius",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/048_Hippopotamus_fight_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg/960px-048_Hippopotamus_fight_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg"
+    },
+    {
+      "name": "Saïga",
+      "status": "Quasi-menacé",
+      "count": "Population instable",
+      "text": "Une antilope préhistorique. 200 000 sont mortes en trois jours en 2015.",
+      "danger": 0.35,
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/0/03/Saiga_tartarica.jpg",
+      "photo_manual": true,
+      "name_en": "Saiga Antelope",
+      "status_en": "Near Threatened",
+      "text_en": "A prehistoric antelope. 200,000 died in three days in 2015.",
+      "iucn": {
+        "iucn_taxon_id": 19832,
+        "iucn_assessment_id": 233985067,
+        "iucn_status_code": "NT",
+        "iucn_status_fr": "Quasi-menacé",
+        "iucn_status_en": "Near Threatened",
+        "iucn_danger": 0.35,
+        "iucn_year": "2025",
+        "iucn_url": "https://www.iucnredlist.org/species/19832/233985067",
+        "iucn_population": "Historically, the global population may have numbered in the millions. Excessive hunting reduced the total to <em>ca</em> 1,000 by the early 20th century (Heptner <em>et al.</em> 1961), though the accuracy of this estimate is unclear. The species received legal protection in 1919 and soon began to recover. By 1960, Saiga numbers in Russia reached an estimated 540,000 (Linnard 1963) and recovered to <em>ca</em> 700,000-800,000 in the 1970s as a result of hunting regulations. There were an estimat",
+        "iucn_rationale": "European regional assessment: Near Threatened (NT) EU 27 regional assessment: Not Recorded The European subpopulation of Saiga is assessed as Near Threatened because of extreme data uncertainty which makes an assessment under criterion A4 as Endangered, Vulnerable, or Least Concern equally plausible. The global population has also been reassessed as Near Threatened in 2023 on the same basis (IUCN SSC Antelope Specialist Group 2023). The previous regional assessment in 2006 was Critically Endange"
+      },
+      "iucn_population": "Historically, the global population may have numbered in the millions. Excessive hunting reduced the total to <em>ca</em> 1,000 by the early 20th century (Heptner <em>et al.</em> 1961), though the accuracy of this estimate is unclear. The species received legal protection in 1919 and soon began to recover. By 1960, Saiga numbers in Russia reached an estimated 540,000 (Linnard 1963) and recovered to <em>ca</em> 700,000-800,000 in the 1970s as a result of hunting regulations. There were an estimat"
+    },
+    {
+      "name": "Amblystome de Jefferson",
+      "status": "Préoccupation mineure",
+      "count": "Population effondrée",
+      "text": "Une salamandre. Personne ne la cherche. Elle disparaît sans que personne ne remarque.",
+      "danger": 0.15,
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/7/78/Ambystoma_jeffersonianum.jpg",
+      "name_en": "Jefferson Salamander",
+      "status_en": "Least Concern",
+      "text_en": "A salamander. No one is looking for it. It disappears without anyone noticing.",
+      "iucn": {
+        "iucn_taxon_id": 59059,
+        "iucn_assessment_id": 196337965,
+        "iucn_status_code": "LC",
+        "iucn_status_fr": "Préoccupation mineure",
+        "iucn_status_en": "Least Concern",
+        "iucn_danger": 0.15,
+        "iucn_year": "2022",
+        "iucn_url": "https://www.iucnredlist.org/species/59059/196337965",
+        "iucn_population": "Estimation of&#160;the<em>&#160;</em>population size<em>&#160;</em>of this species<em>&#160;</em>is difficult due to the presence of morphologically similar unisexuals which share their habitat. For this reason, total adult population size is unknown but surely is greater than 10,000 individuals for unhybridized subpopulations (NatureServe 2020). In an extensive survey of New England and New York, Bogart and Klemens (1997) did not find any \"sizeable\" subpopulations. The only subpopulations repre",
+        "iucn_rationale": "Listed as Least Concern in view of its wide distribution and presumed large population."
+      },
+      "iucn_population": "Estimation of&#160;the<em>&#160;</em>population size<em>&#160;</em>of this species<em>&#160;</em>is difficult due to the presence of morphologically similar unisexuals which share their habitat. For this reason, total adult population size is unknown but surely is greater than 10,000 individuals for unhybridized subpopulations (NatureServe 2020). In an extensive survey of New England and New York, Bogart and Klemens (1997) did not find any \"sizeable\" subpopulations. The only subpopulations repre"
+    },
+    {
+      "name": "Baleine boréale",
+      "name_en": "Bowhead Whale",
+      "status": "Préoccupation mineure (certaines populations critiques)",
+      "status_en": "Least Concern (some populations critical)",
+      "count": "~10 000 individus",
+      "text": "La baleine boréale peut vivre plus de deux cents ans. Les baleiniers du XIXe siècle ont décimé des populations entières pour leur huile et leurs fanons. Certaines populations n'ont jamais récupéré.",
+      "text_en": "The bowhead whale can live over two hundred years. Nineteenth-century whalers decimated entire populations for their oil and baleen. Some populations never recovered.",
+      "danger": 0.1,
+      "scientific_name": "Balaena mysticetus",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Balaena_mysticetus.jpg/960px-Balaena_mysticetus.jpg"
+    }
+  ],
+  "extinct": [
+    {
+      "name": "Dauphin du Yangtsé",
+      "date": "2006",
+      "epitaphe": "Elle naviguait à l'écho dans les eaux troubles du Yangtsé depuis vingt millions d'années. Le fleuve est devenu trop bruyant. Elle ne pouvait plus entendre ce qu'elle cherchait.",
+      "composition": {
+        "couleur_dominante": "#a8c4c0",
+        "palette": [
+          "#d4e8e6",
+          "#6b9e99",
+          "#2c4a47",
+          "#f0f7f6"
+        ],
+        "note_couleur": "Le bleu-vert trouble de l'eau du Yangtsé avant les barrages — une clarté qui n'existe plus.",
+        "son": "Un clic d'écholocation à 120 kHz, répété toutes les 0,3 secondes. Maintenant noyé sous le bruit des moteurs.",
+        "forme": "Une lentille d'eau dans laquelle on ne voit rien — translucide, froide, opaque par le bas."
+      },
+      "cartel": {
+        "titre": "Fréquence perdue",
+        "medium": "Silence à 120 kHz, eau trouble, absence",
+        "note_intention": "Elle cherchait dans le bruit. Le bruit a gagné.",
+        "sources": [
+          "Samuel Turvey, Witness to Extinction (2008)",
+          "IUCN Red List — Lipotes vexillifer (2007)"
+        ]
+      },
+      "prompt_visuel": "Translucent water lens, murky jade green, nothing visible beneath the surface. Sonar ripples expanding into silence. Cold light from above, darkness below. Minimal, melancholic.",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Baiji_1.jpg",
+      "name_en": "Yangtze River Dolphin",
+      "epitaphe_en": "It navigated by echo through the turbid waters of the Yangtze for twenty million years. The river became too loud. It could no longer hear what it was looking for.",
+      "iucn": {
+        "iucn_taxon_id": 12119,
+        "iucn_assessment_id": 50362206,
+        "iucn_status_code": "CR",
+        "iucn_status_fr": "Critique",
+        "iucn_status_en": "Critically Endangered",
+        "iucn_danger": 0.95,
+        "iucn_year": "2017",
+        "iucn_url": "https://www.iucnredlist.org/species/12119/50362206",
+        "iucn_population": "The first estimate of abundance based on quantitative survey data (1979-81) was made by Zhou (1982), who concluded that the total population comprised only about 400 animals. On the basis of surveys conducted in 1985-86, Chen and Hua (1989) made an educated guess that the total population was around 300. Surveys by Zhou and Li (1989) between 1982 and 1986 suggested that there were 100 Baijis in a 770 km segment of the lower Yangtze from Hukou to the river mouth, compared with 78-79 dolphins coun",
+        "iucn_rationale": "The Baiji is a relict species and the only representative of the family Lipotidae (Zhou <em>et al</em>. 1978). In the previous assessment (Smith <em>et al</em>. 2008), the Baiji was evaluated as Critically Endangered (CR) (Possibly Extinct), as abundance was believed to be extremely low, and as the numerous serious threats it faced in the wild were still occurring. The last confirmed sighting of a Baiji was in 2002. Although the species is generally believed to be extinct (Turvey<em> et al.</em>"
+      },
+      "image_url": "images/dauphin_du_yangtse.jpg"
+    },
+    {
+      "name": "Thylacine",
+      "date": "1936",
+      "epitaphe": "Le dernier est mort seul dans sa cage au zoo de Hobart, le 7 septembre 1936. La nuit était froide. Personne n'était là.",
+      "composition": {
+        "couleur_dominante": "#8b7355",
+        "palette": [
+          "#c4a882",
+          "#4a3d2a",
+          "#d4c4a8",
+          "#2a2018"
+        ],
+        "note_couleur": "Le brun-ocre de la fourrure rayée — une couleur qui appartient désormais uniquement aux photographies en noir et blanc colorisées.",
+        "son": "Un aboiement court, répété. Les seuls enregistrements durent 62 secondes. Après, plus rien.",
+        "forme": "Une cage vide. Les barreaux encore là. L'animal, non."
+      },
+      "cartel": {
+        "titre": "7 septembre 1936, 23h00",
+        "medium": "Fourrure rayée, cage de métal, froid de septembre",
+        "note_intention": "On sait l'heure. On ne sait pas ce qu'il pensait.",
+        "sources": [
+          "David Quammen, The Song of the Dodo (1996)",
+          "Archives du zoo de Hobart"
+        ]
+      },
+      "prompt_visuel": "Empty iron cage. Ochre stripes on the floor where something once lay. Cold moonlight through the bars. Australian eucalyptus shadows. The emptiness is the subject.",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/4/47/%22Benjamin%22.jpg",
+      "name_en": "Thylacine",
+      "epitaphe_en": "The last one, named Benjamin, died alone in his cage at Hobart Zoo on 7 September 1936. A marsupial carnivore exterminated by settlers who saw it as a threat to their livestock.",
+      "iucn": {
+        "iucn_taxon_id": 21866,
+        "iucn_assessment_id": 258672491,
+        "iucn_status_code": "EX",
+        "iucn_status_fr": "Éteint",
+        "iucn_status_en": "Extinct",
+        "iucn_danger": 1.0,
+        "iucn_year": "2025",
+        "iucn_url": "https://www.iucnredlist.org/species/21866/258672491",
+        "iucn_population": "This species is presumed to be extinct.",
+        "iucn_rationale": "The last recorded killing of a wild Thylacine was in 1930, and the last known Thylacine was captured in 1933 and died in Hobart Zoo in 1936. Despite numerous reports of sightings since then including on mainland Australia (Heberle 2004), and many organised searches in Tasmania by government agencies, conservation NGOs, philanthropists, and others (more search effort than any other extinct mammal (Fisher and Blomberg 2011)), there has been no convincing evidence of its persistence. Brook <em>et a"
+      },
+      "image_url": "images/thylacine.jpg"
+    },
+    {
+      "name": "Dodo",
+      "date": "1681",
+      "epitaphe": "Il n'avait pas peur des hommes. Il n'avait aucune raison d'en avoir peur — avant eux. Cette confiance était sa seule faiblesse.",
+      "composition": {
+        "couleur_dominante": "#9b8c7a",
+        "palette": [
+          "#c8b89a",
+          "#5a4a3a",
+          "#e8d8c0",
+          "#3a2a1a"
+        ],
+        "note_couleur": "La couleur de la terre de l'Île Maurice — une terre rouge et chaude qui n'a plus rien à garder.",
+        "son": "Un son inconnu. Peut-être un roucoulement grave. Peut-être rien du tout. L'île était silencieuse avant les bateaux.",
+        "forme": "Un œuf unique dans un nid de feuilles. L'œuf n'a jamais éclos."
+      },
+      "cartel": {
+        "titre": "L'île avant les bateaux",
+        "medium": "Terre rouge, plumes grises, confiance",
+        "note_intention": "Il n'a pas disparu par stupidité. Il a disparu par innocence.",
+        "sources": [
+          "Errol Fuller, Dodo — A Brief History (2002)",
+          "Natural History Museum, Oxford — spécimen n°8912"
+        ]
+      },
+      "prompt_visuel": "Single egg in dry tropical leaves. Warm reddish-brown earth. The egg is perfectly intact, slightly iridescent. Soft Indian Ocean light. Waiting for something that will not come.",
+      "image_url": "images/dodo.jpg",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/8/88/Didus_cucullatus.jpg",
+      "name_en": "Dodo",
+      "epitaphe_en": "It had no fear of humans. It had never needed any. That trust took less than a century to kill it.",
+      "iucn": {
+        "iucn_taxon_id": 22690059,
+        "iucn_assessment_id": 261916273,
+        "iucn_status_code": "EX",
+        "iucn_status_fr": "Éteint",
+        "iucn_status_en": "Extinct",
+        "iucn_danger": 1.0,
+        "iucn_year": "2024",
+        "iucn_url": "https://www.iucnredlist.org/species/22690059/261916273",
+        "iucn_population": "No extant population remains.",
+        "iucn_rationale": "This species was found in Mauritius, but is now Extinct as a result of hunting by settlers and nest predation by introduced animals."
+      }
+    },
+    {
+      "name": "Pigeon migrateur",
+      "date": "1914",
+      "epitaphe": "Ils étaient des milliards. Leurs vols obscurcissaient le soleil pendant des jours. Martha est morte seule au zoo de Cincinnati le 1er septembre 1914, à 13h00.",
+      "composition": {
+        "couleur_dominante": "#4a6080",
+        "palette": [
+          "#8ab0d0",
+          "#c86040",
+          "#2a3a50",
+          "#f0e8d8"
+        ],
+        "note_couleur": "Le bleu ardoise de leurs ailes contre le ciel blanc — une couleur qui a disparu du ciel américain.",
+        "son": "Le bruit d'un milliard d'ailes ensemble ressemblait à du tonnerre. Martha ne faisait plus de bruit du tout.",
+        "forme": "Une carte des États-Unis avec, en 1800, un nuage d'oiseaux couvrant la moitié du pays. En 1914, un point unique. Cincinnati."
+      },
+      "cartel": {
+        "titre": "Du milliard à un",
+        "medium": "Bleu ardoise, bruit de tonnerre, carte vide",
+        "note_intention": "L'extinction la plus rapide de l'histoire connue. En 50 ans.",
+        "sources": [
+          "Joel Greenberg, A Feathered River Across the Sky (2014)",
+          "Smithsonian Institution — Martha, spécimen #1"
+        ]
+      },
+      "prompt_visuel": "Vast pale sky with a single grey-blue feather drifting down. Below, an empty forest canopy stretching to the horizon. The scale of the absence is the point. Muted blues and greys.",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Bird_lore_%281913%29_%2814562557107%29.jpg/960px-Bird_lore_%281913%29_%2814562557107%29.jpg",
+      "name_en": "Passenger Pigeon",
+      "epitaphe_en": "Martha, the last, died at Cincinnati Zoo on 1 September 1914. They were once billions — their flocks darkened the sky for days. Exterminated in 50 years.",
+      "iucn": {
+        "iucn_taxon_id": 22690733,
+        "iucn_assessment_id": 152593137,
+        "iucn_status_code": "EX",
+        "iucn_status_fr": "Éteint",
+        "iucn_status_en": "Extinct",
+        "iucn_danger": 1.0,
+        "iucn_year": "2019",
+        "iucn_url": "https://www.iucnredlist.org/species/22690733/152593137",
+        "iucn_population": "None remain.",
+        "iucn_rationale": "This species was formerly distributed across North America, but is now Extinct as a result of habitat clearance and hunting. The last reliable wild record dates from 1900, and a search beginning in 1910 failed to find it."
+      },
+      "image_url": "images/pigeon_migrateur.jpg"
+    },
+    {
+      "name": "Mammuth laineux",
+      "date": "~2000 av. J.-C.",
+      "epitaphe": "Les derniers ont survécu sur l'île Wrangel jusqu'en 2000 avant notre ère. Ils sont morts alors que les pyramides de Gizeh étaient déjà vieilles de cinq cents ans.",
+      "composition": {
+        "couleur_dominante": "#8a6a40",
+        "palette": [
+          "#c4a060",
+          "#3a2a18",
+          "#d4c0a0",
+          "#1a1208"
+        ],
+        "note_couleur": "La couleur de la laine longue et emmêlée — un brun-roux de steppe froide.",
+        "son": "Un barrissement grave que la glace aurait étouffé. Peut-être le même que l'éléphant. Peut-être différent. On ne saura jamais.",
+        "forme": "Une touffe de laine rousse dans de la glace. Préservée, mais plus rien dedans."
+      },
+      "cartel": {
+        "titre": "Wrangel, 2000 av. J.-C.",
+        "medium": "Laine rousse, glace perpétuelle, steppe silencieuse",
+        "note_intention": "Ils ont survécu à la dernière glaciation. C'est nous qui avons eu raison d'eux.",
+        "sources": [
+          "Sergey Zimov — Pleistocene Park Project",
+          "ADN de mammouth — Church Lab, Harvard (2015)"
+        ]
+      },
+      "prompt_visuel": "A clump of reddish-brown wool trapped in ancient ice. Frozen tundra stretching to the horizon. Pale arctic light. The wool still looks warm. Nothing else remains.",
+      "name_en": "Woolly Mammoth",
+      "epitaphe_en": "It survived the ice age. It did not survive us. The last population died on Wrangel Island around 1650 BCE, perhaps from a single genetic collapse.",
+      "image_url": "images/mammuth_laineux.jpg"
+    },
+    {
+      "name": "Quagga",
+      "date": "1883",
+      "epitaphe": "Un zèbre à moitié rayé — les rayures s'arrêtaient au milieu du corps, laissant le reste brun-fauve. Le dernier est mort au zoo d'Amsterdam le 12 août 1883.",
+      "composition": {
+        "couleur_dominante": "#b8924a",
+        "palette": [
+          "#1a1a1a",
+          "#d4aa60",
+          "#8a6a30",
+          "#f0e8d0"
+        ],
+        "note_couleur": "La transition impossible entre le noir et blanc des zèbres et le brun des chevaux — une couleur qui ne devrait pas exister.",
+        "son": "Son nom vient de son cri : 'quahha-quahha'. Personne ne l'a enregistré.",
+        "forme": "Une ligne qui s'efface progressivement. Les rayures qui disparaissent dans la plaine."
+      },
+      "cartel": {
+        "titre": "La transition",
+        "medium": "Rayures qui s'effacent, brun-fauve, savane disparue",
+        "note_intention": "Il était à mi-chemin entre deux choses. Il n'a pu être ni l'une ni l'autre.",
+        "sources": [
+          "Eric Harley & al. — Quagga Project, Afrique du Sud (1987)",
+          "Musée d'Histoire naturelle de Londres — dernier spécimen naturalisé"
+        ]
+      },
+      "prompt_visuel": "Black and white stripes that gradually fade into warm tan. Gradient from pattern to plain. African savanna dust. The transition is the painting. Where does one thing end and another begin?",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Berlin_Quagga.jpg/960px-Berlin_Quagga.jpg",
+      "name_en": "Quagga",
+      "epitaphe_en": "Half zebra, half horse. The last known individual died in Amsterdam Zoo on 12 August 1883. It was only then that scientists realized it was a distinct species.",
+      "iucn": {
+        "iucn_taxon_id": 41013,
+        "iucn_assessment_id": 45172424,
+        "iucn_status_code": "NT",
+        "iucn_status_fr": "Quasi-menacé",
+        "iucn_status_en": "Near Threatened",
+        "iucn_danger": 0.35,
+        "iucn_year": "2016",
+        "iucn_url": "https://www.iucnredlist.org/species/41013/45172424",
+        "iucn_population": "Plains Zebra are considered common and widespread across Africa, but there has been a population decline in 10 out of the 17 range states since the 1992 and 2002 IUCN Red List assessments. In many countries Plains Zebra are only found in protected areas, with little or no individuals outside them. Lack of surveys outside protected areas makes assessing trends and population sizes difficult across most of the species’ range. Total population across the species’ range is estimated at over 500,000 ",
+        "iucn_rationale": "Plains Zebra is listed as Near Threatened as it is close to qualifying for Vulnerable under A2a+3c+4ac. Total population across the species’ range is estimated at over 500,000 animals; if 30% to 50% of animals are mature (based on maturity rates in other zebra species) this gives a population of 150,000 to 250,000 mature individuals. However there has been a population reduction of 24% since 2002, and a 25% decline since 1992 (about 2.5 generations, as generation length is about 10 years). Total"
+      },
+      "image_url": "images/quagga.jpg"
+    },
+    {
+      "name": "Lion des cavernes",
+      "date": "~13 000 av. J.-C.",
+      "epitaphe": "Il était 25% plus grand que les lions actuels. Les hommes de Lascaux l'ont peint sur les murs de la grotte. Peut-être pour ne pas l'oublier. Peut-être parce qu'ils avaient peur.",
+      "composition": {
+        "couleur_dominante": "#c8a050",
+        "palette": [
+          "#8a5a20",
+          "#e8d090",
+          "#2a1a08",
+          "#f0c860"
+        ],
+        "note_couleur": "L'ocre des peintures rupestres — la seule couleur dans laquelle il existe encore.",
+        "son": "Un rugissement plus grave que celui du lion africain. Assez fort pour résonner dans les grottes de calcaire.",
+        "forme": "Un tracé à l'ocre sur la pierre. La main humaine qui dessine ce qu'elle voit. Ce qu'elle a peur de perdre."
+      },
+      "cartel": {
+        "titre": "Lascaux, -17 000",
+        "medium": "Ocre rouge, paroi calcaire, peur et admiration",
+        "note_intention": "Ils nous ont laissé son portrait. C'est tout ce qui reste.",
+        "sources": [
+          "Grotte de Lascaux — Panthera spelaea",
+          "Joëlle Barral, L'art de la préhistoire (2011)"
+        ]
+      },
+      "prompt_visuel": "Ochre outline of a massive feline painted on rough limestone. Cave walls. Paleolithic darkness illuminated by a single flame. The painting is more alive than the animal.",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Beringi_barlangi_oroszl%C3%A1n.png",
+      "name_en": "Cave Lion",
+      "epitaphe_en": "It was the largest lion that ever lived. It hunted mammoths. We painted it on cave walls. Then we forgot to save it.",
+      "image_url": "images/lion_des_cavernes.jpg"
+    },
+    {
+      "name": "Aurochs",
+      "date": "1627",
+      "epitaphe": "Le dernier est mort en Pologne, dans la forêt de Jaktorów, en 1627. C'était une femelle. Elle est morte de vieillesse, pas de chasse — mais sa lignée était déjà brisée.",
+      "composition": {
+        "couleur_dominante": "#3a2818",
+        "palette": [
+          "#1a0e08",
+          "#8a5a30",
+          "#c8a060",
+          "#f0e8d0"
+        ],
+        "note_couleur": "Le brun-noir de la forêt polonaise en hiver — la couleur de quelque chose de massif et de silencieux.",
+        "son": "Un mugissement plus grave que celui des bovins domestiques. Nos vaches en sont les descendants directs.",
+        "forme": "Un arbre creux dans une forêt polonaise. Assez grand pour qu'un animal immense s'y abrite."
+      },
+      "cartel": {
+        "titre": "Jaktorów, 1627",
+        "medium": "Forêt polonaise, brun-noir, ancêtre de nos troupeaux",
+        "note_intention": "Il vit encore en nous, dilué dans des millions de bovins domestiques. Ce n'est pas la même chose.",
+        "sources": [
+          "Cis Van Vuure, Retracing the Aurochs (2005)",
+          "Projet Tauros — rewilding Europe"
+        ]
+      },
+      "prompt_visuel": "Ancient hollow oak tree in a Polish winter forest. Snow on the ground. Massive hoof prints leading into the tree, then nothing. The forest is silent. The prints are still fresh.",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/An_Auroch_symbol_of_Adad_%28Hadad%29_storm_and_rain_god_of_ancient_Mesopotamian_religions_on_the_Ishtar_Gate_of_Babylon_575_BCE.jpg/960px-An_Auroch_symbol_of_Adad_%28Hadad%29_storm_and_rain_god_of_ancient_Mesopotamian_religions_on_the_Ishtar_Gate_of_Babylon_575_BCE.jpg",
+      "name_en": "Aurochs",
+      "epitaphe_en": "The ancestor of all domestic cattle. The last one died in the Jaktorów forest, Poland, in 1627. It was a female. No one was watching.",
+      "iucn": {
+        "iucn_taxon_id": 136721,
+        "iucn_assessment_id": 237471616,
+        "iucn_status_code": "EX",
+        "iucn_status_fr": "Éteint",
+        "iucn_status_en": "Extinct",
+        "iucn_danger": 1.0,
+        "iucn_year": "2023",
+        "iucn_url": "https://www.iucnredlist.org/species/136721/237471616",
+        "iucn_population": "There is no information on former population size.",
+        "iucn_rationale": "<em>Bos primigenius</em> is globally Extinct. The North African subspecies <em>B. p. mauritanicus </em>and South Asian subspecies <em>B. p. namadicus</em> both became extinct in the early Holocene. The Eurasian subspecies <em>B. p. primigenius </em>became extinct across most of Europe before the year 1500 CE but persisted in Poland until 1627 CE and in Romania and Bulgaria until the mid-17th or early 18th centuries."
+      },
+      "image_url": "images/aurochs.jpg"
+    },
+    {
+      "name": "Turquoise du paradis",
+      "date": "~1915",
+      "epitaphe": "Un petit perroquet australien d'un turquoise intense. On ne sait pas exactement quand le dernier est mort. Quelque part entre 1915 et 1927. Personne ne regardait.",
+      "composition": {
+        "couleur_dominante": "#00a8c0",
+        "palette": [
+          "#008899",
+          "#40e0d0",
+          "#ff6040",
+          "#1a1a2a"
+        ],
+        "note_couleur": "Un turquoise impossible — trop intense pour être réel, et pourtant.",
+        "son": "Un sifflement haut et clair. Peut-être. Aucun enregistrement. La couleur était trop belle pour que quelqu'un pense à écouter.",
+        "forme": "Une plume turquoise dans un herbier botanique du XIXème siècle. Épinglée, séchée, étiquetée. Toujours aussi bleue."
+      },
+      "cartel": {
+        "titre": "Entre 1915 et 1927",
+        "medium": "Turquoise impossible, plume épinglée, date inconnue",
+        "note_intention": "On ne sait pas quand. C'est peut-être pire que de savoir.",
+        "sources": [
+          "Joseph Forshaw, Parrots of the World (1973)",
+          "Spécimen — Natural History Museum, Tring, UK"
+        ]
+      },
+      "prompt_visuel": "An impossible turquoise feather pressed between the pages of a Victorian botanical journal. The surrounding pressed flowers are faded sepia. The feather still glows. Intense blue-green against yellowed paper.",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Taj_Mahal%2C_Agra%2C_India_edit3.jpg/330px-Taj_Mahal%2C_Agra%2C_India_edit3.jpg",
+      "name_en": "Paradise Parrot",
+      "epitaphe_en": "The most beautiful parrot in Australia. Last sighted in 1927. Possibly gone earlier. Possibly still there. No one looked hard enough.",
+      "iucn": {
+        "iucn_taxon_id": 22685156,
+        "iucn_assessment_id": 238869019,
+        "iucn_status_code": "EX",
+        "iucn_status_fr": "Éteint",
+        "iucn_status_en": "Extinct",
+        "iucn_danger": 1.0,
+        "iucn_year": "2023",
+        "iucn_url": "https://www.iucnredlist.org/species/22685156/238869019",
+        "iucn_population": "None remain.",
+        "iucn_rationale": "This species was formerly found in eastern Australia, but it is now Extinct owing mainly to drought and overgrazing. It has not been recorded since 1927."
+      },
+      "image_url": "images/turquoise_du_paradis.jpg"
+    },
+    {
+      "name": "Moa géant",
+      "date": "~1440",
+      "epitaphe": "Trois mètres de hauteur. Il dominait les forêts de Nouvelle-Zélande pendant des millions d'années. Les Maoris sont arrivés vers 1280. En 150 ans, c'était fini.",
+      "composition": {
+        "couleur_dominante": "#6a5040",
+        "palette": [
+          "#3a2820",
+          "#c4a880",
+          "#8a6850",
+          "#e8d8c0"
+        ],
+        "note_couleur": "Le brun-gris des plumes de ratite — une couleur qui touche presque le sol.",
+        "son": "Un son grave et sourd, comme un tambour. Les ornithologues imaginent. Aucune certitude.",
+        "forme": "Un os de trois mètres de long. Un œuf vide. Une empreinte de pied à six doigts dans la boue séchée."
+      },
+      "cartel": {
+        "titre": "150 ans",
+        "medium": "Plumes de ratite, os creux, boue néo-zélandaise",
+        "note_intention": "L'extinction la plus rapide par la chasse. Un record encore inégalé.",
+        "sources": [
+          "Richard Owen — description du Dinornis (1843)",
+          "Trevor Worthy & Richard Holdaway, The Lost World of the Moa (2002)"
+        ]
+      },
+      "prompt_visuel": "Enormous hollow bone on a New Zealand forest floor. Ferns growing through it. The bone is pale and ancient. Around it, the forest continues as if nothing happened. Scale is everything.",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Dinornis_robustus_%28AM_LB4361%29.jpg/960px-Dinornis_robustus_%28AM_LB4361%29.jpg",
+      "name_en": "Giant Moa",
+      "epitaphe_en": "The tallest bird ever to walk the earth — over three metres. It took Māori settlers less than two centuries to erase nine species of moa from New Zealand.",
+      "image_url": "images/moa_geant.jpg"
+    },
+    {
+      "name": "Tigre de Bali",
+      "date": "1937",
+      "epitaphe": "La plus petite sous-espèce de tigre. Endémique de Bali. Le dernier a été tué par un chasseur hollandais en 1937. Il n'en reste que des peaux dans des musées.",
+      "composition": {
+        "couleur_dominante": "#c85a20",
+        "palette": [
+          "#8a2a10",
+          "#e8a050",
+          "#1a0a04",
+          "#f0c890"
+        ],
+        "note_couleur": "L'orange plus vif de la sous-espèce de Bali — une couleur que les peintres balinais ont immortalisée.",
+        "son": "Un rugissement que les forêts tropicales de Bali absorbaient. Maintenant les forêts aussi ont presque disparu.",
+        "forme": "Une peau tendue sur un cadre, dans la réserve d'un musée hollandais. Le numéro d'inventaire est lisible. Le tigre, non."
+      },
+      "cartel": {
+        "titre": "Réserve de musée, Leiden",
+        "medium": "Peau tannée, numéro d'inventaire, orange disparu",
+        "note_intention": "Il existe encore, d'une certaine façon. Derrière une vitre. Avec une étiquette.",
+        "sources": [
+          "Mazák, V. — Panthera tigris balica (1981)",
+          "Naturalis Biodiversity Center, Leiden — collection n°7823"
+        ]
+      },
+      "prompt_visuel": "A museum drawer partially open, revealing a rolled tiger skin with an inventory tag attached. Cool fluorescent museum light. Orange and black stripes visible at the edge. Clinical, preserved, absent.",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Bali_Tiger_Ringling_Bros_1914.jpg",
+      "name_en": "Bali Tiger",
+      "epitaphe_en": "The smallest tiger subspecies. Endemic to Bali. Killed by Dutch hunters in 1937. It inhabited the tropical rainforests of the island. Colonial sport hunting erased it.",
+      "iucn": {
+        "iucn_taxon_id": 15955,
+        "iucn_assessment_id": 214862019,
+        "iucn_status_code": "EN",
+        "iucn_status_fr": "En danger",
+        "iucn_status_en": "Endangered",
+        "iucn_danger": 0.75,
+        "iucn_year": "2022",
+        "iucn_url": "https://www.iucnredlist.org/species/15955/214862019",
+        "iucn_population": "The Tiger population estimate of between 3,726 and 5,578 individuals (not including cubs; see Assessment Rationale and Supplementary Information) is the first reasonably rigorous estimate of global Tiger numbers, based largely on capture-recapture and occupancy methodologies. Based on IUCN definitions of mature individuals (which we estimate at comprising ~70% of the camera-trapped population of Tigers; see Supplementary Information), this gives an estimated range of between 2,608 and 3,905 matu",
+        "iucn_rationale": "The Tiger is listed as Endangered under criterion A2abcd. Based on the evidence of Tiger population and/or range declines across the 30-year assessment period (upper bound of GL (7-10 years)) in at least nine of the 13 countries, which had extant Tiger subpopulations at the beginning of the assessment period, we applied a conservative precautionary approach to the assessment. However, we recognize that there are several uncertainties (see below) in the available data from the past and that the c"
+      },
+      "image_url": "images/tigre_de_bali.jpg"
+    },
+    {
+      "name": "Vache de mer de Steller",
+      "date": "1768",
+      "epitaphe": "Georg Steller l'a découverte en 1741. Elle était docile, lente, et nourrissait les marins affamés pendant des semaines. En 27 ans, elle avait disparu.",
+      "composition": {
+        "couleur_dominante": "#1a2a3a",
+        "palette": [
+          "#0a1520",
+          "#2a4a60",
+          "#8ab0c0",
+          "#c0d8e0"
+        ],
+        "note_couleur": "Le bleu-noir de la mer des Béring — froide, profonde, maintenant vide de sa présence.",
+        "son": "Georg Steller décrit ses cris comme 'des soupirs'. C'est tout ce qu'on sait.",
+        "forme": "Une vague qui arrive sur un rivage des îles Commander. Il n'y a plus rien à manger dessus."
+      },
+      "cartel": {
+        "titre": "27 ans",
+        "medium": "Mer des Béring, soupirs, algues sans brouteur",
+        "note_intention": "La vitesse de la disparition est un chiffre : 27 ans. Suffisant pour qu'un enfant devienne adulte et voie la fin.",
+        "sources": [
+          "Georg Steller, De Bestiis Marinis (1751)",
+          "Leonhard Stejneger — Steller's Sea Cow (1936)"
+        ]
+      },
+      "prompt_visuel": "Cold Bering Sea waves on a basalt shore. Kelp forest visible beneath the surface, swaying gently. Nothing grazes it. The abundance has no consumer. Slate blue, deep cold.",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Adriaen_Coenen%27s_Visboeck_-_KB_78_E_54_-_folio_395v.jpg/960px-Adriaen_Coenen%27s_Visboeck_-_KB_78_E_54_-_folio_395v.jpg",
+      "name_en": "Steller's Sea Cow",
+      "epitaphe_en": "Discovered in 1741. Extinct by 1768. Twenty-seven years. It was ten metres long and had no fear of humans. That was its undoing.",
+      "iucn": {
+        "iucn_taxon_id": 10303,
+        "iucn_assessment_id": 43792683,
+        "iucn_status_code": "EX",
+        "iucn_status_fr": "Éteint",
+        "iucn_status_en": "Extinct",
+        "iucn_danger": 1.0,
+        "iucn_year": "2016",
+        "iucn_url": "https://www.iucnredlist.org/species/10303/43792683",
+        "iucn_population": "Steller's Sea Cow was discovered in 1741 in the shallow waters around the uninhabited Commander Islands. The relict Bering Island population was studied by Georg Steller (a naturalist and physician onboard Vitus Bering's ship wrecked on the island in 1741). The sea cow was an easily available source of meat and the islands became a regular stop-over and stocking up point for Russian fur hunters until 1762-1763. Ruthlessly hunted, Steller's Sea Cow was probably extinct by 1768. Turvey and Risley ",
+        "iucn_rationale": "The last population of Steller's Sea Cow was discovered by a Russian expedition wrecked on Bering Island in 1741. The genus is thought to have become extinct by 1768."
+      },
+      "image_url": "images/vache_de_mer_de_steller.jpg"
+    },
+    {
+      "name": "Perroquet de la Caroline",
+      "date": "1918",
+      "epitaphe": "Le seul perroquet indigène des États-Unis. Son plumage vert et orange était considéré comme nuisible pour les récoltes. Le dernier, nommé Incas, est mort au zoo de Cincinnati le 26 février 1918.",
+      "composition": {
+        "couleur_dominante": "#228b22",
+        "palette": [
+          "#ff8c00",
+          "#2d8b22",
+          "#ffd700",
+          "#1a3a1a"
+        ],
+        "note_couleur": "Le vert brillant et l'orange éclatant — les couleurs des tropiques au milieu de l'Amérique du Nord.",
+        "son": "Un cri strident et répété. Les fermiers les appelaient des 'pestes bruyantes'. Maintenant le silence.",
+        "forme": "Un champ de maïs vide. Les épis intacts. Plus personne pour y picorer."
+      },
+      "cartel": {
+        "titre": "Incas, Cincinnati, 1918",
+        "medium": "Vert de forêt, orange de fruit, silence agricole",
+        "note_intention": "Tué parce qu'il mangeait. Comme si la faim était un crime.",
+        "sources": [
+          "Noel Snyder, The Carolina Parakeet (2004)",
+          "Cincinnati Zoo — registres, 26 février 1918"
+        ]
+      },
+      "prompt_visuel": "An empty cornfield in autumn. Green and orange feathers scattered among the dry stalks. The sky is grey. The feathers are the only color left. Wind moves the stalks but nothing else.",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/A_history_of_North_American_birds_%288413194439%29.jpg/960px-A_history_of_North_American_birds_%288413194439%29.jpg",
+      "name_en": "Carolina Parakeet",
+      "epitaphe_en": "The only parrot native to eastern North America. Killed for its feathers, for sport, for eating crops. The last, Incas, died at Cincinnati Zoo in 1918 — in the same cage where Martha the passenger pigeon had died four years earlier.",
+      "iucn": {
+        "iucn_taxon_id": 22685776,
+        "iucn_assessment_id": 195444267,
+        "iucn_status_code": "EX",
+        "iucn_status_fr": "Éteint",
+        "iucn_status_en": "Extinct",
+        "iucn_danger": 1.0,
+        "iucn_year": "2021",
+        "iucn_url": "https://www.iucnredlist.org/species/22685776/195444267",
+        "iucn_population": "None remain.",
+        "iucn_rationale": "This species formerly occurred in southeastern USA, but it is now Extinct, primarily as a result of persecution. The last wild records are of the subspecies <span style=\"font-style: italic;\">ludoviciana</span> in 1910."
+      },
+      "image_url": "images/perroquet_de_la_caroline.jpg"
+    },
+    {
+      "name": "Loup de Falkland",
+      "date": "1876",
+      "epitaphe": "Darwin l'a rencontré en 1833 et a prédit son extinction. Il était trop curieux, trop confiant, trop facile à tuer. En 43 ans, Darwin avait raison.",
+      "composition": {
+        "couleur_dominante": "#8a7050",
+        "palette": [
+          "#c4a870",
+          "#3a2a18",
+          "#e8d0a8",
+          "#1a1008"
+        ],
+        "note_couleur": "Le brun-roux de la pampa des Malouines — un paysage ouvert où il n'y avait nulle part où se cacher.",
+        "son": "Un aboiement bref et grave. Les marins le décrivaient comme 'domestique'. Ce mot a signé son arrêt de mort.",
+        "forme": "Une île ventée. Pas un seul arbre. Nulle part où se cacher. La curiosité comme unique stratégie de survie."
+      },
+      "cartel": {
+        "titre": "Darwin avait raison",
+        "medium": "Pampa ouverte, vent des Malouines, curiosité mortelle",
+        "note_intention": "Il s'approchait des hommes. Les hommes s'en servaient contre lui.",
+        "sources": [
+          "Charles Darwin, Voyage du Beagle (1839)",
+          "Heather & Jorge Noriega — Dusicyon australis (1876)"
+        ]
+      },
+      "prompt_visuel": "Windswept Falkland Islands landscape. Tussock grass bending in the wind. A single paw print in the mud, still fresh. The horizon is empty. No trees, no shelter, no hiding.",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Dusicyon_australis_%28representaci%C3%B3n_a_trav%C3%A9s_de_Dall-e%29.png/960px-Dusicyon_australis_%28representaci%C3%B3n_a_trav%C3%A9s_de_Dall-e%29.png",
+      "name_en": "Falkland Islands Wolf",
+      "epitaphe_en": "The only land predator of the Falkland Islands. Darwin observed it was curious and unafraid of humans. Settlers exterminated it within sixty years of contact.",
+      "iucn": {
+        "iucn_taxon_id": 6923,
+        "iucn_assessment_id": 82310440,
+        "iucn_status_code": "EX",
+        "iucn_status_fr": "Éteint",
+        "iucn_status_en": "Extinct",
+        "iucn_danger": 1.0,
+        "iucn_year": "2015",
+        "iucn_url": "https://www.iucnredlist.org/species/6923/82310440",
+        "iucn_population": "<em>Dusicyon australis </em>probably reached the Falkland Islands from the mainland 480 km away during the last glacial age (Slater <em>et al</em>. 2009). A close relative, <em>D. avus</em>, may have persisted in the Pampean and Patagonian regions of Argentina until after 1500 (Prevosti <em>et al</em>. 2015). The Falklands Wolf was discovered in 1690 and was still present when Charles Darwin visited the Falklands in 1833-1834. However, the population of West Falkland was already declining rapidl",
+        "iucn_rationale": "<em>Dusicyon australis</em> was endemic to the Falkland Islands. It was discovered in 1690 and was still present when Charles Darwin visited the Falklands in 1833-1834. However, throughout the 1800s, the population declined drastically due to persecution. The last individual is believed to have been killed in 1876."
+      },
+      "image_url": "images/loup_de_falkland.jpg"
+    },
+    {
+      "name": "Éléphant nain de Sicile",
+      "date": "~5 000 av. J.-C.",
+      "epitaphe": "Un éléphant de la taille d'un poney, résultat de millénaires d'insularité. Les humains préhistoriques en ont peut-être été témoins. Peut-être même l'ont-ils connu.",
+      "composition": {
+        "couleur_dominante": "#c8a878",
+        "palette": [
+          "#8a6840",
+          "#e8cca0",
+          "#3a2818",
+          "#f8e8c8"
+        ],
+        "note_couleur": "L'ocre chaud de la Méditerranée — une couleur de calcaire blanc sous le soleil sicilien.",
+        "son": "Un barrissement miniature ? Ou quelque chose de complètement différent, que l'insularité aurait transformé ? On ne sait pas.",
+        "forme": "Un crâne d'éléphant miniature, avec une cavité nasale centrale que les anciens Grecs prenaient pour l'œil d'un cyclope."
+      },
+      "cartel": {
+        "titre": "L'œil du cyclope",
+        "medium": "Calcaire sicilien, soleil méditerranéen, mythe involontaire",
+        "note_intention": "Ses os ont peut-être créé le mythe du Cyclope. Il ne le saura jamais.",
+        "sources": [
+          "Othenio Abel — Palaeontologia (1914)",
+          "Adrienne Mayor, The First Fossil Hunters (2000)"
+        ]
+      },
+      "prompt_visuel": "A small elephant skull on white limestone. Mediterranean light, harsh and warm. The central nasal cavity looks like a single eye socket. Myth and bone. The skull is smaller than expected.",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Elephas_skeleton.JPG/330px-Elephas_skeleton.JPG",
+      "name_en": "Sicilian Dwarf Elephant",
+      "epitaphe_en": "It shrank over millennia, adapting to island life. It stood less than a metre tall. The arrival of modern humans ended 800,000 years of evolution in an eyeblink.",
+      "image_url": "images/elephant_nain_de_sicile.jpg"
+    },
+    {
+      "name": "Rhinocéros blanc du Nord",
+      "date": "2018",
+      "epitaphe": "Sudan est mort le 19 mars 2018, à 45 ans, sous surveillance armée permanente. Il était le dernier mâle. Il restait deux femelles. La sous-espèce ne peut plus se reproduire naturellement.",
+      "composition": {
+        "couleur_dominante": "#a09080",
+        "palette": [
+          "#c8b8a8",
+          "#4a3a30",
+          "#e8d8c8",
+          "#2a1e18"
+        ],
+        "note_couleur": "Le gris de la peau épaisse — une couleur qui ressemble à de la roche et qui appartenait à quelque chose de vivant.",
+        "son": "Un grognement grave. Sudan en faisait encore, vers la fin. Les gardes les ont entendus.",
+        "forme": "Une corne unique. Sur une table. Sous une vitre. Dans un laboratoire qui tente la fécondation in vitro."
+      },
+      "cartel": {
+        "titre": "Sudan, dernier mâle",
+        "medium": "Peau de roche, corne sous verre, espoir scientifique",
+        "note_intention": "Il ne savait pas qu'il était le dernier. C'est peut-être une grâce.",
+        "sources": [
+          "Ol Pejeta Conservancy, Kenya — archives (2018)",
+          "Projet BioRescue — IVF Rhinocéros blanc du Nord"
+        ]
+      },
+      "prompt_visuel": "A single rhinoceros horn on a laboratory table under clinical lighting. Next to it, a glass vial. Both objects are equally precious and equally cold. The distance between them is everything.",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Bull_white_rhinoceros_from_the_Uele_District%2C_Belgian_Congo.jpg/960px-Bull_white_rhinoceros_from_the_Uele_District%2C_Belgian_Congo.jpg",
+      "name_en": "Northern White Rhinoceros",
+      "epitaphe_en": "The last male, Sudan, died on 19 March 2018 at Ol Pejeta Conservancy in Kenya. Two females remain. The subspecies cannot reproduce naturally. It is functionally extinct.",
+      "iucn": {
+        "iucn_taxon_id": 4185,
+        "iucn_assessment_id": 45813880,
+        "iucn_status_code": "NT",
+        "iucn_status_fr": "Quasi-menacé",
+        "iucn_status_en": "Near Threatened",
+        "iucn_danger": 0.35,
+        "iucn_year": "2020",
+        "iucn_url": "https://www.iucnredlist.org/species/4185/45813880",
+        "iucn_population": "As of 31 December 2017, there were an estimated 18,064 White Rhino in the wild. The majority (99.3% ) of White Rhino occur in just five countries (South Africa, Namibia, Kenya, Botswana and Zimbabwe (Emslie<em> et al</em>. 2019 <a href=\"http://www.rhinoresourcecenter.com/pdf_files/156/1560170144.pdf\">http://www.rhinoresourcecenter.com/pdf_files/156/1560170144.pdf ). As of Dec 2008 there were an estimated 750 in captivity worldwide. Once widespread in the bushveld areas of southern Africa south o",
+        "iucn_rationale": "The reason for assessing this species as Near Threatened and not Least Concern continues to be the continued and high poaching threat and illegal demand for horn in SE Asia (especially Viet Nam and China), increased involvement of organised international criminal syndicates in rhino poaching (see Emslie <em>et al.</em> (2019)&#160;<a href=\"http://www.rhinoresourcecenter.com/pdf_files/156/1560170144.pdf\">http://www.rhinoresourcecenter.com/pdf_files/156/1560170144.pdf &#160;for further details). P"
+      },
+      "image_url": "images/rhinoceros_blanc_du_nord.jpg"
+    },
+    {
+      "name": "Guépard du Mexique",
+      "date": "~1987",
+      "epitaphe": "Une sous-espèce dont l'extinction est passée presque inaperçue. Les derniers individus ont été vus dans les années 1980. Peut-être 1987. Peut-être avant. On n'est pas sûr.",
+      "composition": {
+        "couleur_dominante": "#d4a040",
+        "palette": [
+          "#8a5010",
+          "#e8c060",
+          "#3a1a08",
+          "#f8e8a0"
+        ],
+        "note_couleur": "Le jaune-or du pelage de guépard sous le soleil mexicain — une couleur de savane qui n'a plus de porteur.",
+        "son": "Le feulement de guépard. Un son que personne au Mexique n'a entendu depuis des décennies.",
+        "forme": "Une empreinte de patte dans le sable rouge du désert de Sonora. À moitié effacée par le vent."
+      },
+      "cartel": {
+        "titre": "Peut-être 1987",
+        "medium": "Or de savane, sable rouge, date incertaine",
+        "note_intention": "Les extinctions les plus silencieuses sont celles dont on ne sait même pas quand elles ont eu lieu.",
+        "sources": [
+          "IUCN — Acinonyx jubatus somalensis",
+          "Wildlife Conservation Society — rapport Mexique (1992)"
+        ]
+      },
+      "prompt_visuel": "A half-erased paw print in red desert sand. Sonoran desert light, harsh and golden. Wind erasing the edges. The print is still there but barely. A question mark made of sand.",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Alain_Delon_1959_Rome.jpg/330px-Alain_Delon_1959_Rome.jpg",
+      "name_en": "Mexican Cheetah",
+      "epitaphe_en": "A subspecies of cheetah that once ranged across North America. Extinct for over ten thousand years. We only know it existed from bones.",
+      "iucn": {
+        "iucn_taxon_id": 219,
+        "iucn_assessment_id": 259025524,
+        "iucn_status_code": "VU",
+        "iucn_status_fr": "Vulnérable",
+        "iucn_status_en": "Vulnerable",
+        "iucn_danger": 0.55,
+        "iucn_year": "2024",
+        "iucn_url": "https://www.iucnredlist.org/species/219/259025524",
+        "iucn_population": "In a recent global assessment by Durant <em>et al.&#160;</em>(2017), the known remaining Cheetah populations were estimated to be confined to 9% of their historical distributional range. These authors estimated the Cheetah population at around 6,517 mature individuals (7,100 adult and adolescent animals) distributed over 3,100,000 km². A recent independent study by Weise <em>et al.</em> (2017), using an extensive database of georeferenced sightings, estimated the Cheetah population within the so",
+        "iucn_rationale": "The Cheetah is assessed as Vulnerable under criterion A4b based on a population size reduction of 37% (21–51%) over three generations (approximately 15 years) between 2017 and 2032 (A4b) and criterion C1 based on a global population size (tentatively estimated at 6,500 mature individuals) and a projected averaged continuing decline (C1). Data from a comprehensive national assessment in Zimbabwe, the only large area that includes protected and unprotected landscapes with reliable population estim"
+      },
+      "image_url": "images/guepard_du_mexique.jpg"
+    },
+    {
+      "name": "Crapaud de Couïs",
+      "date": "1989",
+      "epitaphe": "La première extinction mondiale documentée liée au changement climatique. Découvert en 1966. Disparu en 1989. 23 ans.",
+      "composition": {
+        "couleur_dominante": "#4a8050",
+        "palette": [
+          "#2a5030",
+          "#90c080",
+          "#c8e8b0",
+          "#1a2a18"
+        ],
+        "note_couleur": "Le vert brillant de la forêt nuageuse du Costa Rica — une couleur qui dépend d'une humidité qui disparaît.",
+        "son": "Un cri amphibien, haut et répété, que la forêt nuageuse absorbait. Le brouillard ne monte plus aussi haut.",
+        "forme": "Une goutte d'eau sur une feuille de brouillard. Elle glisse. Elle ne revient pas."
+      },
+      "cartel": {
+        "titre": "Le premier",
+        "medium": "Brouillard en recul, vert de cloud forest, humidité perdue",
+        "note_intention": "Le premier. Il y en aura d'autres.",
+        "sources": [
+          "Alan Pounds & Martha Crump — Nature (1994)",
+          "IUCN Red List — Incilius periglenes (1989)"
+        ]
+      },
+      "prompt_visuel": "Cloud forest. A single droplet of water on a leaf, about to fall. The mist is thinning at the edges of the frame. Green, luminous, but something is wrong with the light. Too dry. Too clear.",
+      "name_en": "Coui's Toad",
+      "epitaphe_en": "It lived in the highlands of Haiti. Deforestation removed everything it needed. It disappeared without documentation, without ceremony.",
+      "image_url": "images/crapaud_de_couïs.jpg"
+    },
+    {
+      "name": "Tapir des cavernes",
+      "date": "~10 000 av. J.-C.",
+      "epitaphe": "Il pesait deux tonnes et vivait dans les forêts d'Amérique du Nord. Il a survécu à la glaciation. C'est l'arrivée des humains qui l'a eu.",
+      "composition": {
+        "couleur_dominante": "#5a4030",
+        "palette": [
+          "#2a1a10",
+          "#a08060",
+          "#d4b890",
+          "#1a0e08"
+        ],
+        "note_couleur": "Le brun profond d'un animal nocturne de forêt dense — presque invisible dans l'ombre.",
+        "son": "Un sifflement aigu pour un animal aussi grand. Comme une respiration courte avant de se cacher.",
+        "forme": "Une empreinte de trois doigts dans l'argile fossile d'un lac asséché au Kentucky."
+      },
+      "cartel": {
+        "titre": "Kentucky, -10 000",
+        "medium": "Argile fossile, trois doigts, lac asséché",
+        "note_intention": "Il a survécu à la glace. Pas à nous.",
+        "sources": [
+          "Russell Graham & Ernest Lundelius — FAUNMAP (1994)",
+          "Page Museum, La Brea Tar Pits — spécimen #17824"
+        ]
+      },
+      "prompt_visuel": "Three-toed fossil impression in pale clay. The fossil is in a museum drawer. Beside it, a tiny label with a number. The scale bar shows it was enormous. The impression is all that's left of its weight.",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Galaxy_195310.jpg/330px-Galaxy_195310.jpg",
+      "name_en": "Cave Tapir",
+      "epitaphe_en": "A giant tapir that roamed South America during the Pleistocene. When the megafauna collapsed, it went with them. We know it only from fossils.",
+      "image_url": "images/tapir_des_cavernes.jpg"
+    },
+    {
+      "name": "Ibis de la Réunion",
+      "date": "~1710",
+      "epitaphe": "Un oiseau blanc endémique de l'île de la Réunion. Il n'en reste que des descriptions de marins du XVIIème siècle. Et un dessin, de mémoire, probablement inexact.",
+      "composition": {
+        "couleur_dominante": "#f0ece0",
+        "palette": [
+          "#e8e0d0",
+          "#c0b890",
+          "#4a3a20",
+          "#faf8f0"
+        ],
+        "note_couleur": "Le blanc-ivoire de l'oiseau tel que les marins s'en souvenaient — peut-être plus blanc dans le souvenir que dans la réalité.",
+        "son": "Inconnu. Les marins ne l'ont pas décrit. Peut-être qu'il ne faisait pas grand bruit.",
+        "forme": "Un dessin au trait, de mémoire, fait à bord d'un navire hollandais. Les proportions sont probablement fausses."
+      },
+      "cartel": {
+        "titre": "De mémoire, à bord",
+        "medium": "Encre sur papier marin, souvenir de marin, blanc approximatif",
+        "note_intention": "Il n'existe que dans la mémoire de quelqu'un qui l'a vu une fois et n'est jamais revenu.",
+        "sources": [
+          "Mascarene Legacy Project — archives hollandaises (1667-1710)",
+          "Storrs Olson — Smithsonian ornithological collection"
+        ]
+      },
+      "prompt_visuel": "A hasty ink sketch on yellowed ship's log paper. A white bird, proportions uncertain, drawn from memory on rough seas. The ink has spread slightly. The bird looks real and invented at the same time.",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Extinct_birds_-_an_attempt_to_unite_in_one_volume_a_short_account_of_those_birds_which_have_become_extinct_in_historical_times_-_that_is%2C_within_the_last_six_or_seven_hundred_years_-_to_which_are_%2814564153928%29.jpg/960px-thumbnail.jpg",
+      "name_en": "Réunion Ibis",
+      "epitaphe_en": "It lived only on the island of Réunion. Sailors ate it. Rats took its eggs. By the early 1700s, it was gone. No naturalist ever saw it alive.",
+      "iucn": {
+        "iucn_taxon_id": 22728791,
+        "iucn_assessment_id": 262272153,
+        "iucn_status_code": "EX",
+        "iucn_status_fr": "Éteint",
+        "iucn_status_en": "Extinct",
+        "iucn_danger": 1.0,
+        "iucn_year": "2024",
+        "iucn_url": "https://www.iucnredlist.org/species/22728791/262272153",
+        "iucn_population": "No extant population remains.",
+        "iucn_rationale": "This species was found on Réunion Island, but became Extinct sometime in the early to mid 1700s. Hunting and introduced predators are likely to have driven its decline."
+      },
+      "image_url": "images/ibis_de_la_reunion.jpg"
+    },
+    {
+      "name": "Dauphin marin de Maui",
+      "date": "2020 (critique)",
+      "epitaphe": "Sous-espèce du dauphin de Hector, endémique de la côte ouest de la Nouvelle-Zélande. Moins de 50 individus. Chaque filet de pêche est une loterie.",
+      "composition": {
+        "couleur_dominante": "#1a5a8a",
+        "palette": [
+          "#0a2a4a",
+          "#2080b0",
+          "#90c8e0",
+          "#c0e8f8"
+        ],
+        "note_couleur": "Le bleu de la côte néo-zélandaise — froid, propre, mais chaque année un peu plus silencieux.",
+        "son": "Des clics d'écholocation haute fréquence — les plus aigus de tous les dauphins. Moins de 50 voix.",
+        "forme": "Une bouée de filet qui flotte à la surface. En dessous, rien."
+      },
+      "cartel": {
+        "titre": "Moins de 50 voix",
+        "medium": "Haute fréquence, Tasman Sea, filet de pêche",
+        "note_intention": "Il est encore vivant. C'est pour ça que c'est plus difficile à regarder.",
+        "sources": [
+          "New Zealand Department of Conservation — rapport 2020",
+          "IUCN — Cephalorhynchus hectori maui (CR)"
+        ]
+      },
+      "prompt_visuel": "A single orange fishing buoy floating on cold blue-grey New Zealand waters. Below the surface, blue emptiness. The buoy is bright. Everything else is absence. The ocean is very still.",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Hector%27s_Dolphin_%28Cephalorhynchus_hectori%29_-_Gregory_Slobirdr_Smith_-_brighter.jpg/330px-Hector%27s_Dolphin_%28Cephalorhynchus_hectori%29_-_Gregory_Slobirdr_Smith_-_brighter.jpg",
+      "name_en": "Maui's Dolphin",
+      "epitaphe_en": "The world's smallest and rarest dolphin. Found only off the west coast of New Zealand's North Island. Gillnets and trawling destroyed what little remained.",
+      "iucn": {
+        "iucn_taxon_id": 4162,
+        "iucn_assessment_id": 44199757,
+        "iucn_status_code": "EN",
+        "iucn_status_fr": "En danger",
+        "iucn_status_en": "Endangered",
+        "iucn_danger": 0.75,
+        "iucn_year": "2013",
+        "iucn_url": "https://www.iucnredlist.org/species/4162/44199757",
+        "iucn_population": "Studies of mitochondrial and nuclear DNA show that North Island Hector's dolphins are genetically distinct from any of the South Island subpopulations, with no overlap of maternal lineages between them (Pichler <em>et al</em>. 1998). Such differences over such a small geographic scale have not been observed in any other genetic studies of marine mammals (Dawson <em>et al</em>. 2001). Recent surveys indicate that the South Island Hector’s dolphin populations collectively number about 7,270 indivi",
+        "iucn_rationale": "This species is considered to be Endangered A4d due to an ongoing and projected decline of greater than 50% over 3 generations (approx. 39 years, Slooten <em>et al</em>. 2000) considering both the past and the future. It is also important to consider that although its extent of occurrence and area of occupancy likely exceed the thresholds for criteria B1, B2 and D2, Hector’s Dolphin has the most limited range of any marine cetacean other than the Vaquita (<em>Phocoena sinus</em>). In a populatio"
+      },
+      "image_url": "images/dauphin_marin_de_maui.jpg"
+    },
+    {
+      "name": "Carpocapse du Paradis",
+      "date": "~1930",
+      "epitaphe": "Un papillon de Madagascar. Il avait des ailes couleur de ciel au crépuscule. On ne sait presque rien de lui. Peut-être éteint. Peut-être pas. Personne ne cherche vraiment.",
+      "composition": {
+        "couleur_dominante": "#4040a0",
+        "palette": [
+          "#8080c0",
+          "#c0c0e8",
+          "#2020608",
+          "#e0e0f8"
+        ],
+        "note_couleur": "Le violet-bleu des ailes au crépuscule malgache — une couleur entre deux états du ciel.",
+        "son": "Le battement d'ailes d'un papillon est inaudible. C'est peut-être pour ça qu'on ne l'a pas entendu partir.",
+        "forme": "Une boîte entomologique. Un épingle. Un espace vide à côté d'une étiquette décolorée."
+      },
+      "cartel": {
+        "titre": "Peut-être éteint",
+        "medium": "Violet crépusculaire, boîte entomologique vide, incertitude",
+        "note_intention": "L'incertitude est une forme d'extinction aussi.",
+        "sources": [
+          "L. Paulian — Faune de Madagascar (1951)",
+          "GBIF — Carpocapsa paradisea : données : 1 occurrence, 1928"
+        ]
+      },
+      "prompt_visuel": "An entomologist's box, glass lid. Most pins hold specimens. One pin holds nothing — just empty white padding. A faded label reads a name. The other butterflies are still colorful. This one space is not.",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Cleaned-Illustration_Malus_domestica.jpg/330px-Cleaned-Illustration_Malus_domestica.jpg",
+      "name_en": "Paradise Parrot",
+      "epitaphe_en": "Its plumage was a fire no one thought to protect. It vanished into the Queensland scrub, one bird at a time, until there were none.",
+      "iucn": {
+        "iucn_taxon_id": 22685156,
+        "iucn_assessment_id": 238869019,
+        "iucn_status_code": "EX",
+        "iucn_status_fr": "Éteint",
+        "iucn_status_en": "Extinct",
+        "iucn_danger": 1.0,
+        "iucn_year": "2023",
+        "iucn_url": "https://www.iucnredlist.org/species/22685156/238869019",
+        "iucn_population": "None remain.",
+        "iucn_rationale": "This species was formerly found in eastern Australia, but it is now Extinct owing mainly to drought and overgrazing. It has not been recorded since 1927."
+      },
+      "image_url": "images/carpocapse_du_paradis.jpg"
+    },
+    {
+      "name": "Tortue géante de Pinta",
+      "date": "2012",
+      "epitaphe": "Lonesome George est mort le 24 juin 2012, à l'âge estimé de 100 ans. Malgré des décennies d'efforts, aucun partenaire compatible n'a été trouvé. Il était seul depuis 40 ans.",
+      "composition": {
+        "couleur_dominante": "#5a4830",
+        "palette": [
+          "#2a1e10",
+          "#8a7050",
+          "#c4a870",
+          "#e8d0a8"
+        ],
+        "note_couleur": "Le brun-olive de la carapace — une couleur qui a survécu à tout sauf à la solitude.",
+        "son": "Un sifflement grave lors de la respiration. George le faisait encore jusqu'à la fin.",
+        "forme": "Une carapace vide, posée au soleil. Les Galápagos continuent de tourner autour du soleil. La carapace, non."
+      },
+      "cartel": {
+        "titre": "Lonesome George",
+        "medium": "Carapace centenaire, solitude de 40 ans, soleil des Galápagos",
+        "note_intention": "Il a attendu 40 ans. Rien n'est venu. Il a quand même attendu.",
+        "sources": [
+          "Charles Darwin Research Station — archives George (1972-2012)",
+          "Henry Nicholls, Lonesome George (2006)"
+        ]
+      },
+      "prompt_visuel": "An empty tortoise shell on black volcanic rock. Galapagos sunlight, harsh and direct. The shell is enormous and deeply old. The volcanic landscape continues endlessly. The shell doesn't move. It waited.",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/5/54/Chelonoidis_abingdoni_Lonesome_George_CDRS.jpg",
+      "name_en": "Pinta Island Tortoise",
+      "epitaphe_en": "Lonesome George, the last of his kind, died on 24 June 2012. He was over 100 years old. For decades he was the rarest creature on earth. He died without offspring.",
+      "iucn": {
+        "iucn_taxon_id": 9017,
+        "iucn_assessment_id": 217759270,
+        "iucn_status_code": "EX",
+        "iucn_status_fr": "Éteint",
+        "iucn_status_en": "Extinct",
+        "iucn_danger": 1.0,
+        "iucn_year": "2022",
+        "iucn_url": "https://www.iucnredlist.org/species/9017/217759270",
+        "iucn_population": "Based on an estimated average density of one tortoise per hectare of suitable habitat, the pre-impact population was estimated to have been about 2,500 adults (Gibbs, unpubl. data). The Pinta Giant Tortoise was heavily exploited and its population collapsed in the middle of the 19<sup>th </sup>century,&#160;followed by significant collecting in the late 19<sup>th</sup> and early 20<sup>th</sup> centuries and exploitation by local fishermen subsequently. The last surviving animal, Lonesome George",
+        "iucn_rationale": "With the death of the last known Pinta Tortoise, Lonesome George (in captivity since 1972), on 24 June 2012, the species went extinct. Extensive surveys have failed to find other tortoises on Pinta or in any of the world’s zoos. Tortoises with up to 50%&#160;<em>abingdonii</em>&#160;genes have been reported from Volcán Wolf on northern Isabela, including first generation hybrids, but no pure individuals of&#160;<em>abingdonii</em>&#160;are known to exist (TEWG, 2015).&#160;This assessment incorp"
+      },
+      "image_url": "images/tortue_geante_de_pinta.jpg"
+    },
+    {
+      "name": "Loup rouge",
+      "date": "1980 (sauvage)",
+      "epitaphe": "Déclaré éteint à l'état sauvage en 1980. Réintroduit en 1987. Aujourd'hui moins de 20 individus sauvages. La ligne est fine entre la disparition et la survie.",
+      "composition": {
+        "couleur_dominante": "#8a5030",
+        "palette": [
+          "#4a2818",
+          "#c48060",
+          "#e8c0a0",
+          "#2a1008"
+        ],
+        "note_couleur": "Le roux-cannelle du pelage — une couleur entre le gris du loup gris et le brun du renard.",
+        "son": "Un hurlement plus haut que celui du loup gris. Moins de 20 voix pour le faire.",
+        "forme": "Un enclos grillagé dans le North Carolina. À l'intérieur, quelque chose qui ressemble à de la liberté sans l'être tout à fait."
+      },
+      "cartel": {
+        "titre": "Moins de 20 voix",
+        "medium": "Roux de lisière, enclos de réintroduction, espoir prudent",
+        "note_intention": "Il est revenu. À peine. Pour combien de temps ?",
+        "sources": [
+          "US Fish & Wildlife Service — Red Wolf Recovery Program (1987)",
+          "Canis rufus — IUCN CR (2020)"
+        ]
+      },
+      "prompt_visuel": "Chain-link fence in a Carolina pine forest at dusk. Beyond the fence, a reddish shape moving in the shadows — barely visible. The fence separates two kinds of existence. The shape is going away.",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/07-03-23RedWolfAlbanyGAChehaw.jpg/960px-07-03-23RedWolfAlbanyGAChehaw.jpg",
+      "name_en": "Red Wolf",
+      "epitaphe_en": "Declared extinct in the wild in 1980. Reintroduced in North Carolina in 1987. Poaching and habitat loss pushed it back to the edge. Perhaps seventeen remain in the wild today.",
+      "iucn": {
+        "iucn_taxon_id": 3747,
+        "iucn_assessment_id": 163509841,
+        "iucn_status_code": "CR",
+        "iucn_status_fr": "Critique",
+        "iucn_status_en": "Critically Endangered",
+        "iucn_danger": 0.95,
+        "iucn_year": "2018",
+        "iucn_url": "https://www.iucnredlist.org/species/3747/163509841",
+        "iucn_population": "Free-ranging Red Wolves exist only in a reintroduced population in eastern North Carolina, USA. The Red Wolf had been reintroduced to this area in 1987 and within 15 years it had grown to occupy federal, state, and private lands to the west of mainland Dare County. Chronic concerns over Red Wolves hybridizing with Coyotes and Red Wolf/Coyote hybrids and increasing conflict with landowners, prompted the USFWS to consider restricting the Red Wolf restoration effort to federal lands in mainland Dar",
+        "iucn_rationale": "The Red Wolf was Extinct in the Wild by 1980, but was reintroduced by the United States Fish and Wildlife Service (USFWS) in 1987 into eastern North Carolina. By the early 2000s the total population within the reintroduction area included more than 150 animals. By 2016, the USFWS began restricting the reintroduction effort to federal public land in mainland Dare County, North Carolina (i.e., the Alligator River National Wildlife Refuge and Dare County Bombing Range). This ~ 800 km² area can supp"
+      },
+      "image_url": "images/loup_rouge.jpg"
+    },
+    {
+      "name": "Hirondelle de mer de Maui",
+      "date": "~1900",
+      "epitaphe": "Un oiseau de mer hawaïen dont il ne reste qu'un spécimen dans un musée à Berlin. Aucune photo. Aucune description détaillée. Presque rien.",
+      "composition": {
+        "couleur_dominante": "#c0c8d0",
+        "palette": [
+          "#8090a0",
+          "#e0e8f0",
+          "#2a3040",
+          "#f8f8f8"
+        ],
+        "note_couleur": "Le gris-blanc de l'oiseau de mer — une couleur du ciel et de l'écume.",
+        "son": "Inconnu. Complètement inconnu.",
+        "forme": "Un spécimen naturalisé dans un tiroir. Musée für Naturkunde, Berlin. Tiroir 47B. L'étiquette est en allemand."
+      },
+      "cartel": {
+        "titre": "Tiroir 47B, Berlin",
+        "medium": "Gris de mer, spécimen unique, étiquette allemande",
+        "note_intention": "Il n'existe que dans ce tiroir. C'est suffisant pour savoir qu'il existait.",
+        "sources": [
+          "Museum für Naturkunde Berlin — Pterodroma sandwichensis, spécimen unique",
+          "Harrison, P. — Seabirds (1983)"
+        ]
+      },
+      "prompt_visuel": "Museum drawer opening to reveal a single grey-white bird specimen on white cotton. A small handwritten German label attached to its leg. The drawer is otherwise empty. Institutional lighting. One thing remains.",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Oceania_%28centered_orthographic_projection%29.svg/330px-Oceania_%28centered_orthographic_projection%29.svg.png",
+      "name_en": "Maui Sea Swallow",
+      "epitaphe_en": "A seabird of the Hawaiian Islands, vanished before it could be properly documented. Its existence is known only through subfossil bones found in cave sediments.",
+      "iucn": {
+        "iucn_taxon_id": 22694794,
+        "iucn_assessment_id": 168889812,
+        "iucn_status_code": "LC",
+        "iucn_status_fr": "Préoccupation mineure",
+        "iucn_status_en": "Least Concern",
+        "iucn_danger": 0.15,
+        "iucn_year": "2020",
+        "iucn_url": "https://www.iucnredlist.org/species/22694794/168889812",
+        "iucn_population": "The global population is estimated to number c.1,200,000-2,100,000 individuals (Wetlands International 2020), which roughly equates to 800,000-1,400,000 mature individuals.",
+        "iucn_rationale": "This species has an extremely large range, and hence does not approach the thresholds for Vulnerable under the range size criterion (Extent of Occurrence &lt;20,000 km<sup>2</sup> combined with a declining or fluctuating range size, habitat extent/quality, or population size and a small number of locations or severe fragmentation). The population trend appears to be stable, and hence the species does not approach the thresholds for Vulnerable under the population trend criterion (&gt;30% decline"
+      },
+      "image_url": "images/hirondelle_de_mer_de_maui.jpg"
+    },
+    {
+      "name": "Grand Pingouin",
+      "date": "1844",
+      "description": "Pinguinus impennis. Le dernier couple tué sur l'île d'Eldey le 3 juillet 1844. Ne volait pas. Vivait dans l'Atlantique Nord. Exterminé pour ses plumes, sa graisse et comme appât. Sa disparition est l'une des premières extinctions documentées par des témoins oculaires.",
+      "epitaphe": "Tu portais le nom que d'autres ont volé. Debout sur les rochers d'Eldey, tu as regardé venir les hommes. Ils ont noté la date. Le 3 juillet 1844, l'Atlantique Nord est devenu plus silencieux.",
+      "composition": {
+        "couleur_dominante": "#1a2639",
+        "palette": [
+          "#1a2639",
+          "#d4d4d4",
+          "#3d5a80"
+        ],
+        "note_couleur": "Le bleu-noir des eaux profondes où tu plongeais, le gris des ciels bas, le blanc sale des embruns sur basalte.",
+        "son": "Un grognement rauque, bas, répété. Comme une porte qui grince dans le vent. Puis un silence d'eau qui se referme.",
+        "forme": "Une stèle de basalte poli, froide au toucher. Deux empreintes de pattes palmées creusées dans la pierre, orientées vers la mer. Rien d'autre."
+      },
+      "cartel": {
+        "titre": "Eldey, 15h",
+        "medium": "Basalte, absence, coordonnées géographiques",
+        "note_intention": "L'heure n'existe pas. Mais quelqu'un a dû regarder sa montre. Cette précision obscène méritait une forme nue.",
+        "sources": [
+          "Fuller, E. (1999). The Great Auk. Harry N. Abrams.",
+          "Bengtson, S.A. (1984). Breeding ecology of the Great Auk. The Auk, 101(1)."
+        ]
+      },
+      "prompt_visuel": "Abstract seascape, North Atlantic cold grey, deep navy blue water surface, single vertical black basalt column emerging from still ocean, overcast sky merging with horizon, no birds, profound stillness, muted palette, film grain, melancholic atmosphere, negative space, 1844",
+      "image_url": "images/grand_pingouin.jpg",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Alca_impennisAMF064LB.png",
+      "name_en": "Great Auk",
+      "epitaphe_en": "It did not fly. It did not need to — the sea was enough. Men came with clubs on 3 July 1844. The last pair was killed on the island of Eldey. We know the names of the men.",
+      "iucn": {
+        "iucn_taxon_id": 22694856,
+        "iucn_assessment_id": 205919631,
+        "iucn_status_code": "EX",
+        "iucn_status_fr": "Éteint",
+        "iucn_status_en": "Extinct",
+        "iucn_danger": 1.0,
+        "iucn_year": "2021",
+        "iucn_url": "https://www.iucnredlist.org/species/22694856/205919631",
+        "iucn_population": "No extant population remains.",
+        "iucn_rationale": "This species was formerly distributed across the north Atlantic, but is now Extinct as a result of hunting pressure. The last live bird was seen in 1852."
+      }
+    },
+    {
+      "name": "Auroch",
+      "date": "1627",
+      "description": "Bos primigenius. Ancêtre sauvage de tous les bovins domestiques. Le dernier mourut en forêt de Jaktorów, Pologne, en 1627 — une femelle, seule. Animal de 1000 kg, cornes en lyre, pelage brun sombre. Chassé depuis la préhistoire, représenté dans les grottes de Lascaux. Sa domestication a transformé le monde — et sa lignée sauvage a disparu, remplacée par ses descendants domestiqués.",
+      "epitaphe": "Elle portait en elle trente mille ans de steppes et de forêts. Ses ancêtres couraient sur les parois de Lascaux, ocre et souffle dans la pierre. En 1627, dans une clairière polonaise, la dernière s'est couchée. Le monde entier descend d'elle — mais personne ne lui ressemble plus.",
+      "composition": {
+        "couleur_dominante": "#2C1810",
+        "palette": [
+          "#8B4513",
+          "#D4A574",
+          "#1a1a1a"
+        ],
+        "note_couleur": "Brun de terre brûlée, ocre des grottes, noir de charbon. Les couleurs qu'on utilisait pour la peindre il y a 17 000 ans.",
+        "son": "Un souffle grave et lent, presque un grondement sourd qui monte de la cage thoracique. Pas un meuglement — quelque chose de plus ancien, de plus profond. Le son d'un animal qui n'a jamais eu à obéir.",
+        "forme": "Une empreinte creuse dans de l'argile crue, à l'échelle 1:1. La forme d'un corps absent. On pourrait y passer la main et sentir le vide qu'elle a laissé."
+      },
+      "cartel": {
+        "titre": "Ce que nous avons gardé d'elle",
+        "medium": "Terre, absence, pigments préhistoriques, silence",
+        "note_intention": "Nous l'avons domestiquée, multipliée, transformée en millions de versions dociles. Mais la chose sauvage — celle qui existait avant nous — on l'a laissée mourir seule.",
+        "sources": [
+          "Grotte de Lascaux, panneau des Taureaux",
+          "The Aurochs and the Ox, Cis van Vuure, 2005"
+        ]
+      },
+      "prompt_visuel": "Abstract composition of deep burnt umber and ochre pigments bleeding into raw clay texture. A hollow negative space at center, shaped like breath leaving a body. Charcoal black edges fading into prehistoric cave wall grain. Atmosphere of ancient weight and final solitude. No animal form. Only the impression of something massive that was here and is not anymore.",
+      "image_url": "images/auroch.jpg",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/1/17/Aurochs_at_Le_Thot.jpg",
+      "name_en": "Aurochs",
+      "epitaphe_en": "The wild ancestor of all domestic cattle. Its last stronghold was the forests of Poland. The last cow died in 1627. A royal decree had tried to protect it. It was too late.",
+      "iucn": {
+        "iucn_taxon_id": 136721,
+        "iucn_assessment_id": 237471616,
+        "iucn_status_code": "EX",
+        "iucn_status_fr": "Éteint",
+        "iucn_status_en": "Extinct",
+        "iucn_danger": 1.0,
+        "iucn_year": "2023",
+        "iucn_url": "https://www.iucnredlist.org/species/136721/237471616",
+        "iucn_population": "There is no information on former population size.",
+        "iucn_rationale": "<em>Bos primigenius</em> is globally Extinct. The North African subspecies <em>B. p. mauritanicus </em>and South Asian subspecies <em>B. p. namadicus</em> both became extinct in the early Holocene. The Eurasian subspecies <em>B. p. primigenius </em>became extinct across most of Europe before the year 1500 CE but persisted in Poland until 1627 CE and in Romania and Bulgaria until the mid-17th or early 18th centuries."
+      }
+    },
+    {
+      "name": "Mammouth laineux",
+      "date": "~3700 av. J.-C.",
+      "epitaphe": "Tu portais le froid comme un manteau. Quand la terre a changé de saison, tu n'as pas su te défaire de ce qui t'avait protégé. Sur une île au bout du monde, les derniers d'entre vous ont attendu. Le sol garde encore la forme de vos pas.",
+      "composition": {
+        "couleur_dominante": "#4A3728",
+        "palette": [
+          "#C9B8A3",
+          "#1E3A4C",
+          "#8B7355"
+        ],
+        "note_couleur": "Brun profond de laine terreuse, ivoire pâli par les millénaires, bleu-gris du permafrost qui conserve ce qui devrait avoir disparu.",
+        "son": "Un souffle grave et long, comme un vent qui passerait à travers une caverne de glace. Pas un barrissement — plutôt une vibration sourde, celle d'un corps massif qui respire dans le silence arctique. Le son qu'on entend peut-être encore, piégé dans les bulles d'air du permafrost.",
+        "forme": "Un monolithe de feutre épais, dense et rêche au toucher, posé sur un socle de glace artificielle qui fond imperceptiblement. La forme s'affaisse avec le temps. On ne peut pas l'arrêter."
+      },
+      "cartel": {
+        "titre": "Ce que le gel n'a pas su garder",
+        "medium": "Feutre, glace fondante, basse fréquence continue",
+        "note_intention": "Le mammouth est l'animal qu'on refuse de laisser partir. On le clone en rêve, on le déterre intact. Cette œuvre accepte ce que nous refusons : que la conservation soit aussi une forme de disparition.",
+        "sources": [
+          "Vartanyan, S.L. et al. (1993). Holocene dwarf mammoths from Wrangel Island in the Siberian Arctic. Nature.",
+          "Lyuba, spécimen de mammouth laineux découvert en 2007, Musée Shemanovsky, Russie"
+        ]
+      },
+      "prompt_visuel": "A vast textured surface of matted brown fibers, dense and heavy, slowly dissolving at its edges into pale mist. Deep arctic blue seeping through cracks like frozen breath. The weight of something ancient pressing down. Stillness that remembers movement. Erosion as tenderness. Raw wool meeting ice meeting absence. Monument becoming sediment.",
+      "image_url": "images/mammouth_laineux.jpg"
+    }
+  ]
+}
