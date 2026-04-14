@@ -408,41 +408,6 @@
       margin: 6px 3px;
     }
 
-    /* ── ARK EDITOR ── */
-    #ark-editor {
-      position: fixed;
-      bottom: 32px;
-      left: 48px;
-      z-index: 10;
-      font-family: 'Cormorant', serif;
-    }
-    #ark-editor-toggle {
-      width: 100%;
-      font-family: 'Cormorant', serif;
-      font-size: 9px;
-      letter-spacing: 0.42em;
-      text-transform: uppercase;
-      color: rgba(200, 132, 58, 0.3);
-      cursor: pointer;
-      background: rgba(2,8,16,0.75);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 4px;
-      padding: 10px 14px;
-      text-align: left;
-      transition: all 0.2s;
-      backdrop-filter: blur(4px);
-    }
-    #ark-editor-toggle:hover { color: rgba(200,132,58,0.7); border-color: rgba(200,132,58,0.25); }
-    #ark-editor-body {
-      display: none;
-      background: rgba(2,6,14,0.95);
-      border: 1px solid rgba(200,132,58,0.1);
-      border-bottom: none;
-      padding: 16px 18px 12px;
-      width: 272px;
-      border-radius: 4px 4px 0 0;
-    }
-    #ark-editor-body.open { display: block; }
     .ark-row {
       display: flex;
       align-items: center;
@@ -999,21 +964,6 @@
     </div>
   </div>
 
-  <div id="ark-editor">
-    <div id="ark-editor-body">
-      <div id="fb-status" style="font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(200,132,58,0.5);margin-bottom:10px">Nouveau bateau</div>
-      <button id="fb-select-toggle" style="width:100%;margin-bottom:10px;background:none;border:1px solid rgba(255,255,255,0.1);border-radius:3px;color:rgba(255,255,255,0.35);font-family:Cormorant,serif;font-size:9px;letter-spacing:0.32em;text-transform:uppercase;padding:9px;cursor:pointer;transition:all 0.2s">↖ Cliquer pour sélectionner</button>
-      <div class="ark-row"><label>X</label><input type="range" id="fb-px" min="-60" max="60" value="0" step="0.5"><span id="fv-px">0.00</span></div>
-      <div class="ark-row"><label>Y</label><input type="range" id="fb-py" min="-22" max="0" value="-10" step="0.25"><span id="fv-py">-10.00</span></div>
-      <div class="ark-row"><label>Z</label><input type="range" id="fb-pz" min="-60" max="60" value="0" step="0.5"><span id="fv-pz">0.00</span></div>
-      <div class="ark-row"><label>Rot X</label><input type="range" id="fb-rx" min="-1.6" max="1.6" value="0" step="0.01"><span id="fv-rx">0.00</span></div>
-      <div class="ark-row"><label>Rot Y</label><input type="range" id="fb-ry" min="0" max="6.28" value="0" step="0.05"><span id="fv-ry">0.00</span></div>
-      <div class="ark-row"><label>Rot Z</label><input type="range" id="fb-rz" min="-1.6" max="1.6" value="0" step="0.01"><span id="fv-rz">0.00</span></div>
-      <button id="fb-copy" style="width:100%;margin-top:4px;background:none;border:1px solid rgba(200,132,58,0.15);border-radius:3px;color:rgba(200,132,58,0.35);font-family:Cormorant,serif;font-size:9px;letter-spacing:0.32em;text-transform:uppercase;padding:9px;cursor:pointer;transition:all 0.2s">⎘ Copier les coordonnées</button>
-      <button id="fb-delete" style="width:100%;margin-top:6px;background:none;border:1px solid rgba(180,60,60,0.2);border-radius:3px;color:rgba(200,80,80,0.4);font-family:Cormorant,serif;font-size:9px;letter-spacing:0.32em;text-transform:uppercase;padding:9px;cursor:pointer;transition:all 0.2s">✕ Supprimer ce bateau</button>
-    </div>
-    <button id="ark-editor-toggle">⚓ &nbsp;Placer des bateaux</button>
-  </div>
 
 
   <div id="controls">
@@ -2253,135 +2203,7 @@
     document.getElementById('panel-artifact-text').innerHTML = cartelHtml || t('noArtwork');
   });
 
-  // ── BOAT POSITIONER ───────────────────────────────────────────
   let placingMode = false;
-  let selectMode  = false;
-  window._activeBoat   = null; // bateau en cours d'édition
-  window._previewBoat  = null;
-
-  document.getElementById('ark-editor-toggle').addEventListener('click', () => {
-    document.getElementById('ark-editor-body').classList.toggle('open');
-    if (!window._previewBoat && window._boatTemplate) spawnPreviewBoat();
-  });
-
-  function spawnPreviewBoat() {
-    const b = window._boatTemplate.clone();
-    b.traverse(c => {
-      if (c.isMesh) {
-        c.material = new THREE.MeshStandardMaterial({
-          color: 0xffffff, roughness: 0.85, metalness: 0,
-          emissive: new THREE.Color(1, 1, 1), emissiveIntensity: 0.9
-        });
-        c.userData = { type: 'floor_decor' };
-      }
-    });
-    b.position.set(0, -10, 0);
-    b.scale.setScalar(1.4);
-    scene.add(b);
-    window._previewBoat = b;
-    setActiveBoat(b, 'Nouveau bateau');
-  }
-
-  function setActiveBoat(boat, label) {
-    // Désélectionner l'ancien
-    if (window._activeBoat && window._activeBoat !== window._previewBoat) {
-      window._activeBoat.traverse(c => { if (c.isMesh) c.material.emissiveIntensity = 0.8; });
-    }
-    window._activeBoat = boat;
-    document.getElementById('fb-status').textContent = label || 'Bateau sélectionné';
-    // Mettre à jour les sliders
-    const set = (id, vid, val) => {
-      document.getElementById(id).value = val;
-      document.getElementById(vid).textContent = val.toFixed(2);
-    };
-    set('fb-px', 'fv-px', boat.position.x);
-    set('fb-py', 'fv-py', boat.position.y);
-    set('fb-pz', 'fv-pz', boat.position.z);
-    set('fb-rx', 'fv-rx', boat.rotation.x);
-    set('fb-ry', 'fv-ry', boat.rotation.y);
-    set('fb-rz', 'fv-rz', boat.rotation.z);
-    // Surligner
-    boat.traverse(c => { if (c.isMesh) c.material.emissiveIntensity = 1.4; });
-  }
-
-  // Mode sélection
-  const selBtn = document.getElementById('fb-select-toggle');
-  selBtn.addEventListener('click', () => {
-    selectMode = !selectMode;
-    selBtn.textContent = selectMode ? '■ Annuler sélection' : '↖ Cliquer pour sélectionner';
-    selBtn.style.color = selectMode ? 'rgba(200,132,58,0.85)' : 'rgba(255,255,255,0.35)';
-    selBtn.style.borderColor = selectMode ? 'rgba(200,132,58,0.4)' : 'rgba(255,255,255,0.1)';
-    canvas.style.cursor = selectMode ? 'crosshair' : 'grab';
-  });
-
-  function bindFbSlider(id, valId, apply) {
-    const input = document.getElementById(id);
-    const valEl = document.getElementById(valId);
-    input.addEventListener('input', () => {
-      const v = parseFloat(input.value);
-      valEl.textContent = v.toFixed(2);
-      if (window._activeBoat) apply(window._activeBoat, v);
-    });
-  }
-  bindFbSlider('fb-px', 'fv-px', (b, v) => { b.position.x = v; });
-  bindFbSlider('fb-py', 'fv-py', (b, v) => { b.position.y = v; });
-  bindFbSlider('fb-pz', 'fv-pz', (b, v) => { b.position.z = v; });
-  bindFbSlider('fb-rx', 'fv-rx', (b, v) => { b.rotation.x = v; });
-  bindFbSlider('fb-ry', 'fv-ry', (b, v) => { b.rotation.y = v; });
-  bindFbSlider('fb-rz', 'fv-rz', (b, v) => { b.rotation.z = v; });
-
-  document.getElementById('fb-delete').addEventListener('click', () => {
-    const b = window._activeBoat;
-    if (!b) return;
-    scene.remove(b);
-    // Retirer de _floorBoats si c'est un bateau hardcodé
-    if (window._floorBoats) {
-      const idx = window._floorBoats.findIndex(fb => fb.group === b);
-      if (idx !== -1) window._floorBoats.splice(idx, 1);
-    }
-    // Si c'était le preview, le recréer
-    if (b === window._previewBoat) window._previewBoat = null;
-    window._activeBoat = null;
-    document.getElementById('fb-status').textContent = 'Aucun bateau sélectionné';
-  });
-
-  document.getElementById('fb-copy').addEventListener('click', () => {
-    const b = window._activeBoat;
-    if (!b) return;
-    const txt = `{ x: ${b.position.x.toFixed(2)}, y: ${b.position.y.toFixed(2)}, z: ${b.position.z.toFixed(2)}, rx: ${b.rotation.x.toFixed(2)}, ry: ${b.rotation.y.toFixed(2)}, rz: ${b.rotation.z.toFixed(2)} }`;
-    navigator.clipboard.writeText(txt).then(() => {
-      const btn = document.getElementById('fb-copy');
-      btn.textContent = '✓ Copié';
-      setTimeout(() => { btn.textContent = '⎘ Copier les coordonnées'; }, 2200);
-    });
-  });
-
-  // Sélection par clic sur un bateau au sol
-  canvas.addEventListener('click', e => {
-    if (!selectMode || mouseMoveDist > 5) return;
-    const sx = (e.clientX / window.innerWidth) * 2 - 1;
-    const sy = -(e.clientY / window.innerHeight) * 2 + 1;
-    const selRay = new THREE.Raycaster();
-    selRay.setFromCamera(new THREE.Vector2(sx, sy), camera);
-    // Collecter tous les meshes floor_decor
-    const decalMeshes = [];
-    (window._floorBoats || []).forEach(b => decalMeshes.push(...b.meshes));
-    if (window._previewBoat) window._previewBoat.traverse(c => { if (c.isMesh) decalMeshes.push(c); });
-    const hits = selRay.intersectObjects(decalMeshes);
-    if (!hits.length) return;
-    const hit = hits[0].object;
-    const idx = hit.userData.floorIdx;
-    if (idx !== undefined && window._floorBoats[idx]) {
-      setActiveBoat(window._floorBoats[idx].group, `Bateau #${idx + 1}`);
-    } else if (window._previewBoat) {
-      setActiveBoat(window._previewBoat, 'Nouveau bateau');
-    }
-    selectMode = false;
-    selBtn.textContent = '↖ Cliquer pour sélectionner';
-    selBtn.style.color = 'rgba(255,255,255,0.35)';
-    selBtn.style.borderColor = 'rgba(255,255,255,0.1)';
-    canvas.style.cursor = 'grab';
-  });
 
 
   // ── BUTTON CONTROLS ───────────────────────────────────────────
