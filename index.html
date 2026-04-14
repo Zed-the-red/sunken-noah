@@ -1,0 +1,2628 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Sunken Noah</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #020810; overflow: hidden; cursor: grab; }
+    body:active { cursor: grabbing; }
+    canvas { display: block; }
+
+    /* ── HEADER ── */
+    #title {
+      position: fixed;
+      top: 32px;
+      left: 48px;
+      color: rgba(255,255,255,0.22);
+      font-family: 'Cormorant', serif;
+      font-size: 28px;
+      font-weight: 300;
+      font-style: italic;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      pointer-events: none;
+    }
+
+    #counter {
+      position: fixed;
+      top: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    #counter .num {
+      font-family: 'Cormorant', serif;
+      font-size: 42px;
+      font-weight: 300;
+      color: rgba(200, 132, 58, 0.55);
+      line-height: 1;
+    }
+    #counter .label {
+      font-family: 'Cormorant', serif;
+      font-size: 9px;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.16);
+      margin-top: 4px;
+    }
+
+    /* ── LANG SWITCHER ── */
+    #lang-switcher {
+      position: fixed;
+      top: 32px;
+      right: 100px;
+      display: flex;
+      gap: 2px;
+      z-index: 10;
+    }
+    .lang-btn {
+      font-family: 'Cormorant', serif;
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      background: none;
+      border: 1px solid rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.2);
+      cursor: pointer;
+      padding: 6px 10px;
+      border-radius: 3px;
+      transition: all 0.18s;
+    }
+    .lang-btn:hover { color: rgba(255,255,255,0.5); border-color: rgba(255,255,255,0.18); }
+    .lang-btn.active { color: rgba(200,132,58,0.8); border-color: rgba(200,132,58,0.3); }
+
+    /* ── PANEL ── */
+    #panel {
+      position: fixed;
+      right: -500px;
+      top: 0;
+      width: 460px;
+      height: 100vh;
+      background: rgba(2, 6, 14, 0.98);
+      border-left: 1px solid rgba(200, 132, 58, 0.12);
+      padding: 80px 48px 60px;
+      transition: right 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 15;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(200,132,58,0.15) transparent;
+    }
+    #panel::-webkit-scrollbar { width: 3px; }
+    #panel::-webkit-scrollbar-thumb { background: rgba(200,132,58,0.2); border-radius: 2px; }
+    #panel.open { right: 0; }
+
+    #panel-close {
+      position: absolute;
+      top: 28px;
+      right: 28px;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.25);
+      cursor: pointer;
+      font-size: 20px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 50%;
+      font-family: 'Cormorant', serif;
+      transition: all 0.2s;
+    }
+    #panel-close:hover { color: rgba(200,132,58,0.9); border-color: rgba(200,132,58,0.3); background: rgba(200,132,58,0.06); }
+
+    #panel-label {
+      font-family: 'Cormorant', serif;
+      font-size: 9px;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: rgba(200, 132, 58, 0.45);
+      margin-bottom: 14px;
+    }
+    #panel-name {
+      font-family: 'Cormorant', serif;
+      font-size: 34px;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.92);
+      margin-bottom: 12px;
+      line-height: 1.15;
+    }
+    #panel-status {
+      font-family: 'Cormorant', serif;
+      font-size: 10px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: rgba(200, 132, 58, 0.65);
+      margin-bottom: 12px;
+      padding-bottom: 0;
+    }
+    #panel-iucn-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    #panel-iucn-pop {
+      font-family: 'Cormorant', serif;
+      font-size: 11px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.32);
+      flex: 1;
+    }
+    #panel-iucn-link {
+      font-family: 'Cormorant', serif;
+      font-size: 8px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(200,132,58,0.38);
+      text-decoration: none;
+      border: 1px solid rgba(200,132,58,0.15);
+      padding: 4px 7px;
+      border-radius: 2px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: all 0.18s;
+    }
+    #panel-iucn-link:hover { color: rgba(200,132,58,0.7); border-color: rgba(200,132,58,0.3); }
+    #panel-text {
+      font-family: 'Cormorant', serif;
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 2;
+      color: rgba(255,255,255,0.68);
+      font-style: italic;
+      white-space: pre-line;
+    }
+    #panel-artifact {
+      margin-top: 40px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      flex: 1;
+    }
+    #panel-artifact-text {
+      font-family: 'Cormorant', serif;
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(200, 132, 58, 0.25);
+    }
+
+    /* ── HABITAT ── */
+    #panel-habitat {
+      font-family: 'Cormorant', serif;
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      color: rgba(200, 132, 58, 0.5);
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+    .panel-section-label {
+      font-family: 'Cormorant', serif;
+      font-size: 9px;
+      letter-spacing: 0.46em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.16);
+      margin-bottom: 10px;
+    }
+    #lightbox-habitat {
+      font-family: 'Cormorant', serif;
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      color: rgba(200, 132, 58, 0.5);
+      font-style: italic;
+      margin-bottom: 22px;
+    }
+    .lightbox-section-label {
+      font-family: 'Cormorant', serif;
+      font-size: 9px;
+      letter-spacing: 0.46em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.16);
+      margin-bottom: 10px;
+    }
+
+    /* ── FILTRES ARCHE ── */
+    #ark-filters {
+      display: flex;
+      gap: 5px;
+      margin-bottom: 22px;
+    }
+    .ark-filter-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      background: none;
+      border: 1px solid rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.22);
+      cursor: pointer;
+      padding: 8px 10px 7px;
+      border-radius: 3px;
+      transition: all 0.18s;
+    }
+    .ark-filter-btn svg { display: block; }
+    .ark-filter-btn span {
+      font-family: 'Cormorant', serif;
+      font-size: 8px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+    .ark-filter-btn:hover { color: rgba(255,255,255,0.5); border-color: rgba(255,255,255,0.18); }
+    .ark-filter-btn.active { color: rgba(200,132,58,0.9); border-color: rgba(200,132,58,0.35); background: rgba(200,132,58,0.06); }
+
+    /* ── PHOTO ESPÈCE EN PÉRIL ── */
+    #panel-photo {
+      margin-top: 36px;
+      flex: 1;
+      display: none;
+    }
+    #panel-photo img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: 3px;
+      filter: saturate(0.5) brightness(0.75);
+      display: block;
+      transition: filter 0.4s ease;
+    }
+    #panel-photo img:hover { filter: saturate(0.75) brightness(0.9); }
+
+    /* ── LISTE ESPÈCES ÉTEINTES ── */
+    .extinct-entry {
+      padding: 14px 12px;
+      margin: 0 -12px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.15s;
+    }
+    .extinct-entry:hover { background: rgba(200,132,58,0.05); }
+    .extinct-entry:last-child { border-bottom: none; }
+    .extinct-name {
+      font-family: 'Cormorant', serif;
+      font-size: 17px;
+      font-weight: 400;
+      font-style: italic;
+      color: rgba(255,255,255,0.78);
+      margin-bottom: 4px;
+    }
+    .extinct-date {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      color: rgba(200,132,58,0.55);
+      font-style: normal;
+    }
+    .extinct-swatches { margin-top: 5px; }
+
+    /* ── TOOLTIP SURVOL ── */
+    #hover-tooltip {
+      position: fixed;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: rgba(2, 6, 14, 0.92);
+      border: 1px solid rgba(200, 132, 58, 0.2);
+      padding: 14px 18px 14px 14px;
+      border-radius: 4px;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+      z-index: 20;
+      max-width: 300px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+    #hover-tooltip.visible { opacity: 1; }
+    #hover-portrait {
+      width: 52px;
+      height: 52px;
+      flex-shrink: 0;
+      opacity: 0.85;
+      overflow: hidden;
+      border-radius: 3px;
+    }
+    #hover-portrait-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+      filter: saturate(0.7) brightness(0.9);
+    }
+    #hover-portrait-svg {
+      width: 100%;
+      height: 100%;
+    }
+    #hover-info { display: flex; flex-direction: column; gap: 5px; }
+    #hover-name {
+      font-family: 'Cormorant', serif;
+      font-size: 18px;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.92);
+      line-height: 1.2;
+    }
+    #hover-status {
+      font-family: 'Cormorant', serif;
+      font-size: 9px;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: rgba(200, 132, 58, 0.7);
+    }
+    #hover-count {
+      font-family: 'Cormorant', serif;
+      font-size: 12px;
+      color: rgba(255,255,255,0.32);
+      font-style: italic;
+    }
+
+    /* ── CONTRÔLES ── */
+    #controls {
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 4px;
+      z-index: 10;
+    }
+    .ctrl-btn {
+      width: 40px;
+      height: 40px;
+      background: rgba(2, 8, 16, 0.75);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.3);
+      font-family: 'Cormorant', serif;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: all 0.18s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+      backdrop-filter: blur(4px);
+    }
+    .ctrl-btn:hover {
+      color: rgba(200, 132, 58, 0.85);
+      border-color: rgba(200, 132, 58, 0.35);
+      background: rgba(200,132,58,0.06);
+    }
+    .ctrl-btn.active {
+      color: rgba(200, 132, 58, 1);
+      border-color: rgba(200, 132, 58, 0.5);
+      background: rgba(200, 132, 58, 0.1);
+    }
+    .ctrl-sep {
+      width: 1px;
+      background: rgba(255,255,255,0.06);
+      margin: 6px 3px;
+    }
+
+    /* ── ARK EDITOR ── */
+    #ark-editor {
+      position: fixed;
+      bottom: 32px;
+      left: 48px;
+      z-index: 10;
+      font-family: 'Cormorant', serif;
+    }
+    #ark-editor-toggle {
+      width: 100%;
+      font-family: 'Cormorant', serif;
+      font-size: 9px;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      color: rgba(200, 132, 58, 0.3);
+      cursor: pointer;
+      background: rgba(2,8,16,0.75);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 4px;
+      padding: 10px 14px;
+      text-align: left;
+      transition: all 0.2s;
+      backdrop-filter: blur(4px);
+    }
+    #ark-editor-toggle:hover { color: rgba(200,132,58,0.7); border-color: rgba(200,132,58,0.25); }
+    #ark-editor-body {
+      display: none;
+      background: rgba(2,6,14,0.95);
+      border: 1px solid rgba(200,132,58,0.1);
+      border-bottom: none;
+      padding: 16px 18px 12px;
+      width: 272px;
+      border-radius: 4px 4px 0 0;
+    }
+    #ark-editor-body.open { display: block; }
+    .ark-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 9px;
+    }
+    .ark-row label {
+      font-size: 9px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(200,132,58,0.4);
+      width: 52px;
+      flex-shrink: 0;
+    }
+    .ark-row input[type=range] {
+      flex: 1;
+      accent-color: rgba(200,132,58,0.7);
+      height: 2px;
+    }
+    .ark-row span {
+      font-size: 11px;
+      color: rgba(255,255,255,0.3);
+      width: 38px;
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+    #ark-copy {
+      width: 100%;
+      margin-top: 6px;
+      background: none;
+      border: 1px solid rgba(200,132,58,0.15);
+      border-radius: 3px;
+      color: rgba(200,132,58,0.35);
+      font-family: 'Cormorant', serif;
+      font-size: 9px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      padding: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    #ark-copy:hover { color: rgba(200,132,58,0.85); border-color: rgba(200,132,58,0.38); }
+
+    /* ── PANEL BACK BUTTON ── */
+    #panel-back {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: rgba(200,132,58,0.45);
+      font-family: 'Cormorant', serif;
+      font-size: 10px;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      padding: 0;
+      margin-bottom: 28px;
+      transition: color 0.2s;
+    }
+    #panel-back:hover { color: rgba(200,132,58,0.85); }
+    #panel-back svg { width: 14px; height: 14px; }
+
+    /* ── EXPAND BUTTON ── */
+    .expand-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: none;
+      border: 1px solid rgba(200,132,58,0.22);
+      border-radius: 4px;
+      color: rgba(200,132,58,0.6);
+      font-family: 'Cormorant', serif;
+      font-size: 11px;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      padding: 12px 18px;
+      cursor: pointer;
+      width: 100%;
+      justify-content: center;
+      transition: all 0.2s;
+      margin-top: 8px;
+    }
+    .expand-btn:hover {
+      color: rgba(200,132,58,0.95);
+      border-color: rgba(200,132,58,0.45);
+      background: rgba(200,132,58,0.05);
+    }
+
+    /* ── LIGHTBOX ── */
+    #lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(1, 4, 10, 0.96);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+      backdrop-filter: blur(12px);
+    }
+    #lightbox.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    #lightbox-close {
+      position: absolute;
+      top: 32px;
+      right: 36px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 50%;
+      color: rgba(255,255,255,0.3);
+      font-size: 18px;
+      cursor: pointer;
+      font-family: 'Cormorant', serif;
+      transition: all 0.2s;
+    }
+    #lightbox-close:hover { color: rgba(200,132,58,0.9); border-color: rgba(200,132,58,0.3); }
+    #lightbox-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      width: 90vw;
+      max-width: 1100px;
+      height: 80vh;
+      max-height: 700px;
+      border: 1px solid rgba(200,132,58,0.1);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    #lightbox-img-wrap {
+      background: rgba(0,0,0,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-right: 1px solid rgba(200,132,58,0.08);
+    }
+    #lightbox-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+    #lightbox-img.loaded { display: block; }
+    #lightbox-no-img {
+      font-family: 'Cormorant', serif;
+      font-size: 10px;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: rgba(200,132,58,0.2);
+    }
+    #lightbox-info {
+      background: rgba(2,6,14,0.98);
+      padding: 52px 48px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(200,132,58,0.15) transparent;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    #lightbox-info::-webkit-scrollbar { width: 3px; }
+    #lightbox-info::-webkit-scrollbar-thumb { background: rgba(200,132,58,0.2); border-radius: 2px; }
+    #lightbox-date {
+      font-family: 'Cormorant', serif;
+      font-size: 9px;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: rgba(200,132,58,0.45);
+      margin-bottom: 10px;
+    }
+    #lightbox-title {
+      font-family: 'Cormorant', serif;
+      font-size: 38px;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.92);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    #lightbox-palette { margin-bottom: 28px; }
+    #lightbox-epitaphe {
+      font-family: 'Cormorant', serif;
+      font-size: 17px;
+      font-style: italic;
+      line-height: 1.95;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 32px;
+      white-space: pre-line;
+    }
+    #lightbox-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.06);
+      margin-bottom: 28px;
+    }
+    #lightbox-medium {
+      font-family: 'Cormorant', serif;
+      font-size: 9px;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: rgba(200,132,58,0.4);
+      margin-bottom: 14px;
+    }
+    #lightbox-intention {
+      font-family: 'Cormorant', serif;
+      font-size: 14px;
+      font-style: italic;
+      color: rgba(255,255,255,0.32);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    #lightbox-son {
+      font-family: 'Cormorant', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: rgba(255,255,255,0.28);
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+    #lightbox-forme {
+      font-family: 'Cormorant', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: rgba(255,255,255,0.22);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    #lightbox-sources {
+      font-family: 'Cormorant', serif;
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      color: rgba(200,132,58,0.2);
+      line-height: 1.9;
+    }
+
+    /* ── VOILES ── */
+    #sail-container {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 5;
+      overflow: hidden;
+    }
+    .sail-card {
+      position: absolute;
+      transform: translate(-50%, -100%);
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .sail-rotate {
+      transform-origin: center bottom;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .sail-inner {
+      width: 148px;
+      transform-origin: center bottom;
+      transform: scale(0.38);
+      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .sail-card.hovered .sail-inner {
+      transform: scale(1);
+    }
+    .sail-photo-wrap {
+      width: 100%;
+      height: 110px;
+      overflow: hidden;
+      border-radius: 3px 3px 0 0;
+      border: 1px solid rgba(200,132,58,0.18);
+      border-bottom: none;
+      background: rgba(2,6,14,0.72);
+      backdrop-filter: blur(6px);
+      transition: border-color 0.3s;
+    }
+    .sail-card.hovered .sail-photo-wrap {
+      border-color: rgba(200,132,58,0.52);
+    }
+    .sail-photo-wrap img,
+    .sail-photo-wrap svg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: saturate(0.32) brightness(0.58);
+      transition: filter 0.35s;
+    }
+    .sail-photo-wrap svg {
+      padding: 18px;
+      box-sizing: border-box;
+      color: rgba(200,132,58,0.48);
+      filter: none;
+    }
+    .sail-card.hovered .sail-photo-wrap img {
+      filter: saturate(0.7) brightness(0.86);
+    }
+    .sail-info-wrap {
+      background: rgba(2,6,14,0.94);
+      border: 1px solid rgba(200,132,58,0.32);
+      border-top: none;
+      border-radius: 0 0 3px 3px;
+      padding: 0 12px;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.4s cubic-bezier(0.16,1,0.3,1),
+                  opacity 0.28s ease,
+                  padding 0.28s;
+      backdrop-filter: blur(8px);
+    }
+    .sail-card.hovered .sail-info-wrap {
+      max-height: 96px;
+      opacity: 1;
+      padding: 10px 12px 12px;
+    }
+    .sail-sname {
+      font-family: 'Cormorant', serif;
+      font-size: 15px;
+      font-weight: 400;
+      font-style: italic;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.2;
+      margin-bottom: 5px;
+    }
+    .sail-sbadge {
+      font-family: 'Cormorant', serif;
+      font-size: 9px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .sail-scount {
+      font-family: 'Cormorant', serif;
+      font-size: 11px;
+      color: rgba(255,255,255,0.3);
+      font-style: italic;
+    }
+
+    /* ── ÉCRAN D'ACCUEIL ── */
+    #intro {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: #020810;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      transition: opacity 1.1s cubic-bezier(0.4,0,0.2,1);
+    }
+    #intro.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    #intro-title {
+      font-family: 'Cormorant', serif;
+      font-size: clamp(38px, 7vw, 82px);
+      font-weight: 300;
+      font-style: italic;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.88);
+      margin-bottom: 28px;
+      text-align: center;
+    }
+    #intro-line {
+      width: 48px;
+      height: 1px;
+      background: rgba(200,132,58,0.35);
+      margin-bottom: 28px;
+    }
+    #intro-desc {
+      font-family: 'Cormorant', serif;
+      font-size: clamp(13px, 1.8vw, 17px);
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.38);
+      text-align: center;
+      max-width: min(520px, 80vw);
+      line-height: 1.85;
+      letter-spacing: 0.04em;
+      margin-bottom: 56px;
+    }
+    #intro-cta {
+      font-family: 'Cormorant', serif;
+      font-size: 11px;
+      letter-spacing: 0.52em;
+      text-transform: uppercase;
+      color: rgba(200,132,58,0.65);
+      background: none;
+      border: 1px solid rgba(200,132,58,0.22);
+      padding: 14px 36px;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: all 0.22s;
+    }
+    #intro-cta:hover {
+      color: rgba(200,132,58,0.95);
+      border-color: rgba(200,132,58,0.5);
+      background: rgba(200,132,58,0.04);
+    }
+    #intro-depth {
+      position: absolute;
+      bottom: 36px;
+      font-family: 'Cormorant', serif;
+      font-size: 9px;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.12);
+      pointer-events: none;
+    }
+
+    /* ── SON ── */
+    #sound-toggle {
+      width: 40px;
+      height: 40px;
+      background: rgba(2,8,16,0.75);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 4px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.3);
+      transition: all 0.18s;
+      backdrop-filter: blur(4px);
+    }
+    #sound-toggle:hover { color: rgba(200,132,58,0.85); border-color: rgba(200,132,58,0.35); background: rgba(200,132,58,0.06); }
+    #sound-toggle svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+
+  </style>
+</head>
+<body>
+
+  <!-- ── ÉCRAN D'ACCUEIL ─────────────────────────────────── -->
+  <div id="intro">
+    <div id="intro-title">Sunken Noah</div>
+    <div id="intro-line"></div>
+    <div id="intro-desc">Une arche sous les eaux.<br>
+      40 espèces en sursis naviguent autour d'un mausolée marin —<br>
+      mémorial pour celles que nous avons perdues pour toujours.</div>
+    <button id="intro-cta">Découvrir</button>
+    <div id="intro-depth">Son recommandé</div>
+  </div>
+
+  <div id="title">Sunken Noah</div>
+
+  <audio id="ambient-audio" loop preload="auto">
+    <source src="audio/ambient.m4a" type="audio/mp4">
+  </audio>
+  <div id="counter">
+    <div class="num" id="count-num">24</div>
+    <div class="label" id="counter-label">Espèces répertoriées</div>
+  </div>
+
+  <div id="lang-switcher">
+    <button class="lang-btn active" id="btn-lang-fr">FR</button>
+    <button class="lang-btn" id="btn-lang-en">EN</button>
+  </div>
+
+  <div id="panel">
+    <button id="panel-close">✕</button>
+    <button id="panel-back" style="display:none">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      <span>L'Arche</span>
+    </button>
+    <div id="panel-label">—</div>
+    <div id="panel-name">—</div>
+    <div id="panel-habitat"></div>
+    <div id="panel-status">—</div>
+    <div id="panel-iucn-row" style="display:none">
+      <span id="panel-iucn-pop"></span>
+      <a id="panel-iucn-link" href="#" target="_blank" rel="noopener"></a>
+    </div>
+    <div id="panel-animal-label" class="panel-section-label" style="display:none"></div>
+    <div id="panel-text">—</div>
+    <div id="panel-artwork-label" class="panel-section-label" style="display:none"></div>
+    <div id="panel-photo"><img id="panel-photo-img" src="" alt=""></div>
+    <div id="panel-artifact">
+      <div id="ark-filters" style="display:none">
+        <button class="ark-filter-btn active" data-filter="all" id="flt-all">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="9" cy="9" r="7.5" stroke="currentColor" stroke-width="1.2" fill="none"/>
+            <circle cx="9" cy="9" r="2.5" fill="currentColor"/>
+          </svg>
+          <span>Tout</span>
+        </button>
+        <button class="ark-filter-btn" data-filter="terre" id="flt-terre">
+          <svg width="18" height="12" viewBox="0 0 103 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 56L28 18.6667L49 46.6667H60.7833L43.1667 23.3333L60.6667 0L102.667 56H0Z" fill="currentColor"/>
+          </svg>
+          <span>Terre</span>
+        </button>
+        <button class="ark-filter-btn" data-filter="mer" id="flt-mer">
+          <svg width="18" height="14" viewBox="0 0 94 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M84 34.2067H93.3333V43.54H84C77.56 43.54 71.2133 41.9067 65.3333 38.8733C53.6667 44.94 39.6667 44.94 28 38.8733C22.12 41.9067 15.7267 43.54 9.33333 43.54H0V34.2067H9.33333C15.82 34.2067 22.3067 32.0133 28 28C39.3867 35.98 53.9467 35.98 65.3333 28C71.0267 32.0133 77.5133 34.2067 84 34.2067ZM84 6.20667H93.3333V15.54H84C77.56 15.54 71.2133 13.9067 65.3333 10.8733C53.6667 16.94 39.6667 16.94 28 10.8733C22.12 13.9067 15.7267 15.54 9.33333 15.54H0V6.20667H9.33333C15.82 6.20667 22.3067 4.01333 28 0C39.3867 7.98 53.9467 7.98 65.3333 0C71.0267 4.01333 77.5133 6.20667 84 6.20667ZM84 62.2067H93.3333V71.54H84C77.56 71.54 71.2133 69.9067 65.3333 66.8733C53.6667 72.94 39.6667 72.94 28 66.8733C22.12 69.9067 15.7267 71.54 9.33333 71.54H0V62.2067H9.33333C15.82 62.2067 22.3067 60.0133 28 56C39.3867 63.98 53.9467 63.98 65.3333 56C71.0267 60.0133 77.5133 62.2067 84 62.2067Z" fill="currentColor"/>
+          </svg>
+          <span>Mer</span>
+        </button>
+        <button class="ark-filter-btn" data-filter="ciel" id="flt-ciel">
+          <svg width="18" height="15" viewBox="0 0 94 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M44.3333 79.3333C40.4444 79.3333 37.1389 77.9722 34.4167 75.25C31.6944 72.5278 30.3333 69.2222 30.3333 65.3333H39.6667C39.6667 66.6556 40.1147 67.7647 41.0107 68.6607C41.9067 69.5567 43.0142 70.0031 44.3333 70C45.6524 69.9969 46.7616 69.5489 47.6607 68.656C48.5598 67.7631 49.0062 66.6556 49 65.3333C48.9938 64.0111 48.5458 62.9036 47.656 62.0107C46.7662 61.1178 45.6587 60.6698 44.3333 60.6667H0V51.3333H44.3333C48.2222 51.3333 51.5278 52.6944 54.25 55.4167C56.9722 58.1389 58.3333 61.4444 58.3333 65.3333C58.3333 69.2222 56.9722 72.5278 54.25 75.25C51.5278 77.9722 48.2222 79.3333 44.3333 79.3333ZM0 32.6667V23.3333H63C65.0222 23.3333 66.6944 22.6722 68.0167 21.35C69.3389 20.0278 70 18.3556 70 16.3333C70 14.3111 69.3389 12.6389 68.0167 11.3167C66.6944 9.99445 65.0222 9.33334 63 9.33334C60.9778 9.33334 59.3056 9.99445 57.9833 11.3167C56.6611 12.6389 56 14.3111 56 16.3333H46.6667C46.6667 11.7444 48.2424 7.87423 51.394 4.72267C54.5456 1.57112 58.4142 -0.00310651 63 4.60223e-06C67.5858 0.00311571 71.456 1.57889 74.6107 4.72734C77.7653 7.87578 79.3396 11.7444 79.3333 16.3333C79.3271 20.9222 77.7529 24.7924 74.6107 27.944C71.4684 31.0956 67.5982 32.6698 63 32.6667H0ZM77 70V60.6667C79.0222 60.6667 80.6944 60.0056 82.0167 58.6833C83.3389 57.3611 84 55.6889 84 53.6667C84 51.6444 83.3389 49.9722 82.0167 48.65C80.6944 47.3278 79.0222 46.6667 77 46.6667H0V37.3333H77C81.5889 37.3333 85.4591 38.9091 88.6107 42.0607C91.7622 45.2122 93.3364 49.0809 93.3333 53.6667C93.3302 58.2524 91.756 62.1227 88.6107 65.2773C85.4653 68.432 81.5951 70.0062 77 70Z" fill="currentColor"/>
+          </svg>
+          <span>Ciel</span>
+        </button>
+      </div>
+      <div id="panel-artifact-text">— Artefact en attente —</div>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox">
+    <button id="lightbox-close">✕</button>
+    <div id="lightbox-inner">
+      <div id="lightbox-img-wrap">
+        <img id="lightbox-img" src="" alt="">
+        <div id="lightbox-no-img">— Œuvre à générer —</div>
+      </div>
+      <div id="lightbox-info">
+        <div id="lightbox-date"></div>
+        <div id="lightbox-title"></div>
+        <div id="lightbox-habitat"></div>
+        <div id="lightbox-palette"></div>
+        <div id="lightbox-animal-label" class="lightbox-section-label"></div>
+        <div id="lightbox-epitaphe"></div>
+        <div id="lightbox-divider"></div>
+        <div id="lightbox-artwork-label" class="lightbox-section-label"></div>
+        <div id="lightbox-medium"></div>
+        <div id="lightbox-intention"></div>
+        <div id="lightbox-son"></div>
+        <div id="lightbox-forme"></div>
+        <div id="lightbox-sources"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="hover-tooltip">
+    <div id="hover-portrait">
+      <img id="hover-portrait-img" src="" alt="">
+      <svg id="hover-portrait-svg" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg"></svg>
+    </div>
+    <div id="hover-info">
+      <div id="hover-name"></div>
+      <div id="hover-status"></div>
+      <div id="hover-count"></div>
+    </div>
+  </div>
+
+  <div id="ark-editor">
+    <div id="ark-editor-body">
+      <div id="fb-status" style="font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(200,132,58,0.5);margin-bottom:10px">Nouveau bateau</div>
+      <button id="fb-select-toggle" style="width:100%;margin-bottom:10px;background:none;border:1px solid rgba(255,255,255,0.1);border-radius:3px;color:rgba(255,255,255,0.35);font-family:Cormorant,serif;font-size:9px;letter-spacing:0.32em;text-transform:uppercase;padding:9px;cursor:pointer;transition:all 0.2s">↖ Cliquer pour sélectionner</button>
+      <div class="ark-row"><label>X</label><input type="range" id="fb-px" min="-60" max="60" value="0" step="0.5"><span id="fv-px">0.00</span></div>
+      <div class="ark-row"><label>Y</label><input type="range" id="fb-py" min="-22" max="0" value="-10" step="0.25"><span id="fv-py">-10.00</span></div>
+      <div class="ark-row"><label>Z</label><input type="range" id="fb-pz" min="-60" max="60" value="0" step="0.5"><span id="fv-pz">0.00</span></div>
+      <div class="ark-row"><label>Rot X</label><input type="range" id="fb-rx" min="-1.6" max="1.6" value="0" step="0.01"><span id="fv-rx">0.00</span></div>
+      <div class="ark-row"><label>Rot Y</label><input type="range" id="fb-ry" min="0" max="6.28" value="0" step="0.05"><span id="fv-ry">0.00</span></div>
+      <div class="ark-row"><label>Rot Z</label><input type="range" id="fb-rz" min="-1.6" max="1.6" value="0" step="0.01"><span id="fv-rz">0.00</span></div>
+      <button id="fb-copy" style="width:100%;margin-top:4px;background:none;border:1px solid rgba(200,132,58,0.15);border-radius:3px;color:rgba(200,132,58,0.35);font-family:Cormorant,serif;font-size:9px;letter-spacing:0.32em;text-transform:uppercase;padding:9px;cursor:pointer;transition:all 0.2s">⎘ Copier les coordonnées</button>
+      <button id="fb-delete" style="width:100%;margin-top:6px;background:none;border:1px solid rgba(180,60,60,0.2);border-radius:3px;color:rgba(200,80,80,0.4);font-family:Cormorant,serif;font-size:9px;letter-spacing:0.32em;text-transform:uppercase;padding:9px;cursor:pointer;transition:all 0.2s">✕ Supprimer ce bateau</button>
+    </div>
+    <button id="ark-editor-toggle">⚓ &nbsp;Placer des bateaux</button>
+  </div>
+
+
+  <div id="controls">
+    <button class="ctrl-btn" id="btn-rot-left" title="Rotation gauche">&#8592;</button>
+    <button class="ctrl-btn" id="btn-rot-right" title="Rotation droite">&#8594;</button>
+    <div class="ctrl-sep"></div>
+    <button class="ctrl-btn" id="btn-zoom-in" title="Zoomer">+</button>
+    <button class="ctrl-btn" id="btn-zoom-out" title="Dézoomer">&#8722;</button>
+    <div class="ctrl-sep"></div>
+    <button class="ctrl-btn" id="btn-auto-rot" title="Rotation automatique"><svg width="14" height="16" viewBox="0 0 84 94" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M42 14C65.1933 14 84 26.5533 84 42C84 49.84 79.1467 56.9333 71.3533 62.02C76.3467 57.96 79.3333 52.8267 79.3333 47.2733C79.3333 34.02 62.6267 23.3333 42 23.3333V37.3333L23.3333 18.6667L42 0V14ZM42 79.3333C18.8067 79.3333 0 66.78 0 51.3333C0 43.4933 4.85333 36.4 12.6467 31.3133C7.65333 35.3733 4.66667 40.5067 4.66667 46.1067C4.66667 59.3133 21.3733 70 42 70V56L60.6667 74.6667L42 93.3333V79.3333Z" fill="currentColor"/></svg></button>
+    <div class="ctrl-sep"></div>
+    <button id="sound-toggle" title="Son">
+      <svg id="sound-icon" viewBox="0 0 24 24">
+        <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+        <path id="sound-waves" d="M15.54 8.46a5 5 0 0 1 0 7.07M19.07 4.93a10 10 0 0 1 0 14.14"/>
+      </svg>
+    </button>
+  </div>
+
+  <div id="sail-container"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script>
+  const W = window.innerWidth, H = window.innerHeight;
+  const canvas = document.createElement('canvas');
+  document.body.appendChild(canvas);
+
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+  renderer.setSize(W, H);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.1;
+
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x010609);
+  scene.fog = new THREE.FogExp2(0x010d1f, 0.018);
+
+  const camera = new THREE.PerspectiveCamera(55, W / H, 0.1, 300);
+
+  // ── LIGHTING ──────────────────────────────────────────────────
+  // Lumière ambiante très faible — juste pour que rien ne soit
+  // complètement noir dans les recoins
+  scene.add(new THREE.AmbientLight(0x08192e, 2.5));
+
+  // Lumière directionnelle douce depuis le "haut de l'eau"
+  const topLight = new THREE.DirectionalLight(0x1a4466, 1.2);
+  topLight.position.set(0, 40, 10);
+  scene.add(topLight);
+
+  // Fill latéral très atténué pour sortir les silhouettes
+  const fillLight = new THREE.DirectionalLight(0x0d2a44, 0.6);
+  fillLight.position.set(-20, 10, -10);
+  scene.add(fillLight);
+
+
+  // ── CAUSTIC LIGHTS (lumière filtrant depuis la surface) ───────
+  const causticData = [];
+  const causticColors = [0x0088bb, 0x006699, 0x20a0b8, 0x007799];
+  for (let i = 0; i < 4; i++) {
+    const light = new THREE.PointLight(causticColors[i], 4.5, 80);
+    const angle = (i / 4) * Math.PI * 2;
+    light.position.set(Math.cos(angle) * 18, 22, Math.sin(angle) * 14);
+    scene.add(light);
+    causticData.push({
+      light,
+      phase: (i / 4) * Math.PI * 2,
+      rx: 14 + Math.random() * 10,
+      rz: 10 + Math.random() * 8,
+      speed: 0.18 + Math.random() * 0.14
+    });
+  }
+  // lumière de surface diffuse pulsante
+  const surfaceLight = new THREE.PointLight(0x004455, 6.0, 110);
+  surfaceLight.position.set(0, 30, 0);
+  scene.add(surfaceLight);
+
+  // ── SURFACE SUN SHIMMER (scintillement solaire vu des fonds) ──
+  // 6 rayons de lumière très hauts, couleur blanc-bleu froid
+  // qui dérivent et scintillent comme la lumière filtrée par les vagues
+  const shimmerData = [];
+  for (let i = 0; i < 6; i++) {
+    const light = new THREE.SpotLight(0xb8d8f0, 0, 180, Math.PI * 0.18, 0.7, 1.4);
+    light.position.set((Math.random() - 0.5) * 40, 70, (Math.random() - 0.5) * 40);
+    light.target.position.set(0, 0, 0);
+    scene.add(light);
+    scene.add(light.target);
+    shimmerData.push({
+      light,
+      ox: light.position.x,
+      oz: light.position.z,
+      // chaque rayon a son propre pattern de turbulence irrégulier
+      f1: 0.8 + Math.random() * 1.4,
+      f2: 1.3 + Math.random() * 2.1,
+      f3: 2.2 + Math.random() * 3.0,
+      p1: Math.random() * Math.PI * 2,
+      p2: Math.random() * Math.PI * 2,
+      p3: Math.random() * Math.PI * 2,
+      drift: 0.012 + Math.random() * 0.018,
+      driftPhase: Math.random() * Math.PI * 2,
+    });
+  }
+
+  // lumières pour éclairer les bateaux (zone mid-scene)
+  const boatLight1 = new THREE.PointLight(0x1a5a88, 5.0, 75);
+  boatLight1.position.set(0, 4, 0);
+  scene.add(boatLight1);
+
+  const boatLight2 = new THREE.PointLight(0x2a6070, 3.5, 60);
+  boatLight2.position.set(12, 2, 8);
+  scene.add(boatLight2);
+
+  const boatLight3 = new THREE.PointLight(0x1a4466, 3.5, 60);
+  boatLight3.position.set(-12, 2, -8);
+  scene.add(boatLight3);
+
+  // ── OCEAN FLOOR ───────────────────────────────────────────────
+  const floorGeo = new THREE.CircleGeometry(65, 128);
+  const fPos = floorGeo.attributes.position;
+  for (let i = 0; i < fPos.count; i++) {
+    const x = fPos.getX(i), z = fPos.getY(i);
+    const r = Math.sqrt(x * x + z * z);
+    const peak = 11.0 * Math.exp(-r * r / 70);
+    const ridges = Math.sin(x * 0.09 + 0.8) * Math.cos(z * 0.07) * 1.8
+                 + Math.sin(r * 0.22) * 0.8;
+    const h = Math.sin(x * 127.1 + z * 311.7) * 43758.5453;
+    const noise = (h - Math.floor(h) - 0.5) * 0.28;
+    fPos.setZ(i, peak + ridges + noise);
+  }
+  floorGeo.computeVertexNormals();
+  const floor = new THREE.Mesh(floorGeo, new THREE.MeshStandardMaterial({
+    color: 0x1a3448, roughness: 1.0, flatShading: true
+  }));
+  floor.rotation.x = -Math.PI / 2;
+  floor.position.y = -18;
+  scene.add(floor);
+
+  // (oval removed)
+
+  // ── ARK — shader nacre procédural GLSL ───────────────────────
+  const arkLoader = new THREE.GLTFLoader();
+  arkLoader.load('models/arkgood2_nacre1.glb', function(gltf) {
+    const ark = gltf.scene;
+
+    ark.position.set(3.50, -6.00, 2.00);
+    ark.rotation.set(0.19, 0.30, -0.13);
+    ark.scale.setScalar(2.2);
+
+    // Shader peau de requin-baleine — taches organiques sur fond sombre
+    const nacreMat = new THREE.ShaderMaterial({
+      side: THREE.DoubleSide,
+      uniforms: {
+        uTime:      { value: 0 },
+        uPulse:     { value: 0 },
+        uHover:     { value: 0 },
+        uLightPos:  { value: new THREE.Vector3(10, 20, 15) },
+        uLightColor:{ value: new THREE.Vector3(0.7, 0.85, 1.0) },
+        uAmbient:   { value: 0.28 },
+      },
+      vertexShader: `
+        uniform float uPulse;
+        varying vec3 vWorldPos;
+        varying vec3 vWorldNormal;
+        varying vec3 vViewDir;
+        void main() {
+          // Battement de cœur — inflation le long des normales (fonctionne sur tous les sous-meshes)
+          vec3 pos = position + normal * uPulse * 0.09;
+          vec4 worldPos = modelMatrix * vec4(pos, 1.0);
+          vWorldPos = worldPos.xyz;
+          vWorldNormal = normalize(mat3(modelMatrix) * normal);
+          vViewDir = normalize(cameraPosition - worldPos.xyz);
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
+        }
+      `,
+      fragmentShader: `
+        varying vec3 vWorldPos;
+        varying vec3 vWorldNormal;
+        varying vec3 vViewDir;
+        uniform float uTime;
+        uniform float uPulse;
+        uniform float uHover;
+        uniform vec3 uLightPos;
+        uniform vec3 uLightColor;
+        uniform float uAmbient;
+
+        float hash(vec2 p) {
+          return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
+        }
+        float hash3(vec3 p) {
+          p = fract(p * vec3(443.8, 441.4, 437.2));
+          p += dot(p, p.yxz + 19.19);
+          return fract((p.x + p.y) * p.z);
+        }
+        float noise3(vec3 p) {
+          vec3 i = floor(p); vec3 f = fract(p);
+          f = f*f*(3.0-2.0*f);
+          return mix(
+            mix(mix(hash3(i),hash3(i+vec3(1,0,0)),f.x),mix(hash3(i+vec3(0,1,0)),hash3(i+vec3(1,1,0)),f.x),f.y),
+            mix(mix(hash3(i+vec3(0,0,1)),hash3(i+vec3(1,0,1)),f.x),mix(hash3(i+vec3(0,1,1)),hash3(i+vec3(1,1,1)),f.x),f.y),
+            f.z
+          );
+        }
+
+        // Cellule de Voronoï — génère des centres de taches irréguliers
+        float voronoi(vec3 p, float irregularity) {
+          vec3 i = floor(p);
+          vec3 f = fract(p);
+          float minDist = 10.0;
+          for (int x = -1; x <= 1; x++)
+          for (int y = -1; y <= 1; y++)
+          for (int z = -1; z <= 1; z++) {
+            vec3 neighbor = vec3(float(x), float(y), float(z));
+            // centre de la cellule + décalage irrégulier
+            vec3 point = neighbor + vec3(
+              hash3(i + neighbor),
+              hash3(i + neighbor + 7.3),
+              hash3(i + neighbor + 13.7)
+            ) * irregularity + (1.0 - irregularity) * 0.5;
+            float d = length(f - point);
+            minDist = min(minDist, d);
+          }
+          return minDist;
+        }
+
+        void main() {
+          vec3 p = vWorldPos * 0.38;
+
+          // Légère distorsion organique de l'espace de coordonnées
+          vec3 warp = vec3(
+            noise3(p + vec3(0.0, 0.0, 0.0)),
+            noise3(p + vec3(5.2, 1.3, 0.0)),
+            noise3(p + vec3(0.0, 3.7, 8.1))
+          );
+          vec3 pw = p + warp * 0.35;
+
+          // ── TACHES REQUIN-BALEINE ──────────────────────────────
+          // grande échelle : taches primaires
+          float v1 = voronoi(pw * 0.9, 0.82);
+          float spot1 = 1.0 - smoothstep(0.18, 0.38, v1);
+
+          // échelle moyenne : taches secondaires plus petites
+          float v2 = voronoi(pw * 1.8 + 2.3, 0.75);
+          float spot2 = 1.0 - smoothstep(0.12, 0.28, v2);
+
+          // petites taches dispersées
+          float v3 = voronoi(pw * 3.2 + 5.7, 0.68);
+          float spot3 = 1.0 - smoothstep(0.06, 0.18, v3);
+
+          // ── COULEURS ──────────────────────────────────────────
+          // Fond : bleu-gris très sombre, charcoal sous-marin
+          vec3 skinBase = vec3(0.06, 0.10, 0.14);
+          // Variation subtile du fond (peau non uniforme)
+          skinBase += noise3(pw * 2.0) * 0.03 * vec3(0.5, 0.8, 1.0);
+
+          // Taches : blanc cassé légèrement bleuté, comme les vrais
+          vec3 spotColor1 = vec3(0.78, 0.84, 0.88);
+          vec3 spotColor2 = vec3(0.72, 0.80, 0.86);
+          vec3 spotColor3 = vec3(0.68, 0.76, 0.82);
+
+          // Les taches s'illuminent avec la pulsation
+          float spotMask = clamp(spot1 + spot2 * 0.6 + spot3 * 0.35, 0.0, 1.0);
+          vec3 pulseGlow = vec3(0.55, 0.78, 1.0) * uPulse * spotMask * 0.7;
+
+          vec3 col = skinBase;
+          col = mix(col, spotColor1, spot1 * 0.92);
+          col = mix(col, spotColor2, spot2 * 0.75);
+          col = mix(col, spotColor3, spot3 * 0.55);
+          col += pulseGlow;
+
+          // Lignes dorsales subtiles — texture de peau entre les taches
+          float linePattern = noise3(pw * vec3(1.0, 4.0, 1.0) + 3.1) * 0.5 + 0.5;
+          float lines = smoothstep(0.45, 0.55, linePattern) * (1.0 - spot1) * (1.0 - spot2);
+          col = mix(col, skinBase * 1.4, lines * 0.25);
+
+          // ── ÉCLAIRAGE ─────────────────────────────────────────
+          vec3 N = normalize(vWorldNormal);
+          vec3 L = normalize(uLightPos - vWorldPos);
+          vec3 V = normalize(vViewDir);
+          vec3 H = normalize(L + V);
+
+          float diff = uAmbient + (1.0 - uAmbient) * max(abs(dot(N, L)), 0.0);
+
+          // Brillance humide — peau sous l'eau légèrement spéculaire
+          float spec = pow(max(dot(N, H), 0.0), 48.0) * 0.35;
+          vec3 specCol = vec3(0.7, 0.85, 1.0);
+
+          vec3 ambientLight = vec3(0.08, 0.16, 0.28);
+
+          // ── SURBRILLANCE AU SURVOL ────────────────────────────
+          // Rim light : bordure lumineuse bleue-blanche
+          float rim = 1.0 - max(dot(V, N), 0.0);
+          rim = pow(rim, 2.2);
+          vec3 rimCol = vec3(0.5, 0.82, 1.0) * rim * uHover * 0.75;
+          // Glow global doux
+          vec3 hoverGlow = col * uHover * 0.38;
+
+          vec3 finalCol = col * diff * uLightColor
+                        + col * ambientLight
+                        + specCol * spec
+                        + rimCol
+                        + hoverGlow;
+
+          gl_FragColor = vec4(finalCol, 1.0);
+        }
+      `
+    });
+
+    ark.traverse(c => {
+      if (c.isMesh) {
+        c.userData = { type: 'ark' };
+        c.material = nacreMat;
+      }
+    });
+
+    scene.add(ark);
+    window._arkObject = ark;
+    window._arkMat = nacreMat;
+    rebuildMeshCache();
+  }, undefined, function(err) {
+    console.error('Erreur ark:', err);
+  });
+
+
+  // ── SAILBOATS — chargement GLB ──────────────────────────────
+  // SVG portraits — silhouettes minimalistes
+  const svgRhino = `<ellipse cx="26" cy="30" rx="16" ry="10" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M10 30 Q6 22 12 18" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M18 20 L20 14 L22 20" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="13" cy="26" r="1.2" fill="currentColor"/>`;
+  const svgDolphin = `<path d="M8 28 Q18 14 34 22 Q40 24 44 20 Q38 30 34 28 Q20 36 12 32 Z" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M8 28 Q4 32 6 36 Q10 32 12 32" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="35" cy="22" r="1" fill="currentColor"/>`;
+  const svgTiger = `<ellipse cx="28" cy="28" rx="14" ry="10" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="14" cy="22" r="6" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="12" cy="21" r="1" fill="currentColor"/><path d="M10 18 L9 14 M14 17 L14 13" stroke="currentColor" stroke-width="0.8"/><path d="M20 24 L22 20 M24 26 L26 22 M28 26 L30 22" stroke="currentColor" stroke-width="0.8"/>`;
+  const svgSalamander = `<path d="M10 26 Q20 18 32 26 Q38 30 44 26" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M14 26 L10 32 M20 22 L16 30 M28 24 L26 32 M36 26 L34 32" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="10" cy="26" r="1.5" fill="currentColor"/>`;
+  const svgGorilla = `<ellipse cx="26" cy="32" rx="12" ry="10" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="26" cy="18" r="8" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M14 32 L8 40 M38 32 L44 40" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="23" cy="18" r="1" fill="currentColor"/><circle cx="29" cy="18" r="1" fill="currentColor"/>`;
+  const svgElephant = `<ellipse cx="28" cy="30" rx="15" ry="12" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="13" cy="22" r="7" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M10 28 Q4 32 6 40 Q10 36 12 38" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M16 16 L14 10 M20 14 L20 8" stroke="currentColor" stroke-width="1.2"/><circle cx="11" cy="21" r="1" fill="currentColor"/>`;
+  const svgDugong = `<path d="M8 26 Q26 14 40 26 Q34 36 26 34 Q14 34 8 26 Z" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M40 26 Q46 22 46 30 Q44 28 40 26" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="12" cy="25" r="1" fill="currentColor"/>`;
+  const svgShark = `<path d="M6 28 Q24 16 44 26 Q36 34 6 28 Z" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M44 26 Q48 22 48 30" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M28 22 L26 14 L30 22" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="40" cy="25" r="1" fill="currentColor"/>`;
+  const svgTurtle = `<ellipse cx="26" cy="26" rx="14" ry="12" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M12 22 L6 18 M12 28 L6 32 M40 22 L46 18 M40 28 L46 32 M20 38 L18 44 M32 38 L34 44" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="22" cy="16" r="4" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M18 22 L22 18 M26 18 L30 22 M20 26 L26 26" stroke="currentColor" stroke-width="0.8"/>`;
+  const svgPangolin = `<path d="M10 28 Q26 18 40 26" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M40 26 Q44 30 40 34 Q28 38 14 32 Q8 30 10 28" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M14 24 Q16 20 20 22 M20 22 Q22 18 26 20 M26 20 Q28 16 32 18 M32 18 Q34 14 38 18" fill="none" stroke="currentColor" stroke-width="0.9"/><circle cx="10" cy="28" r="1.5" fill="currentColor"/>`;
+  const svgLemur = `<circle cx="18" cy="20" r="8" fill="none" stroke="currentColor" stroke-width="1.2"/><ellipse cx="32" cy="30" rx="10" ry="8" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M26 32 Q32 44 38 42 Q36 36 32 38" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="15" cy="19" r="1.2" fill="currentColor"/><circle cx="21" cy="19" r="1.2" fill="currentColor"/>`;
+  const svgAlbatross = `<path d="M6 28 Q26 16 46 28" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M26 20 L26 32" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M22 18 Q26 14 30 18" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M22 30 Q24 34 26 32 Q28 34 30 30" fill="none" stroke="currentColor" stroke-width="1.2"/>`;
+  const svgOrangutan = `<circle cx="26" cy="18" r="9" fill="none" stroke="currentColor" stroke-width="1.2"/><ellipse cx="26" cy="34" rx="10" ry="8" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M16 30 L8 22 M36 30 L44 22" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="22" cy="17" r="1.2" fill="currentColor"/><circle cx="30" cy="17" r="1.2" fill="currentColor"/>`;
+  const svgOkapi = `<ellipse cx="30" cy="30" rx="14" ry="9" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="14" cy="22" r="6" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M18 16 L17 10 M22 15 L22 9" stroke="currentColor" stroke-width="1.2"/><path d="M20 36 L19 44 M28 38 L27 44 M36 36 L35 44 M40 32 L40 44" stroke="currentColor" stroke-width="1.2"/>`;
+  const svgGrouper = `<path d="M8 26 Q24 16 40 24 Q36 34 20 34 Q10 32 8 26 Z" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M40 24 Q46 20 46 28 Q44 28 40 24" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M24 18 L22 14 M28 17 L28 12" stroke="currentColor" stroke-width="1"/><circle cx="38" cy="24" r="1.2" fill="currentColor"/>`;
+  const svgCondor = `<path d="M4 26 Q26 12 48 26" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="26" cy="20" r="5" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M24 32 Q26 40 28 32" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M23 18 L22 14 M26 17 L26 13" stroke="currentColor" stroke-width="0.9"/>`;
+  const svgSaiga = `<ellipse cx="28" cy="30" rx="13" ry="9" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="14" cy="22" r="6" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M14 16 Q12 10 16 8 Q18 12 14 16" fill="none" stroke="currentColor" stroke-width="1"/><path d="M20 36 L19 44 M28 38 L27 44 M34 36 L33 44 M40 32 L39 44" stroke="currentColor" stroke-width="1.1"/><circle cx="11" cy="22" r="1" fill="currentColor"/>`;
+  const svgCoelacanth = `<path d="M8 26 Q24 16 38 24 Q34 32 20 32 Q10 30 8 26 Z" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M38 24 Q44 18 46 22 Q44 26 38 24" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M38 24 Q42 28 44 32 Q40 30 38 24" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M20 20 L18 14 M26 18 L26 12 M16 28 L14 34 M24 30 L22 36" stroke="currentColor" stroke-width="1"/><circle cx="35" cy="23" r="1.2" fill="currentColor"/>`;
+  const svgLynx = `<ellipse cx="28" cy="30" rx="12" ry="9" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="16" cy="20" r="7" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M11 14 L10 10 M15 13 L15 9 M21 14 L22 10" stroke="currentColor" stroke-width="1.2"/><circle cx="13" cy="20" r="1" fill="currentColor"/><circle cx="19" cy="20" r="1" fill="currentColor"/>`;
+  const svgCockatoo = `<circle cx="22" cy="20" r="9" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M18 12 Q22 6 26 12" fill="none" stroke="currentColor" stroke-width="1.2"/><ellipse cx="30" cy="34" rx="9" ry="7" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M38 30 Q44 26 44 34 Q42 32 38 30" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="19" cy="19" r="1.2" fill="currentColor"/>`;
+  const svgHippo = `<ellipse cx="26" cy="30" rx="16" ry="12" fill="none" stroke="currentColor" stroke-width="1.2"/><ellipse cx="26" cy="20" rx="10" ry="7" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="21" cy="19" r="1.2" fill="currentColor"/><circle cx="31" cy="19" r="1.2" fill="currentColor"/><path d="M20 36 L18 44 M26 38 L26 44 M32 36 L34 44" stroke="currentColor" stroke-width="1.1"/>`;
+  const svgAyeAye = `<circle cx="22" cy="18" r="8" fill="none" stroke="currentColor" stroke-width="1.2"/><ellipse cx="30" cy="32" rx="10" ry="8" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M30 38 Q36 46 40 42" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="18" cy="16" r="2" fill="currentColor"/><circle cx="26" cy="16" r="2" fill="currentColor"/><path d="M40 26 Q46 20 46 28" fill="none" stroke="currentColor" stroke-width="1.1"/>`;
+  const svgOrca = `<path d="M6 28 Q24 14 42 24 Q36 34 6 28 Z" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M42 24 Q48 20 48 28 Q46 26 42 24" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M28 18 L26 10 L30 18" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M10 28 Q8 34 12 36 Q12 30 10 28" fill="none" stroke="currentColor" stroke-width="1.1"/><circle cx="38" cy="23" r="1.2" fill="currentColor"/>`;
+
+  // Table d'icônes SVG par nom (fallback sur dauphin si inconnu)
+  const svgIcons = {
+    "Rhinocéros de Java": svgRhino, "Vaquita marina": svgDolphin,
+    "Tigre de Sumatra": svgTiger, "Amblystome de Jefferson": svgSalamander,
+    "Gorille de montagne": svgGorilla, "Éléphant de forêt d'Afrique": svgElephant,
+    "Dugong": svgDugong, "Requin-baleine": svgShark, "Tortue luth": svgTurtle,
+    "Pangolin de Chine": svgPangolin, "Lémurien de Coquerel": svgLemur,
+    "Dauphin du Yangtsé": svgDolphin, "Albatros hurleur": svgAlbatross,
+    "Orang-outan de Tapanuli": svgOrangutan, "Okapi": svgOkapi,
+    "Mérou bagnard": svgGrouper, "Condor de Californie": svgCondor,
+    "Saïga": svgSaiga, "Cœlacanthe": svgCoelacanth, "Lynx ibérique": svgLynx,
+    "Cacatoès noir de Baudin": svgCockatoo, "Hippopotame nain": svgHippo,
+    "Aye-aye": svgAyeAye, "Orque de l'Atlantique Nord": svgOrca,
+  };
+
+  // ── HABITATS ─────────────────────────────────────────────────
+  const HABITAT_FR = {
+    "Rhinocéros de Java":           "Forêts denses de Java, Indonésie",
+    "Vaquita marina":               "Golfe de Californie, Mexique",
+    "Tigre de Sumatra":             "Forêts tropicales de Sumatra, Indonésie",
+    "Amblystome de Jefferson":      "Forêts humides du nord-est des États-Unis",
+    "Gorille de montagne":          "Monts Virunga, Ouganda / Rwanda / RDC",
+    "Éléphant de forêt d'Afrique":  "Forêts équatoriales d'Afrique centrale et occidentale",
+    "Dugong":                       "Côtes tropicales de l'océan Indien et du Pacifique",
+    "Requin-baleine":               "Océans tropicaux et subtropicaux",
+    "Tortue luth":                  "Océans tropicaux et tempérés du monde entier",
+    "Pangolin de Chine":            "Forêts subtropicales de Chine méridionale et Taïwan",
+    "Lémurien de Coquerel":         "Forêts sèches du nord-ouest de Madagascar",
+    "Albatros hurleur":             "Océan Austral, îles subantarctiques",
+    "Orang-outan de Tapanuli":      "Forêts du Batang Toru, Sumatra du Nord, Indonésie",
+    "Okapi":                        "Forêts denses de l'Ituri, République démocratique du Congo",
+    "Mérou bagnard":                "Récifs coralliens des Caraïbes et de l'Atlantique occidental",
+    "Condor de Californie":         "Falaises et canyons de Californie, Utah, Arizona",
+    "Saïga":                        "Steppes d'Asie centrale (Kazakhstan, Mongolie, Russie)",
+    "Cœlacanthe":                   "Fonds marins profonds des côtes d'Afrique de l'Est et des Comores",
+    "Lynx ibérique":                "Maquis méditerranéen de la péninsule Ibérique",
+    "Cacatoès noir de Baudin":      "Forêts de karri du sud-ouest de l'Australie",
+    "Hippopotame nain":             "Forêts et marécages d'Afrique de l'Ouest (Liberia, Côte d'Ivoire)",
+    "Aye-aye":                      "Forêts tropicales de Madagascar",
+    "Orque de l'Atlantique Nord":   "Atlantique Nord-Ouest, côtes américaines et canadiennes",
+    "Rhinocéros noir":              "Savanes arbustives d'Afrique subsaharienne",
+    "Tortue de mer de Kemp":        "Golfe du Mexique et côte est des États-Unis",
+    "Grue américaine":              "Prairies et marais d'Amérique du Nord",
+    "Léopard des neiges":           "Chaînes montagneuses d'Asie centrale (Himalaya, Altaï, Tian Shan)",
+    "Tapir de Baird":               "Forêts tropicales d'Amérique centrale et du Mexique",
+    "Requin pèlerin":               "Eaux côtières tempérées des deux hémisphères",
+    "Macaque de Barbarie":          "Forêts de cèdres du Maghreb et Rocher de Gibraltar",
+    "Dauphin du Yangtsé":           "Fleuve Yangtsé, Chine centrale",
+    "Pingouin des grandes familles":"Côtes rocheuses de l'Atlantique Nord (Islande, Terre-Neuve)",
+    "Grand Pingouin":               "Côtes rocheuses de l'Atlantique Nord (Islande, Terre-Neuve)",
+    "Thylacine":                    "Forêts et savanes de Tasmanie, Australie",
+    "Dodo":                         "Île Maurice, océan Indien",
+    "Pigeon migrateur":             "Forêts de l'est de l'Amérique du Nord",
+    "Mammuth laineux":              "Toundras et steppes d'Eurasie et d'Amérique du Nord",
+    "Quagga":                       "Plaines du Cap, Afrique du Sud",
+    "Lion des cavernes":            "Steppes et forêts d'Eurasie (du Royaume-Uni à la Sibérie)",
+    "Aurochs":                      "Forêts et prairies d'Europe, d'Asie et d'Afrique du Nord",
+    "Auroch":                       "Forêts et prairies d'Europe, d'Asie et d'Afrique du Nord",
+    "Turquoise du paradis":         "Savanes ouvertes du Queensland, Australie",
+    "Moa géant":                    "Forêts de Nouvelle-Zélande",
+    "Tigre de Bali":                "Forêts tropicales de Bali, Indonésie",
+    "Vache de mer de Steller":      "Îles Commander, mer de Béring, Russie",
+    "Perroquet de la Caroline":     "Forêts et vergers de l'est des États-Unis",
+    "Loup de Falkland":             "Prairies des îles Malouines (Falkland)",
+    "Éléphant nain de Sicile":      "Îles méditerranéennes (Sicile, Malte, Crète)",
+    "Rhinocéros blanc du Nord":     "Savanes d'Afrique centrale et orientale (Kenya, RDC, Ouganda)",
+    "Guépard du Mexique":           "Déserts et savanes du nord du Mexique et du sud des États-Unis",
+    "Crapaud de Couïs":             "Forêts nuageuses de Monteverde, Costa Rica",
+    "Tapir des cavernes":           "Forêts d'Amérique du Nord (Pléistocène)",
+    "Ibis de la Réunion":           "Île de la Réunion, océan Indien",
+    "Dauphin marin de Maui":        "Côte ouest de l'île du Nord, Nouvelle-Zélande",
+    "Carpocapse du Paradis":        "Savanes intérieures de Madagascar",
+    "Tortue géante de Pinta":       "Île de Pinta, archipel des Galápagos, Équateur",
+    "Loup rouge":                   "Forêts et marais côtiers du sud-est des États-Unis",
+    "Hirondelle de mer de Maui":    "Îles Hawaïennes, Pacifique Nord",
+  };
+  const HABITAT_EN = {
+    "Rhinocéros de Java":           "Dense forests of Java, Indonesia",
+    "Vaquita marina":               "Gulf of California, Mexico",
+    "Tigre de Sumatra":             "Tropical forests of Sumatra, Indonesia",
+    "Amblystome de Jefferson":      "Moist forests of northeastern United States",
+    "Gorille de montagne":          "Virunga volcanic mountains, Uganda / Rwanda / DRC",
+    "Éléphant de forêt d'Afrique":  "Equatorial forests of central and western Africa",
+    "Dugong":                       "Tropical coasts of the Indian and Pacific Oceans",
+    "Requin-baleine":               "Tropical and subtropical oceans worldwide",
+    "Tortue luth":                  "Tropical and temperate oceans worldwide",
+    "Pangolin de Chine":            "Subtropical forests of southern China and Taiwan",
+    "Lémurien de Coquerel":         "Dry forests of northwestern Madagascar",
+    "Albatros hurleur":             "Southern Ocean, subantarctic islands",
+    "Orang-outan de Tapanuli":      "Batang Toru forests, North Sumatra, Indonesia",
+    "Okapi":                        "Dense Ituri forests, Democratic Republic of Congo",
+    "Mérou bagnard":                "Coral reefs of the Caribbean and western Atlantic",
+    "Condor de Californie":         "Cliffs and canyons of California, Utah, Arizona",
+    "Saïga":                        "Central Asian steppes (Kazakhstan, Mongolia, Russia)",
+    "Cœlacanthe":                   "Deep ocean floors off East Africa and the Comoros",
+    "Lynx ibérique":                "Mediterranean scrubland of the Iberian Peninsula",
+    "Cacatoès noir de Baudin":      "Karri forests of southwestern Australia",
+    "Hippopotame nain":             "Forests and swamps of West Africa (Liberia, Côte d'Ivoire)",
+    "Aye-aye":                      "Tropical forests of Madagascar",
+    "Orque de l'Atlantique Nord":   "Northwest Atlantic, American and Canadian coasts",
+    "Rhinocéros noir":              "Shrub savannas of sub-Saharan Africa",
+    "Tortue de mer de Kemp":        "Gulf of Mexico and eastern US coast",
+    "Grue américaine":              "Prairies and marshes of North America",
+    "Léopard des neiges":           "Mountain ranges of Central Asia (Himalayas, Altai, Tian Shan)",
+    "Tapir de Baird":               "Tropical forests of Central America and Mexico",
+    "Requin pèlerin":               "Temperate coastal waters of both hemispheres",
+    "Macaque de Barbarie":          "Cedar forests of the Maghreb and Rock of Gibraltar",
+    "Dauphin du Yangtsé":           "Yangtze River, central China",
+    "Pingouin des grandes familles":"Rocky coasts of the North Atlantic (Iceland, Newfoundland)",
+    "Grand Pingouin":               "Rocky coasts of the North Atlantic (Iceland, Newfoundland)",
+    "Thylacine":                    "Forests and savannas of Tasmania, Australia",
+    "Dodo":                         "Mauritius, Indian Ocean",
+    "Pigeon migrateur":             "Forests of eastern North America",
+    "Mammuth laineux":              "Tundras and steppes of Eurasia and North America",
+    "Quagga":                       "Cape plains, South Africa",
+    "Lion des cavernes":            "Steppes and forests of Eurasia (Britain to Siberia)",
+    "Aurochs":                      "Forests and grasslands of Europe, Asia and North Africa",
+    "Auroch":                       "Forests and grasslands of Europe, Asia and North Africa",
+    "Turquoise du paradis":         "Open savannas of Queensland, Australia",
+    "Moa géant":                    "Forests of New Zealand",
+    "Tigre de Bali":                "Tropical forests of Bali, Indonesia",
+    "Vache de mer de Steller":      "Commander Islands, Bering Sea, Russia",
+    "Perroquet de la Caroline":     "Forests and orchards of eastern United States",
+    "Loup de Falkland":             "Grasslands of the Falkland Islands",
+    "Éléphant nain de Sicile":      "Mediterranean islands (Sicily, Malta, Crete)",
+    "Rhinocéros blanc du Nord":     "Savannas of central and eastern Africa (Kenya, DRC, Uganda)",
+    "Guépard du Mexique":           "Deserts and savannas of northern Mexico and southern United States",
+    "Crapaud de Couïs":             "Cloud forests of Monteverde, Costa Rica",
+    "Tapir des cavernes":           "Forests of North America (Pleistocene)",
+    "Ibis de la Réunion":           "Island of Réunion, Indian Ocean",
+    "Dauphin marin de Maui":        "West coast of North Island, New Zealand",
+    "Carpocapse du Paradis":        "Inland savannas of Madagascar",
+    "Tortue géante de Pinta":       "Pinta Island, Galápagos archipelago, Ecuador",
+    "Loup rouge":                   "Forests and coastal marshes of southeastern United States",
+    "Hirondelle de mer de Maui":    "Hawaiian Islands, North Pacific",
+  };
+
+  // ── MILIEU (catégorie pour le filtre de l'arche) ─────────────
+  const MILIEU = {
+    "Dauphin du Yangtsé":         "mer",
+    "Grand Pingouin":             "mer",
+    "Pingouin des grandes familles": "mer",
+    "Vache de mer de Steller":    "mer",
+    "Dauphin marin de Maui":      "mer",
+    "Pigeon migrateur":           "ciel",
+    "Turquoise du paradis":       "ciel",
+    "Perroquet de la Caroline":   "ciel",
+    "Ibis de la Réunion":         "ciel",
+    "Carpocapse du Paradis":      "ciel",
+    "Hirondelle de mer de Maui":  "ciel",
+  };
+  function speciesMilieu(s) {
+    return MILIEU[s.name] || "terre";
+  }
+
+  // Parse une date d'extinction en année numérique pour le tri
+  function parseExtinctYear(dateStr) {
+    if (!dateStr) return -Infinity;
+    const s = String(dateStr);
+    if (s.includes('av. J.-C.') || s.includes('BC')) {
+      const n = parseInt(s.replace(/[^0-9]/g, ''), 10);
+      return isNaN(n) ? -Infinity : -n;
+    }
+    const n = parseInt(s.replace(/[^0-9]/g, ''), 10);
+    return isNaN(n) ? -Infinity : n;
+  }
+
+  function speciesHabitat(s) {
+    const name = s.name;
+    return lang === 'en' ? (HABITAT_EN[name] || '') : (HABITAT_FR[name] || '');
+  }
+
+  // ── I18N ──────────────────────────────────────────────────────
+  let lang = 'fr';
+
+  const i18n = {
+    fr: {
+      counterLabel:   'Espèces répertoriées',
+      panelBackLabel: 'L\'Arche',
+      arkLabel:       'L\'Arche — Mausolée',
+      arkName:        'Sunken Noah',
+      arkStatus:      (n) => `${n} espèces reposent ici`,
+      arkText:        'L\'Arche ne transporte plus rien. Elle est devenue le tombeau de ce qu\'elle devait sauver.\n\nChaque espèce disparue repose ici — sous la forme d\'une œuvre fantasmée par une machine qui ne les a jamais vues.\n\nElle construira ce mausolée jusqu\'à ce que les serveurs s\'éteignent.',
+      shipLabel:      (s) => `Espèce en péril — ${s}`,
+      extinctLabel:   (date) => `Disparue — ${date}`,
+      extWaiting:     '— En attente de l\'agent —',
+      noArtwork:      '— Œuvre à générer —',
+      viewArtwork:    'Voir l\'œuvre en grand',
+      statusMap:      { 'Critique': 'Critique', 'En danger': 'En danger', 'Vulnérable': 'Vulnérable' },
+      soundTitle:     'Son',
+      sectionAnimal:  'L\'animal',
+      sectionArtwork: 'L\'œuvre dans l\'arche',
+    },
+    en: {
+      counterLabel:   'Species recorded',
+      panelBackLabel: 'The Ark',
+      arkLabel:       'The Ark — Mausoleum',
+      arkName:        'Sunken Noah',
+      arkStatus:      (n) => `${n} species rest here`,
+      arkText:        'The Ark carries nothing anymore. It became the tomb of what it was meant to save.\n\nEvery lost species rests here — in the form of an elegy imagined by a machine that never saw them.\n\nIt will build this mausoleum until the servers go dark.',
+      shipLabel:      (s) => `Species at risk — ${s}`,
+      extinctLabel:   (date) => `Extinct — ${date}`,
+      extWaiting:     '— Awaiting the agent —',
+      noArtwork:      '— Artwork to be generated —',
+      viewArtwork:    'View full artwork',
+      statusMap:      { 'Critique': 'Critically Endangered', 'En danger': 'Endangered', 'Vulnérable': 'Vulnerable' },
+      soundTitle:     'Sound',
+      sectionAnimal:  'The animal',
+      sectionArtwork: 'The artwork in the ark',
+    }
+  };
+
+  function t(key, ...args) {
+    const v = i18n[lang][key];
+    return typeof v === 'function' ? v(...args) : v;
+  }
+
+  function speciesName(s)   { return lang === 'en' && s.name_en   ? s.name_en   : s.name; }
+  function speciesStatus(s) { return lang === 'en' && s.status_en ? s.status_en : (t('statusMap')[s.status] || s.status); }
+  function speciesText(s)   { return lang === 'en' && s.text_en   ? s.text_en   : (s.text || ''); }
+  function speciesEpitaphe(s) { return lang === 'en' && s.epitaphe_en ? s.epitaphe_en : (s.epitaphe || ''); }
+
+  function applyLang() {
+    document.getElementById('counter-label').textContent = t('counterLabel');
+    document.getElementById('btn-lang-fr').classList.toggle('active', lang === 'fr');
+    document.getElementById('btn-lang-en').classList.toggle('active', lang === 'en');
+    document.getElementById('panel-back').querySelector('span').textContent = t('panelBackLabel');
+    document.getElementById('lightbox-no-img').textContent = t('noArtwork');
+    // Mise à jour des voiles
+    shipMeshes.forEach(sm => {
+      if (!sm.cardEl || !sm.species) return;
+      const nameEl   = sm.cardEl.querySelector('.sail-sname');
+      const badgeEl  = sm.cardEl.querySelector('.sail-sbadge');
+      if (nameEl)  nameEl.textContent  = speciesName(sm.species);
+      if (badgeEl) badgeEl.textContent = speciesStatus(sm.species);
+    });
+  }
+
+  document.getElementById('btn-lang-fr').addEventListener('click', () => { lang = 'fr'; applyLang(); });
+  document.getElementById('btn-lang-en').addEventListener('click', () => { lang = 'en'; applyLang(); });
+
+  // ── GRADIENT JAUNE → ORANGE → ROUGE selon danger (0→1) ───────
+  function dangerColor(danger, alpha = 0.8) {
+    const d = Math.max(0, Math.min(1, danger));
+    let r, g, b;
+    if (d < 0.5) {
+      // jaune (200,185,60) → orange (210,120,45)
+      const t = d * 2;
+      r = Math.round(200 + t * 10);
+      g = Math.round(185 - t * 65);
+      b = Math.round(60 - t * 15);
+    } else {
+      // orange (210,120,45) → rouge (215,55,45)
+      const t = (d - 0.5) * 2;
+      r = Math.round(210 + t * 5);
+      g = Math.round(120 - t * 65);
+      b = Math.round(45);
+    }
+    return `rgba(${r},${g},${b},${alpha})`;
+  }
+
+  function escapeHtml(str) {
+    return String(str ?? '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  let speciesData = [];
+  let extinctData = [];
+  const shipMeshes = [];
+
+  // Cache des meshes cliquables/survolables — reconstruit après chaque chargement de modèle
+  let interactableMeshes = [];
+  function rebuildMeshCache() {
+    interactableMeshes = [];
+    scene.traverse(c => {
+      if (c.isMesh && c.userData.type !== 'floor_decor') interactableMeshes.push(c);
+    });
+  }
+
+  fetch('species_data.json')
+    .then(r => r.json())
+    .then(json => {
+      speciesData = (json.endangered || []).map(s => ({
+        ...s,
+        icon: svgIcons[s.name] || svgDolphin
+      }));
+      extinctData = json.extinct || [];
+      document.getElementById('count-num').textContent = speciesData.length;
+      loadBoats();
+    })
+    .catch(err => console.error('species_data.json:', err));
+
+  function loadBoats() {
+
+  // Les 40 espèces les plus menacées — triées par danger décroissant
+  const MAX_BOATS = 40;
+  const sorted = [...speciesData].sort((a, b) => b.danger - a.danger).slice(0, MAX_BOATS);
+
+  // Seed hebdomadaire : positions stables dans la semaine, dérivent chaque lundi
+  const weekSeed = Math.floor(Date.now() / (7 * 24 * 60 * 60 * 1000));
+  let _seed = weekSeed;
+  function rng() {
+    _seed = (_seed * 1664525 + 1013904223) >>> 0;
+    return _seed / 0xffffffff;
+  }
+
+  // Charge le GLB une fois, puis instancie pour chaque espèce
+  const loader = new THREE.GLTFLoader();
+  loader.load('models/boat.glb', function(gltf) {
+    const boatTemplate = gltf.scene;
+    window._boatTemplate = boatTemplate;
+
+    // Pré-calcul des positions avec distance de sécurité minimale
+    const MIN_DIST_3D = 14;
+    const positions = [];
+    const goldenAngle = Math.PI * (3 - Math.sqrt(5));
+    sorted.forEach((s, i) => {
+      const danger = s.danger;
+      const baseRadius = 18 + (1 - danger) * 28;
+      let radius, angle, bx, bz, by;
+      let tries = 0;
+      do {
+        radius = baseRadius + (rng() - 0.5) * 6;
+        angle  = i * goldenAngle + (rng() - 0.5) * 0.4;
+        bx = Math.cos(angle) * radius;
+        bz = Math.sin(angle) * radius;
+        by = 8 + (1 - danger) * 30 + (rng() - 0.5) * 8;
+        tries++;
+        if (tries > 60) break;
+      } while (positions.some(p => {
+        const dx=p.x-bx, dy=p.y-by, dz=p.z-bz;
+        return Math.sqrt(dx*dx+dy*dy+dz*dz) < MIN_DIST_3D;
+      }));
+      positions.push({ x: bx, y: by, z: bz });
+    });
+
+    sorted.forEach((s, i) => {
+      const danger = s.danger;
+      const { x: bx, y: by, z: bz } = positions[i];
+
+      const boat = boatTemplate.clone();
+
+      // Couleur selon niveau de danger
+      // Même couleur que les taches claires de l'arche
+      const boatColor = new THREE.Color(0.78, 0.84, 0.88);
+
+      const meshList = [];
+      boat.traverse(child => {
+        if (child.isMesh) {
+          child.material = child.material.clone();
+          child.material.color = boatColor;
+          child.material.roughness = 0.9;
+          child.material.emissive = new THREE.Color(0.55, 0.65, 0.72);
+          child.material.emissiveIntensity = 0.3;
+          child.userData = { type: 'ship', species: s };
+          meshList.push(child);
+        }
+      });
+
+      const baseRotZ = danger * 0.55;
+      const orbitRadius = Math.sqrt(bx * bx + bz * bz);
+      const baseAngle  = Math.atan2(bz, bx);
+      const orbitSpeed = 0.006 + rng() * 0.005; // très lent — ~15-30 min/tour
+      boat.position.set(bx, by, bz);
+      boat.rotation.z = baseRotZ;
+      boat.scale.setScalar(1.4);
+
+      // ── Voile HTML ─────────────────────────────────────────
+      const sailEl = document.createElement('div');
+      sailEl.className = 'sail-card';
+      const accentSail = dangerColor(s.danger, 0.82);
+      const photoHtml = s.photo_url
+        ? `<img src="${escapeHtml(s.photo_url)}" alt="${escapeHtml(s.name)}" loading="lazy">`
+        : `<svg viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">${s.icon||''}</svg>`;
+      sailEl.innerHTML = `<div class="sail-rotate"><div class="sail-inner">
+        <div class="sail-photo-wrap">${photoHtml}</div>
+        <div class="sail-info-wrap">
+          <div class="sail-sname">${escapeHtml(s.name)}</div>
+          <div class="sail-sbadge" style="color:${accentSail}">${escapeHtml(s.status)}</div>
+          <div class="sail-scount">${escapeHtml(s.count)}</div>
+        </div>
+      </div></div>`;
+      document.getElementById('sail-container').appendChild(sailEl);
+      const rotateEl = sailEl.querySelector('.sail-rotate');
+
+      scene.add(boat);
+      // screenX/screenY : mis à jour chaque frame dans animate, utilisés pour la détection 2D
+      shipMeshes.push({ group: boat, meshList, baseY: by, baseRotZ, baseAngle, orbitRadius, orbitSpeed, idx: i, danger, species: s, cardEl: sailEl, rotateEl, screenX: -9999, screenY: -9999 });
+    });
+    rebuildMeshCache();
+
+    // ── Bateaux décor au sol — positions validées manuellement ────
+    const floorBoatPositions = [
+      // --- proches de l'arche ---
+      { x:   0.00, y: -10.00, z: -22.50, rx: -0.16, ry: 0.10,  rz:  0.03 },
+      { x:   8.00, y: -10.75, z: -25.00, rx: -0.17, ry: 6.05,  rz: -0.05 },
+      { x:  -7.50, y:  -9.00, z: -17.00, rx: -0.12, ry: 0.40,  rz: -0.09 },
+      { x: -14.00, y:  -9.50, z: -12.00, rx: -0.33, ry: 0.90,  rz:  0.37 },
+      { x:  -4.00, y:  -8.25, z: -13.00, rx:  0.24, ry: 1.30,  rz: -0.34 },
+      { x:   7.00, y:  -9.00, z: -16.00, rx: -0.20, ry: 1.45,  rz: -0.24 },
+      { x:   3.50, y: -10.50, z: -18.00, rx: -0.20, ry: 2.50,  rz:  0.15 },
+      { x:   5.00, y: -10.00, z: -12.00, rx:  0.10, ry: 4.30,  rz: -0.12 },
+      { x:  -5.00, y:  -9.80, z:  -8.00, rx:  0.20, ry: 2.20,  rz: -0.14 },
+      { x:  -9.00, y: -10.00, z: -10.50, rx:  0.30, ry: 5.50,  rz: -0.20 },
+      { x:  11.00, y: -10.50, z: -11.00, rx: -0.25, ry: 1.50,  rz:  0.30 },
+      { x:  -7.00, y:  -8.00, z: -10.00, rx: -0.06, ry: 5.70,  rz:  0.06 },
+      { x: -10.50, y:  -9.50, z:   3.00, rx:  0.15, ry: 2.00,  rz: -0.30 },
+      { x:  -8.00, y:  -9.80, z:  15.50, rx:  0.20, ry: 5.00,  rz: -0.15 },
+      { x:   7.50, y:  -9.25, z:  16.50, rx:  0.25, ry: 1.20,  rz: -0.22 },
+      { x:   8.00, y: -10.25, z:  22.00, rx:  0.28, ry: 5.30,  rz:  0.07 },
+      { x:  -1.00, y:  -9.20, z:  18.00, rx:  0.23, ry: 2.90,  rz:  0.06 },
+      { x:   0.50, y: -10.25, z:  23.50, rx:  0.19, ry: 3.50,  rz:  0.02 },
+      { x:  -6.00, y:  -9.40, z:  20.00, rx:  0.14, ry: 5.60,  rz:  0.04 },
+      { x:  -7.50, y: -10.50, z:  25.50, rx:  0.12, ry: 2.90,  rz:  0.01 },
+      { x:   6.00, y: -11.25, z:  28.00, rx:  0.28, ry: 0.70,  rz: -0.30 },
+      { x:  -2.00, y: -11.00, z:  28.00, rx: -0.16, ry: 4.75,  rz: -0.37 },
+      { x:  -1.00, y: -11.75, z:  32.00, rx:  0.14, ry: 5.80,  rz:  0.01 },
+      { x:  -6.00, y: -11.75, z:  32.00, rx:  0.22, ry: 0.90,  rz: -0.07 },
+      { x: -14.00, y: -11.75, z:  33.00, rx:  0.22, ry: 4.70,  rz:  0.17 },
+      // --- secteur NE ---
+      { x:  19.00, y: -10.50, z:   6.00, rx:  0.10, ry: 2.50,  rz: -0.15 },
+      { x:  22.50, y: -10.80, z:  -9.00, rx:  0.20, ry: 4.20,  rz: -0.15 },
+      { x:  19.00, y:  -9.80, z:  -1.00, rx: -0.15, ry: 2.80,  rz:  0.20 },
+      { x:  16.50, y:  -9.25, z:  11.50, rx: -0.01, ry: 2.80,  rz:  0.25 },
+      { x:  15.00, y:  -9.75, z:  20.00, rx:  0.11, ry: 2.60,  rz:  0.06 },
+      { x:  19.50, y: -10.75, z:  25.00, rx:  0.11, ry: 0.50,  rz: -0.46 },
+      { x:  12.50, y: -11.50, z:  29.50, rx:  0.17, ry: 5.10,  rz: -0.03 },
+      { x:  33.00, y: -12.50, z:  22.00, rx: -0.10, ry: 2.70,  rz:  0.18 },
+      { x:  35.00, y: -12.25, z:  10.50, rx:  0.04, ry: 0.55,  rz: -0.11 },
+      { x:  32.00, y: -11.50, z:   6.00, rx:  0.11, ry: 0.20,  rz:  0.00 },
+      { x:  25.00, y: -13.50, z:  39.50, rx:  0.18, ry: 5.30,  rz: -0.01 },
+      { x:  26.00, y: -10.90, z:  18.00, rx: -0.08, ry: 2.60,  rz:  0.25 },
+      { x:  24.00, y: -10.75, z: -17.00, rx: -0.24, ry: 2.30,  rz:  0.22 },
+      { x:  25.50, y: -11.25, z: -22.50, rx: -0.41, ry: 5.20,  rz: -0.27 },
+      { x:  15.00, y:  -9.50, z: -18.00, rx: -0.11, ry: 3.90,  rz:  0.13 },
+      { x:  14.50, y: -11.50, z: -28.50, rx: -0.22, ry: 3.70,  rz:  0.02 },
+      { x:  28.00, y: -11.50, z: -14.00, rx: -0.18, ry: 5.30,  rz: -0.19 },
+      { x:  31.00, y: -13.25, z:  38.00, rx: -0.26, ry: 1.60,  rz: -0.05 },
+      { x:  10.00, y: -12.75, z:  36.00, rx:  0.25, ry: 5.30,  rz:  0.10 },
+      { x:  16.00, y: -14.25, z:  44.50, rx:  0.21, ry: 0.40,  rz: -0.07 },
+      { x:  26.00, y: -14.25, z:  44.50, rx:  0.19, ry: 2.90,  rz:  0.00 },
+      { x:  11.50, y: -12.75, z: -35.00, rx:  0.30, ry: 1.50,  rz: -0.53 },
+      { x:   9.00, y: -12.00, z: -32.00, rx: -0.14, ry: 0.40,  rz:  0.28 },
+      { x:  18.00, y: -13.75, z: -40.00, rx: -0.30, ry: 2.00,  rz:  0.16 },
+      { x:   3.00, y: -13.75, z: -43.50, rx: -0.12, ry: 5.90,  rz: -0.07 },
+      { x:   3.50, y: -15.00, z:  49.50, rx:  0.30, ry: 4.50,  rz:  0.06 },
+      // --- secteur NO ---
+      { x: -16.00, y: -11.00, z:  28.00, rx:  0.22, ry: 4.70,  rz: -0.01 },
+      { x: -20.00, y: -11.25, z:  23.00, rx: -0.08, ry: 0.70,  rz:  0.18 },
+      { x: -24.00, y: -12.25, z:  28.00, rx:  0.41, ry: 4.90,  rz:  0.34 },
+      { x: -28.00, y: -12.75, z:  22.00, rx:  0.02, ry: 4.10,  rz: -0.12 },
+      { x: -26.00, y: -10.50, z:   8.00, rx:  0.12, ry: 3.40,  rz: -0.07 },
+      { x: -32.00, y: -12.25, z:  14.00, rx:  0.15, ry: 3.10,  rz:  0.22 },
+      { x: -38.00, y: -13.75, z:  18.00, rx:  0.12, ry: 2.30,  rz:  0.02 },
+      { x: -43.50, y: -12.75, z:  -6.00, rx:  0.18, ry: 1.60,  rz: -0.28 },
+      { x: -48.00, y: -13.00, z:   2.00, rx:  0.08, ry: 2.80,  rz: -0.14 },
+      { x: -42.00, y: -14.00, z: -16.00, rx: -0.14, ry: 2.90,  rz: -0.22 },
+      { x: -22.00, y: -11.50, z: -18.00, rx:  0.06, ry: 5.85,  rz:  0.16 },
+      { x: -26.00, y: -12.50, z: -24.00, rx: -0.10, ry: 3.50,  rz: -0.12 },
+      { x: -25.50, y: -10.50, z:  -8.00, rx: -0.13, ry: 0.20,  rz:  0.13 },
+      { x: -31.00, y: -14.00, z: -35.50, rx:  0.35, ry: 5.10,  rz:  0.38 },
+      { x:   1.50, y:  -8.25, z: -12.50, rx:  0.25, ry: 1.30,  rz: -0.45 },
+      { x:  16.00, y: -13.50, z:  39.50, rx:  0.33, ry: 1.60,  rz: -0.30 },
+      { x: -18.00, y: -11.75, z: -30.00, rx: -0.03, ry: 5.90,  rz:  0.20 },
+      { x: -20.00, y: -12.50, z:  35.00, rx:  0.06, ry: 0.70,  rz:  0.12 },
+      { x:  -7.00, y: -15.25, z:  52.00, rx:  0.18, ry: 2.10,  rz: -0.22 },
+      // --- lointains / fond ---
+      { x: -10.00, y: -10.25, z: -24.00, rx: -0.10, ry: 0.60,  rz: -0.36 },
+      { x:  -2.00, y: -11.25, z: -30.00, rx: -0.25, ry: 5.60,  rz: -0.11 },
+      { x: -14.00, y: -12.25, z: -36.00, rx: -0.20, ry: 0.50,  rz:  0.05 },
+      { x:  17.00, y: -10.20, z: -22.00, rx: -0.10, ry: 3.30,  rz:  0.24 },
+      { x:  22.00, y: -10.50, z: -20.00, rx:  0.14, ry: 2.40,  rz: -0.16 },
+      { x:  30.00, y: -12.25, z: -28.00, rx: -0.07, ry: 3.00,  rz:  0.10 },
+      { x: -30.00, y: -12.00, z: -13.50, rx: -0.13, ry: 5.75,  rz:  0.14 },
+      { x: -34.00, y: -11.25, z:  -2.00, rx: -0.02, ry: 0.10,  rz:  0.00 },
+      { x:  38.00, y: -13.25, z: -16.00, rx: -0.26, ry: 1.90,  rz:  0.22 },
+      { x:  42.00, y: -13.00, z:   4.00, rx:  0.04, ry: 4.40,  rz:  0.03 },
+      { x:  40.00, y: -13.00, z:  -8.00, rx: -0.14, ry: 2.10,  rz:  0.20 },
+      { x: -39.50, y: -12.00, z:   4.50, rx:  0.02, ry: 1.15,  rz:  0.08 },
+      { x:  36.00, y: -13.25, z:  32.00, rx:  0.10, ry: 3.90,  rz:  0.08 },
+      { x:  20.00, y: -12.75, z:  35.50, rx:  0.18, ry: 1.60,  rz:  0.04 },
+      { x: -12.50, y: -13.25, z:  41.50, rx:  0.25, ry: 3.40,  rz:  0.18 },
+      { x:  38.00, y: -14.25, z:  40.00, rx:  0.10, ry: 5.20,  rz: -0.12 },
+      { x: -36.50, y: -14.75, z: -28.00, rx:  0.08, ry: 2.50,  rz:  0.01 },
+      { x:  -7.00, y: -13.00, z:  39.00, rx:  0.22, ry: 4.70,  rz:  0.13 },
+      { x:  -9.00, y: -12.25, z:  35.00, rx:  0.22, ry: 5.50,  rz: -0.16 },
+      { x:  28.00, y: -13.25, z: -38.00, rx: -0.20, ry: 0.30,  rz: -0.02 },
+      { x:  -6.00, y: -12.75, z: -38.00, rx: -0.28, ry: 4.40,  rz: -0.16 },
+      { x: -18.00, y: -13.50, z: -42.00, rx: -0.20, ry: 0.90,  rz:  0.06 },
+      { x:  33.50, y: -12.50, z: -20.50, rx: -0.27, ry: 4.80,  rz: -0.35 },
+      { x:  46.00, y: -15.00, z:  26.00, rx:  0.12, ry: 3.80,  rz:  0.20 },
+      { x:  47.00, y: -14.00, z:  -5.50, rx: -0.14, ry: 2.10,  rz:  0.20 },
+      { x: -40.00, y: -15.50, z:  30.00, rx: -0.11, ry: 4.30,  rz: -0.18 },
+      { x:  14.00, y: -15.50, z:  50.00, rx:  0.09, ry: 4.00,  rz:  0.14 },
+      { x:   5.50, y: -13.50, z:  41.50, rx:  0.12, ry: 5.40,  rz: -0.20 },
+      { x: -16.00, y: -14.00, z:  46.00, rx:  0.13, ry: 5.40,  rz:  0.10 },
+      { x: -34.00, y: -16.00, z:  52.00, rx:  0.10, ry: 3.60,  rz: -0.16 },
+      { x:  26.00, y: -15.50, z:  50.00, rx:  0.17, ry: 3.50,  rz: -0.05 },
+      { x:  34.00, y: -14.75, z:  46.00, rx:  0.06, ry: 2.20,  rz:  0.12 },
+      { x:  42.00, y: -14.25, z: -34.00, rx:  0.09, ry: 1.10,  rz:  0.08 },
+      { x:  36.00, y: -14.25, z: -42.00, rx: -0.18, ry: 0.30,  rz:  0.20 },
+      { x:  50.00, y: -15.50, z: -19.50, rx: -0.30, ry: 4.80,  rz: -0.22 },
+      { x: -28.00, y: -14.50, z: -44.00, rx:  0.28, ry: 5.10,  rz:  0.45 },
+      { x:  -4.50, y: -15.25, z: -52.00, rx: -0.20, ry: 3.90,  rz:  0.23 },
+      { x:   3.00, y: -12.75, z: -38.00, rx: -0.20, ry: 0.80,  rz:  0.16 },
+      { x:  20.00, y: -15.50, z: -50.00, rx: -0.09, ry: 3.30,  rz: -0.03 },
+      { x: -46.00, y: -16.75, z: -32.00, rx:  0.20, ry: 5.25,  rz:  0.40 },
+      { x: -52.00, y: -14.50, z: -10.00, rx:  0.12, ry: 1.80,  rz: -0.28 },
+      { x: -54.00, y: -16.00, z:  20.00, rx:  0.26, ry: 4.80,  rz:  0.13 },
+      { x:  53.00, y: -16.25, z: -28.50, rx:  0.18, ry: 0.60,  rz: -0.15 },
+      { x:  52.00, y: -15.00, z:   8.00, rx:  0.23, ry: 4.40,  rz:  0.00 },
+    ];
+    window._floorBoats = [];
+    floorBoatPositions.forEach(({ x, y, z, rx = 0, ry = 0, rz = 0 }, idx) => {
+      const fb = boatTemplate.clone();
+      const meshes = [];
+      fb.traverse(c => {
+        if (c.isMesh) {
+          c.material = new THREE.MeshStandardMaterial({
+            color: 0xffffff, roughness: 0.85, metalness: 0,
+            emissive: new THREE.Color(1, 1, 1), emissiveIntensity: 0.8
+          });
+          c.userData = { type: 'floor_decor', floorIdx: idx };
+          meshes.push(c);
+        }
+      });
+      fb.position.set(x, y, z);
+      fb.rotation.set(rx, ry, rz);
+      fb.scale.setScalar(1.4);
+      scene.add(fb);
+      window._floorBoats.push({ group: fb, meshes });
+    });
+
+  }, undefined, function(err) {
+    console.error('Erreur chargement GLB:', err);
+  });
+  } // end loadBoats
+
+  // floorSurfaceY — utilisée dans loadBoats pour les bateaux décor
+  function floorSurfaceY(x, z) {
+    const r = Math.sqrt(x * x + z * z);
+    const peak   = 11.0 * Math.exp(-r * r / 70);
+    const ridges = Math.sin(x * 0.09 + 0.8) * Math.cos(z * 0.07) * 1.8
+                 + Math.sin(r * 0.22) * 0.8;
+    const h      = Math.sin(x * 127.1 + z * 311.7) * 43758.5453;
+    const noise  = (h - Math.floor(h) - 0.5) * 0.28;
+    return -18 + peak + ridges + noise;
+  }
+
+  // ── PARTICLES ─────────────────────────────────────────────────
+  const pCount = 900;
+  const pGeo = new THREE.BufferGeometry();
+  const pArr = new Float32Array(pCount * 3);
+  const pVel = new Float32Array(pCount * 3);
+  const pPhase = new Float32Array(pCount); // phase individuelle pour la dérive
+  const pYMax = 30, pYMin = -20;
+  for (let i = 0; i < pCount; i++) {
+    pArr[i*3]   = (Math.random() - 0.5) * 80;
+    pArr[i*3+1] = pYMin + Math.random() * (pYMax - pYMin);
+    pArr[i*3+2] = (Math.random() - 0.5) * 80;
+    pVel[i*3+1] = -(0.002 + Math.random() * 0.003); // chute très lente sous l'eau
+    pPhase[i]   = Math.random() * Math.PI * 2;
+  }
+  const pBuf = new THREE.BufferAttribute(pArr, 3);
+  pGeo.setAttribute('position', pBuf);
+  scene.add(new THREE.Points(pGeo, new THREE.PointsMaterial({
+    color: 0x4a7090, size: 0.11, transparent: true, opacity: 0.28
+  })));
+
+  // ── CAMERA (looking down at angle) ────────────────────────────
+  const sph = { theta: 0.1, phi: 0.72, r: 56 };
+  const target = new THREE.Vector3(0, 10, 0);
+
+  function updateCam() {
+    camera.position.set(
+      target.x + sph.r * Math.sin(sph.phi) * Math.sin(sph.theta),
+      target.y + sph.r * Math.cos(sph.phi),
+      target.z + sph.r * Math.sin(sph.phi) * Math.cos(sph.theta)
+    );
+    camera.lookAt(target);
+  }
+
+  let dragging = false, prev = { x: 0, y: 0 }, mouseMoveDist = 0;
+
+  canvas.addEventListener('mousedown', e => {
+    dragging = true; prev = { x: e.clientX, y: e.clientY }; mouseMoveDist = 0;
+  });
+  window.addEventListener('mouseup', () => { dragging = false; });
+  window.addEventListener('mousemove', e => {
+    if (dragging) {
+      const dx = e.clientX - prev.x, dy = e.clientY - prev.y;
+      mouseMoveDist += Math.abs(dx) + Math.abs(dy);
+      sph.theta -= dx * 0.004;
+      sph.phi = Math.max(0.08, Math.min(1.4, sph.phi + dy * 0.004));
+      prev = { x: e.clientX, y: e.clientY };
+      updateCam();
+      return;
+    }
+    mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+    ray.setFromCamera(mouse, camera);
+    const hits = ray.intersectObjects(interactableMeshes);
+
+    let newHovered = null;
+    if (hits.length && hits[0].object.userData.type === 'ship') {
+      let obj = hits[0].object;
+      while (obj.parent && obj.parent !== scene) obj = obj.parent;
+      newHovered = obj;
+    } else if (hits.length === 0 || hits[0].object.userData.type !== 'ark') {
+      // Fallback 2D : survol de la voile elle-même
+      const sm2d = hitTestSailCards(e.clientX, e.clientY);
+      if (sm2d) newHovered = sm2d.group;
+    }
+
+    const arkHit = hits.length > 0 && hits[0].object.userData.type === 'ark';
+    window._arkHoverTarget = arkHit ? 1 : 0;
+
+    if (newHovered) {
+      canvas.style.cursor = 'pointer';
+      hoveredBoat = newHovered;
+      shipMeshes.forEach(sm => sm.cardEl?.classList.toggle('hovered', sm.group === newHovered));
+    } else {
+      canvas.style.cursor = arkHit ? 'pointer' : 'grab';
+      hoveredBoat = null;
+      shipMeshes.forEach(sm => sm.cardEl?.classList.remove('hovered'));
+    }
+  });
+  canvas.addEventListener('mouseleave', e => {
+    // Ne pas effacer si la souris entre sur une voile-carte
+    const to = e.relatedTarget;
+    if (to && to.closest('.sail-card')) return;
+    hoveredBoat = null;
+    window._arkHoverTarget = 0;
+    shipMeshes.forEach(sm => { if (sm.cardEl) sm.cardEl.classList.remove('hovered'); });
+  });
+  canvas.addEventListener('wheel', e => {
+    sph.r = Math.max(18, Math.min(90, sph.r + e.deltaY * 0.045));
+    updateCam();
+  }, { passive: true });
+
+  // ── AURA HOVER ────────────────────────────────────────────────
+  const auraLight = new THREE.PointLight(0x3399ff, 0, 28);
+  scene.add(auraLight);
+  let hoveredBoat = null;
+  let auraIntensity = 0;
+
+
+  // ── CLICK ─────────────────────────────────────────────────────
+  const ray = new THREE.Raycaster();
+  const mouse = new THREE.Vector2();
+  const panel = document.getElementById('panel');
+
+  canvas.addEventListener('click', e => {
+    if (placingMode) return; // géré par le placer
+    if (mouseMoveDist > 8) return;
+    mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+    ray.setFromCamera(mouse, camera);
+    const hits = ray.intersectObjects(interactableMeshes);
+
+    if (hits.length) {
+      const data = hits[0].object.userData;
+      if (data.type === 'ship' && data.species) { openSpeciesPanel(data.species); return; }
+      if (data.type === 'ark') { showArkPanel(); panel.classList.add('open'); return; }
+    }
+    // Fallback 2D : clic sur une voile
+    const sm2d = hitTestSailCards(e.clientX, e.clientY);
+    if (sm2d) openSpeciesPanel(sm2d.species);
+  });
+
+  document.getElementById('panel-close').addEventListener('click', () => panel.classList.remove('open'));
+
+  // ── Bouton retour → vue Arche ─────────────────────────────────
+  const panelBack = document.getElementById('panel-back');
+  panelBack.addEventListener('click', () => showArkPanel());
+
+  function openSpeciesPanel(s) {
+    panelBack.style.display = 'none';
+    const accent = dangerColor(s.danger, 0.7);
+    const accentBorder = dangerColor(s.danger, 0.15);
+    document.getElementById('panel-label').textContent = t('shipLabel', speciesStatus(s));
+    document.getElementById('panel-label').style.color = accent;
+    document.getElementById('panel-status').style.color = accent;
+    document.getElementById('panel').style.borderLeftColor = accentBorder;
+    document.getElementById('panel-name').textContent = speciesName(s);
+    document.getElementById('panel-habitat').textContent = speciesHabitat(s);
+    document.getElementById('panel-habitat').style.color = '';
+    document.getElementById('panel-status').textContent = s.count;
+    // Ligne IUCN
+    const iucnRow  = document.getElementById('panel-iucn-row');
+    const iucnPop  = document.getElementById('panel-iucn-pop');
+    const iucnLink = document.getElementById('panel-iucn-link');
+    const iucnData = s.iucn || {};
+    const iucnUrl  = iucnData.iucn_url || '';
+    const iucnYear = iucnData.iucn_year || '';
+    const pop = s.iucn_population || iucnData.iucn_population || '';
+    if (iucnUrl || pop) {
+      iucnPop.textContent = pop ? pop.substring(0, 160) + (pop.length > 160 ? '…' : '') : '';
+      if (iucnUrl) {
+        iucnLink.href = iucnUrl;
+        iucnLink.textContent = iucnYear ? `IUCN ${iucnYear}` : 'IUCN ↗';
+        iucnLink.style.display = '';
+      } else {
+        iucnLink.style.display = 'none';
+      }
+      iucnRow.style.display = 'flex';
+    } else {
+      iucnRow.style.display = 'none';
+    }
+    document.getElementById('panel-animal-label').style.display = 'none';
+    document.getElementById('panel-artwork-label').style.display = 'none';
+    document.getElementById('panel-text').textContent = speciesText(s);
+    const panelPhoto = document.getElementById('panel-photo');
+    const panelPhotoImg = document.getElementById('panel-photo-img');
+    document.getElementById('panel-artifact').style.display = 'none';
+    if (s.photo_url) {
+      panelPhotoImg.src = s.photo_url;
+      panelPhotoImg.alt = s.name;
+      panelPhoto.style.display = 'block';
+    } else {
+      panelPhoto.style.display = 'none';
+    }
+    panel.classList.add('open');
+  }
+
+  let arkFilter = 'all';
+
+  // Tri des éteintes : plus récent en premier, avec index original pour data-idx
+  function sortedExtinct() {
+    return extinctData
+      .map((e, i) => ({ e, i }))
+      .sort((a, b) => parseExtinctYear(b.e.date) - parseExtinctYear(a.e.date));
+  }
+
+  function renderExtinctList() {
+    const sorted = sortedExtinct();
+    let html = '';
+    sorted.forEach(({ e, i }) => {
+      if (arkFilter !== 'all' && speciesMilieu(e) !== arkFilter) return;
+      const pal = (e.composition?.palette) ? e.composition.palette : [(e.composition?.couleur_dominante) || '#888'];
+      const swatches = pal.slice(0,4).map(c =>
+        `<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${escapeHtml(c)};margin-right:3px"></span>`
+      ).join('');
+      const displayName = lang === 'en' && e.name_en ? e.name_en : e.name;
+      const milieuIcon = lang === 'en'
+        ? { mer: 'sea', ciel: 'sky', terre: 'land' }[speciesMilieu(e)] || ''
+        : { mer: 'mer', ciel: 'ciel', terre: 'terre' }[speciesMilieu(e)] || '';
+      html += `<div class="extinct-entry" data-idx="${i}">
+        <div class="extinct-name">${escapeHtml(displayName)} <span class="extinct-date">${escapeHtml(e.date)}</span> <span style="opacity:0.3;font-style:normal;font-size:11px">${milieuIcon}</span></div>
+        <div class="extinct-swatches">${swatches}</div>
+      </div>`;
+    });
+    document.getElementById('panel-artifact-text').innerHTML = html || t('extWaiting');
+  }
+
+  function showArkPanel() {
+    panelBack.style.display = 'none';
+    document.getElementById('panel-artifact').style.display = '';
+    document.getElementById('panel-photo').style.display = 'none';
+    document.getElementById('panel-label').style.color = '';
+    document.getElementById('panel-status').style.color = '';
+    document.getElementById('panel').style.borderLeftColor = '';
+    document.getElementById('panel-label').textContent = t('arkLabel');
+    document.getElementById('panel-name').textContent = t('arkName');
+    document.getElementById('panel-habitat').textContent = '';
+    document.getElementById('panel-animal-label').style.display = 'none';
+    document.getElementById('panel-artwork-label').style.display = 'none';
+    document.getElementById('panel-iucn-row').style.display = 'none';
+    document.getElementById('panel-status').textContent = t('arkStatus', extinctData.length);
+    document.getElementById('panel-text').textContent = t('arkText');
+    document.getElementById('ark-filters').style.display = extinctData.length ? 'flex' : 'none';
+    renderExtinctList();
+  }
+
+  // Filtres
+  document.getElementById('ark-filters').addEventListener('click', e => {
+    const btn = e.target.closest('.ark-filter-btn');
+    if (!btn) return;
+    arkFilter = btn.dataset.filter;
+    document.querySelectorAll('.ark-filter-btn').forEach(b => b.classList.toggle('active', b === btn));
+    renderExtinctList();
+  });
+
+  // ── Lightbox ──────────────────────────────────────────────────
+  const lightbox = document.getElementById('lightbox');
+
+  function openLightbox(sp) {
+    const img = document.getElementById('lightbox-img');
+    const noImg = document.getElementById('lightbox-no-img');
+    const displayUrl = sp.image_url || sp.photo_url || null;
+    if (displayUrl) {
+      img.src = displayUrl;
+      img.alt = sp.name;
+      img.className = '';
+      img.onload = () => img.classList.add('loaded');
+      noImg.style.display = 'none';
+    } else {
+      img.className = '';
+      noImg.style.display = '';
+    }
+
+    const extinctWord = lang === 'en' ? 'Extinct' : 'Disparue en';
+    document.getElementById('lightbox-date').textContent = sp.date ? `${extinctWord} ${sp.date}` : '';
+    document.getElementById('lightbox-title').textContent = speciesName(sp);
+    document.getElementById('lightbox-habitat').textContent = speciesHabitat(sp);
+    document.getElementById('lightbox-animal-label').textContent = t('sectionAnimal');
+    document.getElementById('lightbox-epitaphe').textContent = speciesEpitaphe(sp);
+    document.getElementById('lightbox-artwork-label').textContent = t('sectionArtwork');
+
+    // Palette
+    const palEl = document.getElementById('lightbox-palette');
+    if (sp.composition?.palette) {
+      palEl.innerHTML = sp.composition.palette.map(c =>
+        `<span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:${c};margin-right:7px"></span>`
+      ).join('');
+    } else { palEl.innerHTML = ''; }
+
+    // Cartel
+    const c = sp.cartel || {};
+    const mediumLabel = lang === 'en' ? 'Medium — ' : 'Médium — ';
+    document.getElementById('lightbox-medium').textContent = c.medium ? mediumLabel + c.medium : '';
+    document.getElementById('lightbox-intention').textContent = c.note_intention || '';
+    document.getElementById('lightbox-son').textContent = sp.composition?.son ? '♪ ' + sp.composition.son : '';
+    document.getElementById('lightbox-forme').textContent = sp.composition?.forme || '';
+    document.getElementById('lightbox-sources').textContent = c.sources?.length ? c.sources.join(' · ') : '';
+
+    lightbox.classList.add('open');
+  }
+
+  document.getElementById('lightbox-close').addEventListener('click', () => lightbox.classList.remove('open'));
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) lightbox.classList.remove('open'); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') lightbox.classList.remove('open'); });
+
+  // ── Clic sur une espèce éteinte ou bouton expand ─────────────
+  document.getElementById('panel-artifact').addEventListener('click', e => {
+    // Bouton "Voir l'œuvre en grand"
+    const expandBtn = e.target.closest('.expand-btn');
+    if (expandBtn) {
+      const sp = extinctData[parseInt(expandBtn.dataset.idx)];
+      if (sp) openLightbox(sp);
+      return;
+    }
+
+    const entry = e.target.closest('.extinct-entry');
+    if (!entry) return;
+    const idx = parseInt(entry.dataset.idx);
+    const sp = extinctData[idx];
+    if (!sp) return;
+
+    panelBack.style.display = 'flex';
+    document.getElementById('panel-label').textContent = t('extinctLabel', sp.date || '');
+    document.getElementById('panel-name').textContent = speciesName(sp);
+    document.getElementById('panel-habitat').textContent = speciesHabitat(sp);
+    document.getElementById('panel-habitat').style.color = 'rgba(200,132,58,0.4)';
+    document.getElementById('panel-status').textContent = '';
+    document.getElementById('panel-status').style.color = '';
+    document.getElementById('panel-iucn-row').style.display = 'none';
+    document.getElementById('panel-animal-label').textContent = t('sectionAnimal');
+    document.getElementById('panel-animal-label').style.display = 'block';
+    document.getElementById('panel-text').textContent = speciesEpitaphe(sp);
+    document.getElementById('panel-artwork-label').textContent = t('sectionArtwork');
+    document.getElementById('panel-artwork-label').style.display = 'block';
+
+    // Cartel dans le panel
+    let cartelHtml = '';
+    // Titre de l'œuvre
+    if (sp.cartel?.titre) {
+      cartelHtml += `<p style="font-family:Cormorant,serif;font-size:15px;font-style:italic;color:rgba(200,132,58,0.7);margin-bottom:14px;letter-spacing:0.04em">${escapeHtml(sp.cartel.titre)}</p>`;
+    }
+    if (sp.composition?.palette) {
+      const pal = sp.composition.palette.map(c =>
+        `<span style="display:inline-block;width:12px;height:12px;border-radius:50%;background:${c};margin-right:6px"></span>`
+      ).join('');
+      cartelHtml += `<div style="margin-bottom:16px">${pal}</div>`;
+    }
+    if (sp.composition?.son) cartelHtml += `<p style="font-family:Cormorant,serif;font-size:14px;font-style:italic;color:rgba(255,255,255,0.38);line-height:1.8;margin-bottom:12px">♪ ${escapeHtml(sp.composition.son)}</p>`;
+    if (sp.composition?.forme) cartelHtml += `<p style="font-family:Cormorant,serif;font-size:14px;font-style:italic;color:rgba(255,255,255,0.28);line-height:1.8;margin-bottom:20px">${escapeHtml(sp.composition.forme)}</p>`;
+    if (sp.image_url) cartelHtml += `<img src="${escapeHtml(sp.image_url)}" alt="${escapeHtml(speciesName(sp))}" style="width:100%;border-radius:4px;margin-bottom:16px;opacity:0.88;display:block">`;
+    cartelHtml += `<button class="expand-btn" data-idx="${idx}">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+      ${t('viewArtwork')}
+    </button>`;
+
+    document.getElementById('panel-artifact-text').innerHTML = cartelHtml || t('noArtwork');
+  });
+
+  // ── BOAT POSITIONER ───────────────────────────────────────────
+  let placingMode = false;
+  let selectMode  = false;
+  window._activeBoat   = null; // bateau en cours d'édition
+  window._previewBoat  = null;
+
+  document.getElementById('ark-editor-toggle').addEventListener('click', () => {
+    document.getElementById('ark-editor-body').classList.toggle('open');
+    if (!window._previewBoat && window._boatTemplate) spawnPreviewBoat();
+  });
+
+  function spawnPreviewBoat() {
+    const b = window._boatTemplate.clone();
+    b.traverse(c => {
+      if (c.isMesh) {
+        c.material = new THREE.MeshStandardMaterial({
+          color: 0xffffff, roughness: 0.85, metalness: 0,
+          emissive: new THREE.Color(1, 1, 1), emissiveIntensity: 0.9
+        });
+        c.userData = { type: 'floor_decor' };
+      }
+    });
+    b.position.set(0, -10, 0);
+    b.scale.setScalar(1.4);
+    scene.add(b);
+    window._previewBoat = b;
+    setActiveBoat(b, 'Nouveau bateau');
+  }
+
+  function setActiveBoat(boat, label) {
+    // Désélectionner l'ancien
+    if (window._activeBoat && window._activeBoat !== window._previewBoat) {
+      window._activeBoat.traverse(c => { if (c.isMesh) c.material.emissiveIntensity = 0.8; });
+    }
+    window._activeBoat = boat;
+    document.getElementById('fb-status').textContent = label || 'Bateau sélectionné';
+    // Mettre à jour les sliders
+    const set = (id, vid, val) => {
+      document.getElementById(id).value = val;
+      document.getElementById(vid).textContent = val.toFixed(2);
+    };
+    set('fb-px', 'fv-px', boat.position.x);
+    set('fb-py', 'fv-py', boat.position.y);
+    set('fb-pz', 'fv-pz', boat.position.z);
+    set('fb-rx', 'fv-rx', boat.rotation.x);
+    set('fb-ry', 'fv-ry', boat.rotation.y);
+    set('fb-rz', 'fv-rz', boat.rotation.z);
+    // Surligner
+    boat.traverse(c => { if (c.isMesh) c.material.emissiveIntensity = 1.4; });
+  }
+
+  // Mode sélection
+  const selBtn = document.getElementById('fb-select-toggle');
+  selBtn.addEventListener('click', () => {
+    selectMode = !selectMode;
+    selBtn.textContent = selectMode ? '■ Annuler sélection' : '↖ Cliquer pour sélectionner';
+    selBtn.style.color = selectMode ? 'rgba(200,132,58,0.85)' : 'rgba(255,255,255,0.35)';
+    selBtn.style.borderColor = selectMode ? 'rgba(200,132,58,0.4)' : 'rgba(255,255,255,0.1)';
+    canvas.style.cursor = selectMode ? 'crosshair' : 'grab';
+  });
+
+  function bindFbSlider(id, valId, apply) {
+    const input = document.getElementById(id);
+    const valEl = document.getElementById(valId);
+    input.addEventListener('input', () => {
+      const v = parseFloat(input.value);
+      valEl.textContent = v.toFixed(2);
+      if (window._activeBoat) apply(window._activeBoat, v);
+    });
+  }
+  bindFbSlider('fb-px', 'fv-px', (b, v) => { b.position.x = v; });
+  bindFbSlider('fb-py', 'fv-py', (b, v) => { b.position.y = v; });
+  bindFbSlider('fb-pz', 'fv-pz', (b, v) => { b.position.z = v; });
+  bindFbSlider('fb-rx', 'fv-rx', (b, v) => { b.rotation.x = v; });
+  bindFbSlider('fb-ry', 'fv-ry', (b, v) => { b.rotation.y = v; });
+  bindFbSlider('fb-rz', 'fv-rz', (b, v) => { b.rotation.z = v; });
+
+  document.getElementById('fb-delete').addEventListener('click', () => {
+    const b = window._activeBoat;
+    if (!b) return;
+    scene.remove(b);
+    // Retirer de _floorBoats si c'est un bateau hardcodé
+    if (window._floorBoats) {
+      const idx = window._floorBoats.findIndex(fb => fb.group === b);
+      if (idx !== -1) window._floorBoats.splice(idx, 1);
+    }
+    // Si c'était le preview, le recréer
+    if (b === window._previewBoat) window._previewBoat = null;
+    window._activeBoat = null;
+    document.getElementById('fb-status').textContent = 'Aucun bateau sélectionné';
+  });
+
+  document.getElementById('fb-copy').addEventListener('click', () => {
+    const b = window._activeBoat;
+    if (!b) return;
+    const txt = `{ x: ${b.position.x.toFixed(2)}, y: ${b.position.y.toFixed(2)}, z: ${b.position.z.toFixed(2)}, rx: ${b.rotation.x.toFixed(2)}, ry: ${b.rotation.y.toFixed(2)}, rz: ${b.rotation.z.toFixed(2)} }`;
+    navigator.clipboard.writeText(txt).then(() => {
+      const btn = document.getElementById('fb-copy');
+      btn.textContent = '✓ Copié';
+      setTimeout(() => { btn.textContent = '⎘ Copier les coordonnées'; }, 2200);
+    });
+  });
+
+  // Sélection par clic sur un bateau au sol
+  canvas.addEventListener('click', e => {
+    if (!selectMode || mouseMoveDist > 5) return;
+    const sx = (e.clientX / window.innerWidth) * 2 - 1;
+    const sy = -(e.clientY / window.innerHeight) * 2 + 1;
+    const selRay = new THREE.Raycaster();
+    selRay.setFromCamera(new THREE.Vector2(sx, sy), camera);
+    // Collecter tous les meshes floor_decor
+    const decalMeshes = [];
+    (window._floorBoats || []).forEach(b => decalMeshes.push(...b.meshes));
+    if (window._previewBoat) window._previewBoat.traverse(c => { if (c.isMesh) decalMeshes.push(c); });
+    const hits = selRay.intersectObjects(decalMeshes);
+    if (!hits.length) return;
+    const hit = hits[0].object;
+    const idx = hit.userData.floorIdx;
+    if (idx !== undefined && window._floorBoats[idx]) {
+      setActiveBoat(window._floorBoats[idx].group, `Bateau #${idx + 1}`);
+    } else if (window._previewBoat) {
+      setActiveBoat(window._previewBoat, 'Nouveau bateau');
+    }
+    selectMode = false;
+    selBtn.textContent = '↖ Cliquer pour sélectionner';
+    selBtn.style.color = 'rgba(255,255,255,0.35)';
+    selBtn.style.borderColor = 'rgba(255,255,255,0.1)';
+    canvas.style.cursor = 'grab';
+  });
+
+
+  // ── BUTTON CONTROLS ───────────────────────────────────────────
+  const ctrl = { rotLeft: false, rotRight: false, zoomIn: false, zoomOut: false, autoRot: false };
+
+  function bindBtn(id, key) {
+    const btn = document.getElementById(id);
+    btn.addEventListener('mousedown', () => { ctrl[key] = true; });
+    btn.addEventListener('mouseup',   () => { ctrl[key] = false; });
+    btn.addEventListener('mouseleave',() => { ctrl[key] = false; });
+    btn.addEventListener('touchstart', e => { e.preventDefault(); ctrl[key] = true; });
+    btn.addEventListener('touchend',   e => { e.preventDefault(); ctrl[key] = false; });
+  }
+  bindBtn('btn-rot-left',  'rotLeft');
+  bindBtn('btn-rot-right', 'rotRight');
+  bindBtn('btn-zoom-in',   'zoomIn');
+  bindBtn('btn-zoom-out',  'zoomOut');
+
+  const autoRotBtn = document.getElementById('btn-auto-rot');
+  autoRotBtn.addEventListener('click', () => {
+    ctrl.autoRot = !ctrl.autoRot;
+    autoRotBtn.classList.toggle('active', ctrl.autoRot);
+  });
+
+  // Détection 2D sur les voiles (rect = zone visible à l'état normal, élargie pour le hover)
+  function hitTestSailCards(mx, my) {
+    // Cherche la carte la plus proche en distance au point d'ancrage bas-centre
+    let best = null, bestDist = Infinity;
+    for (const sm of shipMeshes) {
+      if (!sm.cardEl || sm.screenX === -9999) continue;
+      const dx = mx - sm.screenX, dy = my - sm.screenY;
+      // Rect de détection : 60px de large × 65px de haut (ancre en bas-centre)
+      if (dx >= -30 && dx <= 30 && dy >= -65 && dy <= 5) {
+        const d = Math.sqrt(dx*dx + dy*dy);
+        if (d < bestDist) { bestDist = d; best = sm; }
+      }
+    }
+    return best;
+  }
+
+  // Vecteurs réutilisables pour éviter les allocations par frame
+  const _sailVec    = new THREE.Vector3();
+  const _sailCamVec = new THREE.Vector3();
+  const _sailUp     = new THREE.Vector3();
+  const _sailP1     = new THREE.Vector3();
+
+  // ── ANIMATE ───────────────────────────────────────────────────
+  const clock = new THREE.Clock();
+  function animate() {
+    requestAnimationFrame(animate);
+    const t = clock.getElapsedTime();
+
+    // Button-driven camera
+    if (ctrl.rotLeft)  { sph.theta -= 0.012; updateCam(); }
+    if (ctrl.rotRight) { sph.theta += 0.012; updateCam(); }
+    if (ctrl.zoomIn)   { sph.r = Math.max(18, sph.r - 0.35); updateCam(); }
+    if (ctrl.zoomOut)  { sph.r = Math.min(90, sph.r + 0.35); updateCam(); }
+    if (ctrl.autoRot)  { sph.theta += 0.004; updateCam(); }
+
+    // Particules — chute douce type neige organique
+    for (let i = 0; i < pCount; i++) {
+      const ph = pPhase[i];
+      // dérive horizontale lente et organique — chaque flocon son propre courant
+      pArr[i*3]   += Math.sin(t * 0.12 + ph)        * 0.006
+                   + Math.sin(t * 0.07 + ph * 1.3)  * 0.003;
+      pArr[i*3+1] += pVel[i*3+1]; // chute constante
+      pArr[i*3+2] += Math.cos(t * 0.09 + ph * 0.8)  * 0.006
+                   + Math.cos(t * 0.05 + ph * 1.7)  * 0.003;
+      // réapparition en haut quand atteint le sol
+      if (pArr[i*3+1] < pYMin) {
+        pArr[i*3+1] = pYMax;
+        pArr[i*3]   = (Math.random() - 0.5) * 80;
+        pArr[i*3+2] = (Math.random() - 0.5) * 80;
+      }
+    }
+    pBuf.needsUpdate = true;
+
+    // Caustic light dance
+    causticData.forEach(({ light, phase, rx, rz, speed }) => {
+      const ct = t * speed + phase;
+      light.position.x = Math.sin(ct * 1.1) * rx + Math.cos(ct * 0.73) * 7;
+      light.position.z = Math.cos(ct * 0.87) * rz + Math.sin(ct * 1.33) * 7;
+      light.intensity = 3.5 + Math.sin(ct * 2.6) * 1.4 + Math.cos(ct * 1.8) * 0.9;
+    });
+    surfaceLight.intensity = 4.5 + Math.sin(t * 0.22) * 1.0 + Math.cos(t * 0.37) * 0.7;
+
+    // Sun shimmer — turbulence multi-fréquence, chaque rayon indépendant
+    shimmerData.forEach(({ light, ox, oz, f1, f2, f3, p1, p2, p3, drift, driftPhase }) => {
+      // scintillement : superposition de 3 fréquences → jamais périodique
+      const flicker =
+        Math.sin(t * f1 + p1) * 0.5 +
+        Math.sin(t * f2 + p2) * 0.3 +
+        Math.sin(t * f3 + p3) * 0.2;
+      // intensité : base basse, pic occasionnel (jamais fort → reste subtil)
+      const raw = (flicker + 1) * 0.5; // 0–1
+      light.intensity = Math.pow(raw, 2.2) * 2.8;
+      // légère dérive horizontale lente (mouvement des vagues en surface)
+      light.position.x = ox + Math.sin(t * drift + driftPhase) * 6;
+      light.position.z = oz + Math.cos(t * drift * 0.7 + driftPhase) * 5;
+    });
+
+    // Aura hover
+    const auraTarget = hoveredBoat ? 10 : 0;
+    auraIntensity += (auraTarget - auraIntensity) * 0.1;
+    auraLight.intensity = auraIntensity;
+    if (hoveredBoat) auraLight.position.lerp(hoveredBoat.position, 0.18);
+
+    shipMeshes.forEach(sm => {
+      const { group, meshList, baseY, baseRotZ, baseAngle, orbitRadius, orbitSpeed, idx, danger, cardEl, rotateEl } = sm;
+      const phase = idx * 1.37;
+      const speed = 0.3 + danger * 0.15;
+      const orbitAngle = baseAngle + t * orbitSpeed;
+
+      // Orbite horizontale — Y inchangé (calculé selon danger)
+      group.position.x = Math.cos(orbitAngle) * orbitRadius;
+      group.position.z = Math.sin(orbitAngle) * orbitRadius;
+      group.position.y = baseY + Math.sin(t * speed + phase) * 0.42;
+
+      // Orientation dans le sens de l'orbite + tangage/roulis
+      group.rotation.y = -orbitAngle - Math.PI / 2;
+      group.rotation.z = baseRotZ + Math.sin(t * speed * 0.68 + phase + 0.9) * 0.09;
+      group.rotation.x = Math.sin(t * speed * 0.52 + phase + 2.3) * 0.07;
+
+      // Écho du battement de l'arche — délai proportionnel à la distance
+      const echoDelay = orbitRadius * 0.042;
+      const echoCycle = ((t - echoDelay) * 0.38) % 1.0;
+      const echoLub = Math.exp(-Math.pow((echoCycle - 0.15) * 24, 2));
+      const echoDub = Math.exp(-Math.pow((echoCycle - 0.33) * 30, 2)) * 0.6;
+      const echoPulse = echoLub + echoDub;
+      const glow = 0.10 + echoPulse * 0.52;
+      meshList.forEach(m => { m.material.emissiveIntensity = glow; });
+
+      // ── Positionnement et inclinaison de la voile HTML ───────
+      if (cardEl) {
+        const wp = _sailVec.copy(group.position);
+        wp.y += 0.8;
+        wp.project(camera);
+        if (wp.z >= 1.0) {
+          cardEl.style.visibility = 'hidden';
+          sm.screenX = -9999; sm.screenY = -9999;
+        } else {
+          const sx = (wp.x + 1) * 0.5 * window.innerWidth;
+          const sy = (-wp.y + 1) * 0.5 * window.innerHeight;
+          sm.screenX = sx; sm.screenY = sy;
+          const dist = _sailCamVec.copy(camera.position).sub(group.position).length();
+          const alpha = Math.max(0, Math.min(0.96, (115 - dist) / 72));
+          cardEl.style.visibility = alpha > 0.04 ? '' : 'hidden';
+          cardEl.style.left    = Math.round(sx) + 'px';
+          cardEl.style.top     = Math.round(sy) + 'px';
+          cardEl.style.opacity = alpha.toFixed(2);
+          cardEl.style.zIndex  = cardEl.classList.contains('hovered') ? 14 : Math.min(12, Math.round(400 / Math.max(1, dist)));
+
+          // Inclinaison : suit le mât du bateau, se redresse au hover
+          if (rotateEl) {
+            if (cardEl.classList.contains('hovered')) {
+              rotateEl.style.transform = 'rotateZ(0rad)';
+            } else {
+              _sailP1.copy(group.position).project(camera);
+              const p0x = _sailP1.x, p0y = _sailP1.y;
+              _sailUp.set(0, 1, 0).applyEuler(group.rotation);
+              _sailP1.copy(group.position).addScaledVector(_sailUp, 2.5).project(camera);
+              const mastAngle = Math.atan2(
+                (_sailP1.x - p0x) * window.innerWidth,
+                (_sailP1.y - p0y) * window.innerHeight
+              );
+              rotateEl.style.transform = `rotateZ(${mastAngle.toFixed(3)}rad)`;
+            }
+          }
+        }
+      }
+    });
+
+
+    if (window._arkMat) {
+      window._arkMat.uniforms.uTime.value = t;
+      const arkCycle = (t * 0.38) % 1.0;
+      const lub = Math.exp(-Math.pow((arkCycle - 0.15) * 24, 2));
+      const dub = Math.exp(-Math.pow((arkCycle - 0.33) * 30, 2)) * 0.6;
+      const arkPulse = lub + dub;
+      window._arkMat.uniforms.uPulse.value = arkPulse;
+      // Transition douce du hover
+      const hv = window._arkMat.uniforms.uHover;
+      hv.value += ((window._arkHoverTarget || 0) - hv.value) * 0.10;
+    }
+    renderer.render(scene, camera);
+  }
+
+  // ── AUDIO AMBIANCE ────────────────────────────────────────────
+  const audio = document.getElementById('ambient-audio');
+  const btn   = document.getElementById('sound-toggle');
+  const waves = document.getElementById('sound-waves');
+  let muted = false;
+
+  // ── ÉCRAN D'ACCUEIL ──────────────────────────────────────
+  let audioStarted = false;
+  function startAudio() {
+    if (audioStarted) return;
+    audioStarted = true;
+    audio.volume = 0;
+    audio.play().catch(() => {});
+    // Fade-in du son sur 2.5s
+    let vol = 0;
+    const fadeIn = setInterval(() => {
+      vol = Math.min(0.48, vol + 0.012);
+      audio.volume = vol;
+      if (vol >= 0.48) clearInterval(fadeIn);
+    }, 60);
+  }
+
+  const introEl  = document.getElementById('intro');
+  const introBtn = document.getElementById('intro-cta');
+  introBtn.addEventListener('click', () => {
+    startAudio();
+    introEl.classList.add('hidden');
+    // Retirer du DOM après la transition pour ne pas bloquer les events
+    introEl.addEventListener('transitionend', () => introEl.remove(), { once: true });
+  });
+
+  btn.addEventListener('click', e => {
+    e.stopPropagation(); // ne déclenche pas startAudio une 2e fois
+    startAudio();
+    muted = !muted;
+    if (muted) {
+      audio.volume = 0;
+      waves.style.display = 'none';
+      btn.style.opacity = '0.25';
+    } else {
+      audio.volume = 0.48;
+      waves.style.display = '';
+      btn.style.opacity = '';
+    }
+  });
+
+  updateCam();
+  animate();
+
+  window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+  </script>
+</body>
+</html>
