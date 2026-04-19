@@ -1033,36 +1033,6 @@
       "image_url": "images/pigeon_migrateur.jpg"
     },
     {
-      "name": "Mammuth laineux",
-      "date": "~2000 av. J.-C.",
-      "epitaphe": "Les derniers ont survécu sur l'île Wrangel jusqu'en 2000 avant notre ère. Ils sont morts alors que les pyramides de Gizeh étaient déjà vieilles de cinq cents ans.",
-      "composition": {
-        "couleur_dominante": "#8a6a40",
-        "palette": [
-          "#c4a060",
-          "#3a2a18",
-          "#d4c0a0",
-          "#1a1208"
-        ],
-        "note_couleur": "La couleur de la laine longue et emmêlée — un brun-roux de steppe froide.",
-        "son": "Un barrissement grave que la glace aurait étouffé. Peut-être le même que l'éléphant. Peut-être différent. On ne saura jamais.",
-        "forme": "Une touffe de laine rousse dans de la glace. Préservée, mais plus rien dedans."
-      },
-      "cartel": {
-        "titre": "Wrangel, 2000 av. J.-C.",
-        "medium": "Laine rousse, glace perpétuelle, steppe silencieuse",
-        "note_intention": "Ils ont survécu à la dernière glaciation. C'est nous qui avons eu raison d'eux.",
-        "sources": [
-          "Sergey Zimov — Pleistocene Park Project",
-          "ADN de mammouth — Church Lab, Harvard (2015)"
-        ]
-      },
-      "prompt_visuel": "A clump of reddish-brown wool trapped in ancient ice. Frozen tundra stretching to the horizon. Pale arctic light. The wool still looks warm. Nothing else remains.",
-      "name_en": "Woolly Mammoth",
-      "epitaphe_en": "It survived the ice age. It did not survive us. The last population died on Wrangel Island around 1650 BCE, perhaps from a single genetic collapse.",
-      "image_url": "images/mammuth_laineux.jpg"
-    },
-    {
       "name": "Quagga",
       "date": "1883",
       "epitaphe": "Un zèbre à moitié rayé — les rayures s'arrêtaient au milieu du corps, laissant le reste brun-fauve. Le dernier est mort au zoo d'Amsterdam le 12 août 1883.",
@@ -1177,7 +1147,7 @@
         "iucn_population": "There is no information on former population size.",
         "iucn_rationale": "<em>Bos primigenius</em> is globally Extinct. The North African subspecies <em>B. p. mauritanicus </em>and South Asian subspecies <em>B. p. namadicus</em> both became extinct in the early Holocene. The Eurasian subspecies <em>B. p. primigenius </em>became extinct across most of Europe before the year 1500 CE but persisted in Poland until 1627 CE and in Romania and Bulgaria until the mid-17th or early 18th centuries."
       },
-      "image_url": "images/aurochs.jpg"
+      "image_url": "images/auroch.jpg"
     },
     {
       "name": "Turquoise du paradis",
@@ -1902,49 +1872,6 @@
         "iucn_url": "https://www.iucnredlist.org/species/22694856/205919631",
         "iucn_population": "No extant population remains.",
         "iucn_rationale": "This species was formerly distributed across the north Atlantic, but is now Extinct as a result of hunting pressure. The last live bird was seen in 1852."
-      }
-    },
-    {
-      "name": "Auroch",
-      "date": "1627",
-      "description": "Bos primigenius. Ancêtre sauvage de tous les bovins domestiques. Le dernier mourut en forêt de Jaktorów, Pologne, en 1627 — une femelle, seule. Animal de 1000 kg, cornes en lyre, pelage brun sombre. Chassé depuis la préhistoire, représenté dans les grottes de Lascaux. Sa domestication a transformé le monde — et sa lignée sauvage a disparu, remplacée par ses descendants domestiqués.",
-      "epitaphe": "Elle portait en elle trente mille ans de steppes et de forêts. Ses ancêtres couraient sur les parois de Lascaux, ocre et souffle dans la pierre. En 1627, dans une clairière polonaise, la dernière s'est couchée. Le monde entier descend d'elle — mais personne ne lui ressemble plus.",
-      "composition": {
-        "couleur_dominante": "#2C1810",
-        "palette": [
-          "#8B4513",
-          "#D4A574",
-          "#1a1a1a"
-        ],
-        "note_couleur": "Brun de terre brûlée, ocre des grottes, noir de charbon. Les couleurs qu'on utilisait pour la peindre il y a 17 000 ans.",
-        "son": "Un souffle grave et lent, presque un grondement sourd qui monte de la cage thoracique. Pas un meuglement — quelque chose de plus ancien, de plus profond. Le son d'un animal qui n'a jamais eu à obéir.",
-        "forme": "Une empreinte creuse dans de l'argile crue, à l'échelle 1:1. La forme d'un corps absent. On pourrait y passer la main et sentir le vide qu'elle a laissé."
-      },
-      "cartel": {
-        "titre": "Ce que nous avons gardé d'elle",
-        "medium": "Terre, absence, pigments préhistoriques, silence",
-        "note_intention": "Nous l'avons domestiquée, multipliée, transformée en millions de versions dociles. Mais la chose sauvage — celle qui existait avant nous — on l'a laissée mourir seule.",
-        "sources": [
-          "Grotte de Lascaux, panneau des Taureaux",
-          "The Aurochs and the Ox, Cis van Vuure, 2005"
-        ]
-      },
-      "prompt_visuel": "Abstract composition of deep burnt umber and ochre pigments bleeding into raw clay texture. A hollow negative space at center, shaped like breath leaving a body. Charcoal black edges fading into prehistoric cave wall grain. Atmosphere of ancient weight and final solitude. No animal form. Only the impression of something massive that was here and is not anymore.",
-      "image_url": "images/auroch.jpg",
-      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/1/17/Aurochs_at_Le_Thot.jpg",
-      "name_en": "Aurochs",
-      "epitaphe_en": "The wild ancestor of all domestic cattle. Its last stronghold was the forests of Poland. The last cow died in 1627. A royal decree had tried to protect it. It was too late.",
-      "iucn": {
-        "iucn_taxon_id": 136721,
-        "iucn_assessment_id": 237471616,
-        "iucn_status_code": "EX",
-        "iucn_status_fr": "Éteint",
-        "iucn_status_en": "Extinct",
-        "iucn_danger": 1.0,
-        "iucn_year": "2023",
-        "iucn_url": "https://www.iucnredlist.org/species/136721/237471616",
-        "iucn_population": "There is no information on former population size.",
-        "iucn_rationale": "<em>Bos primigenius</em> is globally Extinct. The North African subspecies <em>B. p. mauritanicus </em>and South Asian subspecies <em>B. p. namadicus</em> both became extinct in the early Holocene. The Eurasian subspecies <em>B. p. primigenius </em>became extinct across most of Europe before the year 1500 CE but persisted in Poland until 1627 CE and in Romania and Bulgaria until the mid-17th or early 18th centuries."
       }
     },
     {
