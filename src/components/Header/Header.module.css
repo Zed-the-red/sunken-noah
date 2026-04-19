@@ -1,0 +1,64 @@
+.title {
+  position: fixed;
+  top: 32px;
+  left: 48px;
+  color: rgba(255,255,255,0.22);
+  font-family: 'Cormorant', serif;
+  font-size: 28px;
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.counter {
+  position: fixed;
+  top: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 10;
+}
+.num {
+  font-family: 'Cormorant', serif;
+  font-size: 42px;
+  font-weight: 300;
+  color: rgba(200,132,58,0.55);
+  line-height: 1;
+}
+.label {
+  font-family: 'Cormorant', serif;
+  font-size: 9px;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.16);
+  margin-top: 4px;
+}
+
+.langSwitcher {
+  position: fixed;
+  top: 32px;
+  right: 100px;
+  display: flex;
+  gap: 2px;
+  z-index: 10;
+}
+.langBtn {
+  font-family: 'Cormorant', serif;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  background: none;
+  border: 1px solid rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.2);
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 3px;
+  transition: all 0.18s;
+}
+.langBtn:hover { color: rgba(255,255,255,0.5); border-color: rgba(255,255,255,0.18); }
+.langBtn.active { color: rgba(200,132,58,0.8); border-color: rgba(200,132,58,0.3); }

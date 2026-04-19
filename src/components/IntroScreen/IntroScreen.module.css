@@ -1,0 +1,72 @@
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: #020810;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-family: 'Cormorant', serif;
+  font-size: clamp(38px, 7vw, 82px);
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.88);
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.line {
+  width: 48px;
+  height: 1px;
+  background: rgba(200,132,58,0.35);
+  margin-bottom: 28px;
+}
+
+.desc {
+  font-family: 'Cormorant', serif;
+  font-size: clamp(13px, 1.8vw, 17px);
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(255,255,255,0.38);
+  text-align: center;
+  max-width: min(520px, 80vw);
+  line-height: 1.85;
+  letter-spacing: 0.04em;
+  margin-bottom: 56px;
+}
+
+.cta {
+  font-family: 'Cormorant', serif;
+  font-size: 11px;
+  letter-spacing: 0.52em;
+  text-transform: uppercase;
+  color: rgba(200,132,58,0.65);
+  background: none;
+  border: 1px solid rgba(200,132,58,0.22);
+  padding: 14px 36px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.22s;
+}
+.cta:hover {
+  color: rgba(200,132,58,0.95);
+  border-color: rgba(200,132,58,0.5);
+  background: rgba(200,132,58,0.04);
+}
+
+.depth {
+  position: absolute;
+  bottom: 36px;
+  font-family: 'Cormorant', serif;
+  font-size: 9px;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.12);
+  pointer-events: none;
+}

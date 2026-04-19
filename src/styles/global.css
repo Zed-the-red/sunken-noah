@@ -1,0 +1,99 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #020810; overflow: hidden; cursor: grab; }
+body:active { cursor: grabbing; }
+canvas { display: block; }
+
+/* ── SAIL CARDS (created imperatively in useScene) ── */
+#sail-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  overflow: hidden;
+}
+.sail-card {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.sail-rotate {
+  transform-origin: center bottom;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.sail-inner {
+  width: 148px;
+  transform-origin: center bottom;
+  transform: scale(0.38);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.sail-card.hovered .sail-inner { transform: scale(1); }
+.sail-photo-wrap {
+  width: 100%;
+  height: 110px;
+  overflow: hidden;
+  border-radius: 3px 3px 0 0;
+  border: 1px solid rgba(200,132,58,0.18);
+  border-bottom: none;
+  background: rgba(2,6,14,0.72);
+  backdrop-filter: blur(6px);
+  transition: border-color 0.3s;
+}
+.sail-card.hovered .sail-photo-wrap { border-color: rgba(200,132,58,0.52); }
+.sail-photo-wrap img,
+.sail-photo-wrap svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.32) brightness(0.58);
+  transition: filter 0.35s;
+}
+.sail-photo-wrap svg {
+  padding: 18px;
+  box-sizing: border-box;
+  color: rgba(200,132,58,0.48);
+  filter: none;
+}
+.sail-card.hovered .sail-photo-wrap img { filter: saturate(0.7) brightness(0.86); }
+.sail-info-wrap {
+  background: rgba(2,6,14,0.94);
+  border: 1px solid rgba(200,132,58,0.32);
+  border-top: none;
+  border-radius: 0 0 3px 3px;
+  padding: 0 12px;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s cubic-bezier(0.16,1,0.3,1),
+              opacity 0.28s ease,
+              padding 0.28s;
+  backdrop-filter: blur(8px);
+}
+.sail-card.hovered .sail-info-wrap {
+  max-height: 96px;
+  opacity: 1;
+  padding: 10px 12px 12px;
+}
+.sail-sname {
+  font-family: 'Cormorant', serif;
+  font-size: 15px;
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.2;
+  margin-bottom: 5px;
+}
+.sail-sbadge {
+  font-family: 'Cormorant', serif;
+  font-size: 9px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.sail-scount {
+  font-family: 'Cormorant', serif;
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+  font-style: italic;
+}

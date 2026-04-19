@@ -453,24 +453,23 @@
 
     /* ── PANEL BACK BUTTON ── */
     #panel-back {
-      position: absolute;
-      top: 28px;
-      left: 28px;
-      width: 36px;
-      height: 36px;
-      display: none;
+      display: flex;
       align-items: center;
-      justify-content: center;
-      color: rgba(255,255,255,0.25);
+      gap: 8px;
+      background: none;
+      border: none;
       cursor: pointer;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 50%;
+      color: rgba(200,132,58,0.45);
       font-family: 'Cormorant', serif;
-      transition: all 0.2s;
+      font-size: 10px;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      padding: 0;
+      margin-bottom: 28px;
+      transition: color 0.2s;
     }
-    #panel-back:hover { color: rgba(200,132,58,0.9); border-color: rgba(200,132,58,0.3); background: rgba(200,132,58,0.06); }
-    #panel-back svg { width: 15px; height: 15px; }
+    #panel-back:hover { color: rgba(200,132,58,0.85); }
+    #panel-back svg { width: 14px; height: 14px; }
 
     /* ── EXPAND BUTTON ── */
     .expand-btn {
@@ -496,68 +495,6 @@
       color: rgba(200,132,58,0.95);
       border-color: rgba(200,132,58,0.45);
       background: rgba(200,132,58,0.05);
-    }
-
-    /* ── SPECIES NAV ── */
-    #species-nav {
-      display: none;
-      flex-direction: column;
-      gap: 8px;
-      margin-bottom: 24px;
-    }
-    #species-nav-levels {
-      display: flex;
-      gap: 5px;
-    }
-    .species-level-btn {
-      flex: 1;
-      height: 34px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 4px;
-      color: rgba(255,255,255,0.22);
-      font-family: 'Cormorant', serif;
-      font-size: 8px;
-      letter-spacing: 0.32em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .species-level-btn:hover { color: rgba(255,255,255,0.5); border-color: rgba(255,255,255,0.18); }
-    .species-level-btn.active { color: rgba(200,132,58,0.9); border-color: rgba(200,132,58,0.35); background: rgba(200,132,58,0.06); }
-    #species-nav-arrows {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .species-nav-arrow {
-      width: 36px;
-      height: 36px;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 50%;
-      color: rgba(255,255,255,0.25);
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .species-nav-arrow:hover { color: rgba(200,132,58,0.9); border-color: rgba(200,132,58,0.3); background: rgba(200,132,58,0.06); }
-    .species-nav-arrow:disabled { opacity: 0.25; cursor: default; pointer-events: none; }
-    .species-nav-arrow svg { width: 14px; height: 14px; }
-    #species-nav-counter {
-      flex: 1;
-      text-align: center;
-      font-family: 'Cormorant', serif;
-      font-size: 11px;
-      letter-spacing: 0.28em;
-      color: rgba(255,255,255,0.18);
-      font-style: italic;
     }
 
     /* ── LIGHTBOX ── */
@@ -941,25 +878,10 @@
 
   <div id="panel">
     <button id="panel-close">✕</button>
-    <button id="panel-back" style="display:none" title="L'Arche">
+    <button id="panel-back" style="display:none">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      <span>L'Arche</span>
     </button>
-    <div id="species-nav" style="display:none">
-      <div id="species-nav-levels">
-        <button class="species-level-btn" data-status="Critique">Critique</button>
-        <button class="species-level-btn" data-status="En danger">En danger</button>
-        <button class="species-level-btn" data-status="Vulnérable">Vulnérable</button>
-      </div>
-      <div id="species-nav-arrows">
-        <button class="species-nav-arrow" id="species-prev" title="Précédent">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-        </button>
-        <div id="species-nav-counter">— / —</div>
-        <button class="species-nav-arrow" id="species-next" title="Suivant">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-        </button>
-      </div>
-    </div>
     <div id="panel-label">—</div>
     <div id="panel-name">—</div>
     <div id="panel-habitat"></div>
@@ -1617,11 +1539,7 @@
     document.getElementById('counter-label').textContent = t('counterLabel');
     document.getElementById('btn-lang-fr').classList.toggle('active', lang === 'fr');
     document.getElementById('btn-lang-en').classList.toggle('active', lang === 'en');
-    document.getElementById('panel-back').title = t('panelBackLabel');
-    document.querySelectorAll('.species-level-btn').forEach(btn => {
-      const s = btn.dataset.status;
-      btn.textContent = t('statusMap')[s] || s;
-    });
+    document.getElementById('panel-back').querySelector('span').textContent = t('panelBackLabel');
     document.getElementById('lightbox-no-img').textContent = t('noArtwork');
     // Mise à jour des voiles
     shipMeshes.forEach(sm => {
@@ -1667,7 +1585,6 @@
 
   let speciesData = [];
   let extinctData = [];
-  let sortedSpecies = [];
   const shipMeshes = [];
 
   // Cache des meshes cliquables/survolables — reconstruit après chaque chargement de modèle
@@ -1697,7 +1614,6 @@
   // Les 40 espèces les plus menacées — triées par danger décroissant
   const MAX_BOATS = 40;
   const sorted = [...speciesData].sort((a, b) => b.danger - a.danger).slice(0, MAX_BOATS);
-  sortedSpecies = sorted;
 
   // Seed hebdomadaire : positions stables dans la semaine, dérivent chaque lundi
   const weekSeed = Math.floor(Date.now() / (7 * 24 * 60 * 60 * 1000));
@@ -2077,52 +1993,8 @@
   const panelBack = document.getElementById('panel-back');
   panelBack.addEventListener('click', () => showArkPanel());
 
-  // ── Navigation espèces par niveau de danger ───────────────────
-  let navFilter = 'Critique';
-  let navCurrentSpecies = null;
-
-  function navFilteredList() {
-    return sortedSpecies.filter(s => s.status === navFilter);
-  }
-
-  function updateSpeciesNav(s) {
-    navCurrentSpecies = s;
-    navFilter = s.status;
-    document.getElementById('species-nav').style.display = 'flex';
-    document.querySelectorAll('.species-level-btn').forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.status === navFilter);
-    });
-    const list = navFilteredList();
-    const idx = list.indexOf(s);
-    document.getElementById('species-nav-counter').textContent =
-      idx >= 0 ? `${idx + 1} / ${list.length}` : `— / ${list.length}`;
-    document.getElementById('species-prev').disabled = idx <= 0;
-    document.getElementById('species-next').disabled = idx < 0 || idx >= list.length - 1;
-  }
-
-  document.getElementById('species-nav-levels').addEventListener('click', e => {
-    const btn = e.target.closest('.species-level-btn');
-    if (!btn) return;
-    navFilter = btn.dataset.status;
-    const list = navFilteredList();
-    if (list.length > 0) openSpeciesPanel(list[0]);
-  });
-
-  document.getElementById('species-prev').addEventListener('click', () => {
-    const list = navFilteredList();
-    const idx = list.indexOf(navCurrentSpecies);
-    if (idx > 0) openSpeciesPanel(list[idx - 1]);
-  });
-
-  document.getElementById('species-next').addEventListener('click', () => {
-    const list = navFilteredList();
-    const idx = list.indexOf(navCurrentSpecies);
-    if (idx >= 0 && idx < list.length - 1) openSpeciesPanel(list[idx + 1]);
-  });
-
   function openSpeciesPanel(s) {
     panelBack.style.display = 'none';
-    updateSpeciesNav(s);
     const accent = dangerColor(s.danger, 0.7);
     const accentBorder = dangerColor(s.danger, 0.15);
     document.getElementById('panel-label').textContent = t('shipLabel', speciesStatus(s));
@@ -2202,7 +2074,6 @@
 
   function showArkPanel() {
     panelBack.style.display = 'none';
-    document.getElementById('species-nav').style.display = 'none';
     document.getElementById('panel-artifact').style.display = '';
     document.getElementById('panel-photo').style.display = 'none';
     document.getElementById('panel-label').style.color = '';
@@ -2296,7 +2167,6 @@
     if (!sp) return;
 
     panelBack.style.display = 'flex';
-    document.getElementById('species-nav').style.display = 'none';
     document.getElementById('panel-label').textContent = t('extinctLabel', sp.date || '');
     document.getElementById('panel-name').textContent = speciesName(sp);
     document.getElementById('panel-habitat').textContent = speciesHabitat(sp);
