@@ -971,8 +971,7 @@
           "Natural History Museum, Oxford — spécimen n°8912"
         ]
       },
-      "prompt_visuel": "Single egg in dry tropical leaves. Warm reddish-brown earth. The egg is perfectly intact, slightly iridescent. Soft Indian Ocean light. Waiting for something that will not come.",
-      "image_url": "images/dodo.jpg",
+      "prompt_visuel": "A single smooth stone on bare red tropical earth, surrounded by dried leaves and silence. Warm ochre and rust light from a low horizon. Deep shadow beneath. The atmosphere of something irrevocably lost — not violent, just absent. Mauritius island colors: terracotta, deep green shadow, pale sky. No text, no letters, no numbers, no labels, no writing. Purely visual, abstract, no typography.",
       "photo_url": "https://upload.wikimedia.org/wikipedia/commons/8/88/Didus_cucullatus.jpg",
       "name_en": "Dodo",
       "epitaphe_en": "It had no fear of humans. It had never needed any. That trust took less than a century to kill it.",
@@ -987,7 +986,8 @@
         "iucn_url": "https://www.iucnredlist.org/species/22690059/261916273",
         "iucn_population": "No extant population remains.",
         "iucn_rationale": "This species was found in Mauritius, but is now Extinct as a result of hunting by settlers and nest predation by introduced animals."
-      }
+      },
+      "image_url": "images/dodo.jpg"
     },
     {
       "name": "Pigeon migrateur",
