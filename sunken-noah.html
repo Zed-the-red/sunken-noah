@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Sunken Noah</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
   <style>
@@ -15,7 +16,7 @@
       position: fixed;
       top: 32px;
       left: 48px;
-      color: rgba(255,255,255,0.22);
+      color: rgba(255,255,255,0.42);
       font-family: 'Cormorant', serif;
       font-size: 28px;
       font-weight: 300;
@@ -38,15 +39,15 @@
       font-family: 'Cormorant', serif;
       font-size: 42px;
       font-weight: 300;
-      color: rgba(200, 132, 58, 0.55);
+      color: rgba(200, 132, 58, 0.78);
       line-height: 1;
     }
     #counter .label {
       font-family: 'Cormorant', serif;
-      font-size: 9px;
-      letter-spacing: 0.42em;
+      font-size: 10px;
+      letter-spacing: 0.38em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.16);
+      color: rgba(255,255,255,0.35);
       margin-top: 4px;
     }
 
@@ -65,15 +66,15 @@
       letter-spacing: 0.3em;
       text-transform: uppercase;
       background: none;
-      border: 1px solid rgba(255,255,255,0.08);
-      color: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.14);
+      color: rgba(255,255,255,0.42);
       cursor: pointer;
       padding: 6px 10px;
       border-radius: 3px;
       transition: all 0.18s;
     }
-    .lang-btn:hover { color: rgba(255,255,255,0.5); border-color: rgba(255,255,255,0.18); }
-    .lang-btn.active { color: rgba(200,132,58,0.8); border-color: rgba(200,132,58,0.3); }
+    .lang-btn:hover { color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.28); }
+    .lang-btn.active { color: rgba(200,132,58,0.9); border-color: rgba(200,132,58,0.4); }
 
     /* ── PANEL ── */
     #panel {
@@ -119,10 +120,10 @@
 
     #panel-label {
       font-family: 'Cormorant', serif;
-      font-size: 9px;
-      letter-spacing: 0.5em;
+      font-size: 10px;
+      letter-spacing: 0.46em;
       text-transform: uppercase;
-      color: rgba(200, 132, 58, 0.45);
+      color: rgba(200, 132, 58, 0.72);
       margin-bottom: 14px;
     }
     #panel-name {
@@ -130,16 +131,16 @@
       font-size: 34px;
       font-weight: 300;
       font-style: italic;
-      color: rgba(255,255,255,0.92);
+      color: rgba(255,255,255,0.95);
       margin-bottom: 12px;
       line-height: 1.15;
     }
     #panel-status {
       font-family: 'Cormorant', serif;
-      font-size: 10px;
+      font-size: 11px;
       letter-spacing: 0.32em;
       text-transform: uppercase;
-      color: rgba(200, 132, 58, 0.65);
+      color: rgba(200, 132, 58, 0.82);
       margin-bottom: 12px;
       padding-bottom: 0;
     }
@@ -149,84 +150,84 @@
       gap: 10px;
       margin-bottom: 18px;
       padding-bottom: 20px;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
     #panel-iucn-pop {
       font-family: 'Cormorant', serif;
-      font-size: 11px;
-      line-height: 1.6;
-      color: rgba(255,255,255,0.32);
+      font-size: 12px;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.58);
       flex: 1;
     }
     #panel-iucn-link {
       font-family: 'Cormorant', serif;
-      font-size: 8px;
+      font-size: 9px;
       letter-spacing: 0.28em;
       text-transform: uppercase;
-      color: rgba(200,132,58,0.38);
+      color: rgba(200,132,58,0.62);
       text-decoration: none;
-      border: 1px solid rgba(200,132,58,0.15);
-      padding: 4px 7px;
+      border: 1px solid rgba(200,132,58,0.25);
+      padding: 5px 9px;
       border-radius: 2px;
       white-space: nowrap;
       flex-shrink: 0;
       transition: all 0.18s;
     }
-    #panel-iucn-link:hover { color: rgba(200,132,58,0.7); border-color: rgba(200,132,58,0.3); }
+    #panel-iucn-link:hover { color: rgba(200,132,58,0.9); border-color: rgba(200,132,58,0.45); }
     #panel-text {
       font-family: 'Cormorant', serif;
       font-size: 17px;
       font-weight: 400;
       line-height: 2;
-      color: rgba(255,255,255,0.68);
+      color: rgba(255,255,255,0.82);
       font-style: italic;
       white-space: pre-line;
     }
     #panel-artifact {
       margin-top: 40px;
       padding-top: 28px;
-      border-top: 1px solid rgba(255,255,255,0.05);
+      border-top: 1px solid rgba(255,255,255,0.07);
       flex: 1;
     }
     #panel-artifact-text {
       font-family: 'Cormorant', serif;
-      font-size: 10px;
-      letter-spacing: 0.3em;
+      font-size: 11px;
+      letter-spacing: 0.28em;
       text-transform: uppercase;
-      color: rgba(200, 132, 58, 0.25);
+      color: rgba(200, 132, 58, 0.48);
     }
 
     /* ── HABITAT ── */
     #panel-habitat {
       font-family: 'Cormorant', serif;
-      font-size: 12px;
-      letter-spacing: 0.22em;
-      color: rgba(200, 132, 58, 0.5);
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      color: rgba(200, 132, 58, 0.72);
       font-style: italic;
       margin-bottom: 20px;
     }
     .panel-section-label {
       font-family: 'Cormorant', serif;
-      font-size: 9px;
-      letter-spacing: 0.46em;
+      font-size: 10px;
+      letter-spacing: 0.42em;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.16);
+      color: rgba(255, 255, 255, 0.35);
       margin-bottom: 10px;
     }
     #lightbox-habitat {
       font-family: 'Cormorant', serif;
-      font-size: 12px;
-      letter-spacing: 0.22em;
-      color: rgba(200, 132, 58, 0.5);
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      color: rgba(200, 132, 58, 0.72);
       font-style: italic;
       margin-bottom: 22px;
     }
     .lightbox-section-label {
       font-family: 'Cormorant', serif;
-      font-size: 9px;
-      letter-spacing: 0.46em;
+      font-size: 10px;
+      letter-spacing: 0.42em;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.16);
+      color: rgba(255, 255, 255, 0.35);
       margin-bottom: 10px;
     }
 
@@ -242,8 +243,8 @@
       align-items: center;
       gap: 5px;
       background: none;
-      border: 1px solid rgba(255,255,255,0.08);
-      color: rgba(255,255,255,0.22);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.42);
       cursor: pointer;
       padding: 8px 10px 7px;
       border-radius: 3px;
@@ -252,13 +253,13 @@
     .ark-filter-btn svg { display: block; }
     .ark-filter-btn span {
       font-family: 'Cormorant', serif;
-      font-size: 8px;
-      letter-spacing: 0.32em;
+      font-size: 9px;
+      letter-spacing: 0.28em;
       text-transform: uppercase;
       line-height: 1;
     }
-    .ark-filter-btn:hover { color: rgba(255,255,255,0.5); border-color: rgba(255,255,255,0.18); }
-    .ark-filter-btn.active { color: rgba(200,132,58,0.9); border-color: rgba(200,132,58,0.35); background: rgba(200,132,58,0.06); }
+    .ark-filter-btn:hover { color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.25); }
+    .ark-filter-btn.active { color: rgba(200,132,58,0.9); border-color: rgba(200,132,58,0.4); background: rgba(200,132,58,0.07); }
 
     /* ── PHOTO ESPÈCE EN PÉRIL ── */
     #panel-photo {
@@ -281,25 +282,25 @@
     .extinct-entry {
       padding: 14px 12px;
       margin: 0 -12px;
-      border-bottom: 1px solid rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
       cursor: pointer;
       border-radius: 4px;
       transition: background 0.15s;
     }
-    .extinct-entry:hover { background: rgba(200,132,58,0.05); }
+    .extinct-entry:hover { background: rgba(200,132,58,0.07); }
     .extinct-entry:last-child { border-bottom: none; }
     .extinct-name {
       font-family: 'Cormorant', serif;
       font-size: 17px;
       font-weight: 400;
       font-style: italic;
-      color: rgba(255,255,255,0.78);
+      color: rgba(255,255,255,0.88);
       margin-bottom: 4px;
     }
     .extinct-date {
       font-size: 10px;
       letter-spacing: 0.22em;
-      color: rgba(200,132,58,0.55);
+      color: rgba(200,132,58,0.72);
       font-style: normal;
     }
     .extinct-swatches { margin-top: 5px; }
@@ -348,20 +349,20 @@
       font-size: 18px;
       font-weight: 300;
       font-style: italic;
-      color: rgba(255,255,255,0.92);
+      color: rgba(255,255,255,0.95);
       line-height: 1.2;
     }
     #hover-status {
       font-family: 'Cormorant', serif;
-      font-size: 9px;
-      letter-spacing: 0.38em;
+      font-size: 10px;
+      letter-spacing: 0.35em;
       text-transform: uppercase;
-      color: rgba(200, 132, 58, 0.7);
+      color: rgba(200, 132, 58, 0.88);
     }
     #hover-count {
       font-family: 'Cormorant', serif;
-      font-size: 12px;
-      color: rgba(255,255,255,0.32);
+      font-size: 13px;
+      color: rgba(255,255,255,0.58);
       font-style: italic;
     }
 
@@ -516,18 +517,18 @@
       align-items: center;
       justify-content: center;
       background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
       border-radius: 4px;
-      color: rgba(255,255,255,0.22);
+      color: rgba(255,255,255,0.45);
       font-family: 'Cormorant', serif;
-      font-size: 8px;
-      letter-spacing: 0.32em;
+      font-size: 9px;
+      letter-spacing: 0.28em;
       text-transform: uppercase;
       cursor: pointer;
       transition: all 0.2s;
     }
-    .species-level-btn:hover { color: rgba(255,255,255,0.5); border-color: rgba(255,255,255,0.18); }
-    .species-level-btn.active { color: rgba(200,132,58,0.9); border-color: rgba(200,132,58,0.35); background: rgba(200,132,58,0.06); }
+    .species-level-btn:hover { color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.25); }
+    .species-level-btn.active { color: rgba(200,132,58,0.9); border-color: rgba(200,132,58,0.4); background: rgba(200,132,58,0.07); }
     #species-nav-arrows {
       display: flex;
       align-items: center;
@@ -554,9 +555,9 @@
       flex: 1;
       text-align: center;
       font-family: 'Cormorant', serif;
-      font-size: 11px;
-      letter-spacing: 0.28em;
-      color: rgba(255,255,255,0.18);
+      font-size: 12px;
+      letter-spacing: 0.25em;
+      color: rgba(255,255,255,0.42);
       font-style: italic;
     }
 
@@ -645,10 +646,10 @@
     #lightbox-info::-webkit-scrollbar-thumb { background: rgba(200,132,58,0.2); border-radius: 2px; }
     #lightbox-date {
       font-family: 'Cormorant', serif;
-      font-size: 9px;
-      letter-spacing: 0.5em;
+      font-size: 10px;
+      letter-spacing: 0.46em;
       text-transform: uppercase;
-      color: rgba(200,132,58,0.45);
+      color: rgba(200,132,58,0.72);
       margin-bottom: 10px;
     }
     #lightbox-title {
@@ -656,7 +657,7 @@
       font-size: 38px;
       font-weight: 300;
       font-style: italic;
-      color: rgba(255,255,255,0.92);
+      color: rgba(255,255,255,0.95);
       line-height: 1.1;
       margin-bottom: 20px;
     }
@@ -666,52 +667,52 @@
       font-size: 17px;
       font-style: italic;
       line-height: 1.95;
-      color: rgba(255,255,255,0.55);
+      color: rgba(255,255,255,0.75);
       margin-bottom: 32px;
       white-space: pre-line;
     }
     #lightbox-divider {
       height: 1px;
-      background: rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.08);
       margin-bottom: 28px;
     }
     #lightbox-medium {
       font-family: 'Cormorant', serif;
-      font-size: 9px;
-      letter-spacing: 0.38em;
+      font-size: 10px;
+      letter-spacing: 0.35em;
       text-transform: uppercase;
-      color: rgba(200,132,58,0.4);
+      color: rgba(200,132,58,0.68);
       margin-bottom: 14px;
     }
     #lightbox-intention {
       font-family: 'Cormorant', serif;
-      font-size: 14px;
+      font-size: 15px;
       font-style: italic;
-      color: rgba(255,255,255,0.32);
-      line-height: 1.8;
+      color: rgba(255,255,255,0.58);
+      line-height: 1.85;
       margin-bottom: 20px;
     }
     #lightbox-son {
       font-family: 'Cormorant', serif;
-      font-size: 13px;
+      font-size: 14px;
       font-style: italic;
-      color: rgba(255,255,255,0.28);
+      color: rgba(255,255,255,0.52);
       line-height: 1.7;
       margin-bottom: 14px;
     }
     #lightbox-forme {
       font-family: 'Cormorant', serif;
-      font-size: 13px;
+      font-size: 14px;
       font-style: italic;
-      color: rgba(255,255,255,0.22);
+      color: rgba(255,255,255,0.44);
       line-height: 1.7;
       margin-bottom: 24px;
     }
     #lightbox-sources {
       font-family: 'Cormorant', serif;
-      font-size: 9px;
-      letter-spacing: 0.25em;
-      color: rgba(200,132,58,0.2);
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      color: rgba(200,132,58,0.45);
       line-height: 1.9;
     }
 
@@ -812,7 +813,7 @@
     .sail-scount {
       font-family: 'Cormorant', serif;
       font-size: 11px;
-      color: rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.58);
       font-style: italic;
     }
 
@@ -852,10 +853,10 @@
     }
     #intro-desc {
       font-family: 'Cormorant', serif;
-      font-size: clamp(13px, 1.8vw, 17px);
+      font-size: clamp(14px, 1.8vw, 18px);
       font-weight: 300;
       font-style: italic;
-      color: rgba(255,255,255,0.38);
+      color: rgba(255,255,255,0.62);
       text-align: center;
       max-width: min(520px, 80vw);
       line-height: 1.85;
@@ -867,27 +868,27 @@
       font-size: 11px;
       letter-spacing: 0.52em;
       text-transform: uppercase;
-      color: rgba(200,132,58,0.65);
+      color: rgba(200,132,58,0.82);
       background: none;
-      border: 1px solid rgba(200,132,58,0.22);
+      border: 1px solid rgba(200,132,58,0.32);
       padding: 14px 36px;
       cursor: pointer;
       border-radius: 2px;
       transition: all 0.22s;
     }
     #intro-cta:hover {
-      color: rgba(200,132,58,0.95);
-      border-color: rgba(200,132,58,0.5);
-      background: rgba(200,132,58,0.04);
+      color: rgba(200,132,58,1);
+      border-color: rgba(200,132,58,0.62);
+      background: rgba(200,132,58,0.06);
     }
     #intro-depth {
       position: absolute;
       bottom: 36px;
       font-family: 'Cormorant', serif;
-      font-size: 9px;
+      font-size: 10px;
       letter-spacing: 0.42em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.28);
       pointer-events: none;
     }
 
@@ -908,6 +909,131 @@
     }
     #sound-toggle:hover { color: rgba(200,132,58,0.85); border-color: rgba(200,132,58,0.35); background: rgba(200,132,58,0.06); }
     #sound-toggle svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+
+    /* ══════════════════════════════════════════════════════════════
+       ── RESPONSIVE ─────────────────────────────────────────────
+       ══════════════════════════════════════════════════════════════ */
+
+    /* ── Tablet (768–1024px) ── */
+    @media (max-width: 1024px) {
+      #panel {
+        width: 400px;
+        right: -420px;
+        padding: 72px 36px 48px;
+      }
+      #lightbox-inner {
+        width: 95vw;
+        height: 85vh;
+      }
+      #lightbox-info { padding: 40px 36px; }
+    }
+
+    /* ── Mobile (< 768px) ── */
+    @media (max-width: 767px) {
+
+      /* Canvas touch */
+      canvas { touch-action: none; }
+
+      /* Header — titre masqué, counter centré en haut */
+      #title { display: none; }
+
+      #counter {
+        top: 18px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      #counter .num { font-size: 32px; }
+      #counter .label { font-size: 9px; letter-spacing: 0.3em; }
+
+      /* Lang switcher — collé à droite */
+      #lang-switcher {
+        top: 18px;
+        right: 16px;
+      }
+
+      /* Controls — plus petits, collés en bas */
+      #controls {
+        bottom: 20px;
+        gap: 3px;
+      }
+      .ctrl-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+      }
+      #sound-toggle { width: 36px; height: 36px; }
+
+      /* Panel — plein écran par le bas sur mobile */
+      #panel {
+        right: auto !important;
+        left: 0;
+        bottom: -100vh;
+        top: auto;
+        width: 100vw;
+        height: 88vh;
+        border-left: none;
+        border-top: 1px solid rgba(200,132,58,0.15);
+        border-radius: 18px 18px 0 0;
+        padding: 56px 24px 40px;
+        transition: bottom 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      #panel.open {
+        right: auto !important;
+        bottom: 0;
+      }
+
+      /* Boutons panel — repositionnés pour layout bas */
+      #panel-close { top: 16px; right: 20px; }
+      #panel-back  { top: 16px; left: 20px; }
+
+      /* Panel — nom plus compact */
+      #panel-name { font-size: 26px; }
+      #panel-label { font-size: 9px; }
+
+      /* Species nav — adapté mobile */
+      #species-nav { margin-bottom: 18px; }
+      .species-level-btn { font-size: 8px; letter-spacing: 0.2em; height: 32px; }
+
+      /* Lightbox — colonne unique, plein écran */
+      #lightbox-inner {
+        grid-template-columns: 1fr;
+        grid-template-rows: 38vh 1fr;
+        width: 100vw;
+        height: 100vh;
+        max-width: 100vw;
+        max-height: 100vh;
+        border-radius: 0;
+        border: none;
+      }
+      #lightbox-img-wrap {
+        border-right: none;
+        border-bottom: 1px solid rgba(200,132,58,0.08);
+      }
+      #lightbox-info { padding: 28px 24px 40px; }
+      #lightbox-title { font-size: 28px; }
+      #lightbox-close { top: 18px; right: 20px; width: 36px; height: 36px; }
+
+      /* Tooltip hover masqué sur mobile (on utilise le tap) */
+      #hover-tooltip { display: none !important; }
+
+      /* Intro — plus aéré sur mobile */
+      #intro-title { letter-spacing: 0.12em; }
+      #intro-desc { font-size: 15px; padding: 0 8px; }
+      #intro-cta { padding: 13px 28px; }
+      #intro-depth { font-size: 9px; bottom: 24px; }
+
+      /* Voiles — légèrement réduites */
+      .sail-inner { width: 120px; }
+    }
+
+    /* ── Très petit (< 380px) ── */
+    @media (max-width: 379px) {
+      #panel { padding: 52px 18px 32px; }
+      #panel-name { font-size: 22px; }
+      #lightbox-info { padding: 22px 18px 32px; }
+      #lightbox-title { font-size: 24px; }
+      .species-level-btn { font-size: 7px; letter-spacing: 0.15em; }
+    }
 
   </style>
 </head>
@@ -2076,6 +2202,15 @@
   });
 
   document.getElementById('panel-close').addEventListener('click', () => panel.classList.remove('open'));
+
+  // ── Swipe bas pour fermer le panel sur mobile ─────────────────
+  let _swipeStartY = 0;
+  panel.addEventListener('touchstart', e => { _swipeStartY = e.touches[0].clientY; }, { passive: true });
+  panel.addEventListener('touchend', e => {
+    if (window.innerWidth < 768 && e.changedTouches[0].clientY - _swipeStartY > 60) {
+      panel.classList.remove('open');
+    }
+  }, { passive: true });
 
   // ── Bouton retour → vue Arche ─────────────────────────────────
   const panelBack = document.getElementById('panel-back');
