@@ -1063,33 +1063,6 @@
 
   <div id="sail-container"></div>
 
-  <!-- ── CAM POSITIONER ── -->
-  <div id="cam-pos" style="
-    position:fixed; bottom:90px; left:50%; transform:translateX(-50%);
-    background:rgba(2,6,14,0.92); border:1px solid rgba(200,132,58,0.25);
-    border-radius:6px; padding:12px 18px; z-index:50;
-    font-family:'Cormorant',serif; font-size:11px; letter-spacing:0.22em;
-    color:rgba(200,132,58,0.85); display:flex; align-items:center; gap:16px;
-    backdrop-filter:blur(8px); user-select:none;
-  ">
-    <span style="color:rgba(255,255,255,0.25);letter-spacing:0.38em;font-size:9px;text-transform:uppercase">Caméra</span>
-    <span>θ <b id="cp-theta">—</b></span>
-    <span>φ <b id="cp-phi">—</b></span>
-    <span>r <b id="cp-r">—</b></span>
-    <button onclick="
-      const v = document.getElementById('cp-theta').textContent + ', ' +
-                document.getElementById('cp-phi').textContent + ', ' +
-                document.getElementById('cp-r').textContent;
-      navigator.clipboard.writeText(v);
-      this.textContent='✓ Copié';
-      setTimeout(()=>this.textContent='Copier',1500);
-    " style="
-      background:none; border:1px solid rgba(200,132,58,0.25); border-radius:3px;
-      color:rgba(200,132,58,0.6); font-family:'Cormorant',serif; font-size:9px;
-      letter-spacing:0.32em; text-transform:uppercase; padding:5px 10px;
-      cursor:pointer; transition:all 0.2s;
-    ">Copier</button>
-  </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
@@ -1999,7 +1972,10 @@
   })));
 
   // ── CAMERA (looking down at angle) ────────────────────────────
-  const sph = { theta: 0.1, phi: 0.72, r: 56 };
+  const isMobile = window.innerWidth < 768;
+  const sph = isMobile
+    ? { theta: -0.812, phi: 1.288, r: 90.0 }
+    : { theta: -0.184, phi: 1.372, r: 62.2 };
   const target = new THREE.Vector3(0, 10, 0);
 
   function updateCam() {
@@ -2549,13 +2525,6 @@
     }
     renderer.render(scene, camera);
 
-    // ── Cam positioner HUD ──
-    const cp = document.getElementById('cam-pos');
-    if (cp && cp.style.display !== 'none') {
-      document.getElementById('cp-theta').textContent = sph.theta.toFixed(3);
-      document.getElementById('cp-phi').textContent   = sph.phi.toFixed(3);
-      document.getElementById('cp-r').textContent     = sph.r.toFixed(1);
-    }
   }
 
   // ── AUDIO AMBIANCE ────────────────────────────────────────────
