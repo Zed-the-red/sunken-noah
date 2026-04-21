@@ -55,11 +55,32 @@
     #lang-switcher {
       position: fixed;
       top: 32px;
-      right: 100px;
+      right: 148px;
       display: flex;
       gap: 2px;
       z-index: 10;
     }
+
+    /* ── THEME TOGGLE ── */
+    #theme-toggle {
+      position: fixed;
+      top: 32px;
+      right: 100px;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 50%;
+      color: rgba(255,255,255,0.42);
+      cursor: pointer;
+      z-index: 10;
+      transition: all 0.2s;
+    }
+    #theme-toggle:hover { color: rgba(0,208,255,0.9); border-color: rgba(0,208,255,0.35); }
+    #theme-toggle svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
     .lang-btn {
       font-family: 'Cormorant', serif;
       font-size: 10px;
@@ -911,6 +932,98 @@
     #sound-toggle svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
 
     /* ══════════════════════════════════════════════════════════════
+       ── LIGHT MODE ─────────────────────────────────────────────
+       ══════════════════════════════════════════════════════════════ */
+
+    body.light #theme-toggle { border-color: rgba(15,10,5,0.15); color: rgba(15,10,5,0.42); }
+    body.light #theme-toggle:hover { color: rgba(0,150,180,0.9); border-color: rgba(0,150,180,0.35); }
+    body.light .lang-btn { border-color: rgba(15,10,5,0.12); color: rgba(15,10,5,0.42); }
+    body.light .lang-btn:hover { color: rgba(15,10,5,0.7); border-color: rgba(15,10,5,0.25); }
+    body.light .lang-btn.active { color: rgba(0,150,180,0.9); border-color: rgba(0,150,180,0.4); }
+
+    /* Intro */
+    body.light #intro { background: #ede8de; }
+    body.light #intro-title { color: rgba(15,10,5,0.88); }
+    body.light #intro-line { background: rgba(0,150,180,0.35); }
+    body.light #intro-desc { color: rgba(15,10,5,0.62); }
+    body.light #intro-cta { color: rgba(0,150,180,0.82); border-color: rgba(0,150,180,0.32); }
+    body.light #intro-cta:hover { color: rgba(0,150,180,1); border-color: rgba(0,150,180,0.62); background: rgba(0,150,180,0.05); }
+    body.light #intro-depth { color: rgba(15,10,5,0.28); }
+
+    /* Panel */
+    body.light #panel {
+      background: rgba(245,240,232,0.99);
+      border-left-color: rgba(0,150,180,0.15);
+    }
+    body.light #panel::-webkit-scrollbar-thumb { background: rgba(0,150,180,0.2); }
+    body.light #panel-close,
+    body.light #panel-back {
+      color: rgba(15,10,5,0.38); border-color: rgba(15,10,5,0.1); background: rgba(15,10,5,0.03);
+    }
+    body.light #panel-close:hover,
+    body.light #panel-back:hover {
+      color: rgba(0,150,180,0.9); border-color: rgba(0,150,180,0.3); background: rgba(0,150,180,0.06);
+    }
+    body.light #panel-label { color: rgba(0,150,180,0.72); }
+    body.light #panel-name { color: rgba(15,10,5,0.92); }
+    body.light #panel-habitat { color: rgba(0,150,180,0.65); }
+    body.light #panel-text { color: rgba(15,10,5,0.75); }
+    body.light #panel-iucn-pop { color: rgba(15,10,5,0.55); }
+    body.light #panel-iucn-row { border-bottom-color: rgba(15,10,5,0.08); }
+    body.light #panel-iucn-link { color: rgba(0,150,180,0.62); border-color: rgba(0,150,180,0.25); }
+    body.light #panel-iucn-link:hover { color: rgba(0,150,180,0.9); border-color: rgba(0,150,180,0.45); }
+    body.light #panel-artifact { border-top-color: rgba(15,10,5,0.07); }
+    body.light #panel-artifact-text { color: rgba(0,150,180,0.48); }
+    body.light .panel-section-label { color: rgba(15,10,5,0.35); }
+    body.light .extinct-entry { border-bottom-color: rgba(15,10,5,0.07); }
+    body.light .extinct-entry:hover { background: rgba(0,150,180,0.05); }
+    body.light .extinct-name { color: rgba(15,10,5,0.88); }
+    body.light .extinct-date { color: rgba(0,150,180,0.72); }
+    body.light .ark-filter-btn { color: rgba(15,10,5,0.42); border-color: rgba(15,10,5,0.12); }
+    body.light .ark-filter-btn:hover { color: rgba(15,10,5,0.7); border-color: rgba(15,10,5,0.25); }
+    body.light .ark-filter-btn.active { color: rgba(0,150,180,0.9); border-color: rgba(0,150,180,0.4); background: rgba(0,150,180,0.07); }
+    body.light .species-level-btn { color: rgba(15,10,5,0.45); border-color: rgba(15,10,5,0.12); background: rgba(15,10,5,0.02); }
+    body.light .species-level-btn:hover { color: rgba(15,10,5,0.7); border-color: rgba(15,10,5,0.25); }
+    body.light .species-level-btn.active { color: rgba(0,150,180,0.9); border-color: rgba(0,150,180,0.4); background: rgba(0,150,180,0.07); }
+    body.light .species-nav-arrow { color: rgba(15,10,5,0.38); border-color: rgba(15,10,5,0.1); background: rgba(15,10,5,0.02); }
+    body.light .species-nav-arrow:hover { color: rgba(0,150,180,0.9); border-color: rgba(0,150,180,0.3); background: rgba(0,150,180,0.06); }
+    body.light #species-nav-counter { color: rgba(15,10,5,0.42); }
+    body.light .expand-btn { color: rgba(0,150,180,0.62); border-color: rgba(0,150,180,0.22); }
+    body.light .expand-btn:hover { color: rgba(0,150,180,0.95); border-color: rgba(0,150,180,0.45); background: rgba(0,150,180,0.04); }
+
+    /* Tooltip hover */
+    body.light #hover-tooltip { background: rgba(245,240,232,0.97); border-color: rgba(0,150,180,0.22); box-shadow: 0 8px 32px rgba(15,10,5,0.12); }
+    body.light #hover-name { color: rgba(15,10,5,0.92); }
+    body.light #hover-status { color: rgba(0,150,180,0.85); }
+    body.light #hover-count { color: rgba(15,10,5,0.55); }
+
+    /* Lightbox */
+    body.light #lightbox { background: rgba(237,232,222,0.97); }
+    body.light #lightbox-inner { border-color: rgba(0,150,180,0.12); }
+    body.light #lightbox-close { color: rgba(15,10,5,0.38); border-color: rgba(15,10,5,0.1); background: rgba(15,10,5,0.03); }
+    body.light #lightbox-close:hover { color: rgba(0,150,180,0.9); border-color: rgba(0,150,180,0.3); }
+    body.light #lightbox-img-wrap { background: rgba(15,10,5,0.06); border-right-color: rgba(15,10,5,0.08); }
+    body.light #lightbox-no-img { color: rgba(0,150,180,0.25); }
+    body.light #lightbox-info { background: rgba(245,240,232,0.99); }
+    body.light #lightbox-info::-webkit-scrollbar-thumb { background: rgba(0,150,180,0.2); }
+    body.light #lightbox-date { color: rgba(0,150,180,0.72); }
+    body.light #lightbox-title { color: rgba(15,10,5,0.92); }
+    body.light #lightbox-habitat { color: rgba(0,150,180,0.65); }
+    body.light .lightbox-section-label { color: rgba(15,10,5,0.35); }
+    body.light #lightbox-epitaphe { color: rgba(15,10,5,0.72); }
+    body.light #lightbox-divider { background: rgba(15,10,5,0.08); }
+    body.light #lightbox-medium { color: rgba(0,150,180,0.68); }
+    body.light #lightbox-intention { color: rgba(15,10,5,0.55); }
+    body.light #lightbox-son { color: rgba(15,10,5,0.48); }
+    body.light #lightbox-forme { color: rgba(15,10,5,0.42); }
+    body.light #lightbox-sources { color: rgba(0,150,180,0.45); }
+
+    /* Mobile panel border-top */
+    @media (max-width: 767px) {
+      body.light #panel { border-top-color: rgba(0,150,180,0.2); }
+    }
+
+    /* ══════════════════════════════════════════════════════════════
        ── RESPONSIVE ─────────────────────────────────────────────
        ══════════════════════════════════════════════════════════════ */
 
@@ -1064,6 +1177,13 @@
     <button class="lang-btn active" id="btn-lang-fr">FR</button>
     <button class="lang-btn" id="btn-lang-en">EN</button>
   </div>
+
+  <button id="theme-toggle" title="Changer le thème">
+    <!-- icône soleil (visible en dark mode) -->
+    <svg id="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <!-- icône lune (visible en light mode) -->
+    <svg id="icon-moon" viewBox="0 0 24 24" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
 
   <div id="panel">
     <button id="panel-close">✕</button>
@@ -2140,6 +2260,7 @@
       while (obj.parent && obj.parent !== scene) obj = obj.parent;
       newHovered = obj;
     } else if (hits.length === 0 || hits[0].object.userData.type !== 'ark') {
+      // Fallback 2D : survol de la voile elle-même
       const sm2d = hitTestSailCards(e.clientX, e.clientY);
       if (sm2d) newHovered = sm2d.group;
     }
@@ -2158,6 +2279,7 @@
     }
   });
   canvas.addEventListener('mouseleave', e => {
+    // Ne pas effacer si la souris entre sur une voile-carte
     const to = e.relatedTarget;
     if (to && to.closest('.sail-card')) return;
     hoveredBoat = null;
@@ -2167,67 +2289,6 @@
   canvas.addEventListener('wheel', e => {
     sph.r = Math.max(18, Math.min(90, sph.r + e.deltaY * 0.045));
     updateCam();
-  }, { passive: true });
-
-  // ── TOUCH ─────────────────────────────────────────────────────
-  let _t0 = null, _t1 = null, _touchMoveDist = 0, _pinchDist0 = 0;
-
-  function _touchDist(a, b) {
-    const dx = a.clientX - b.clientX, dy = a.clientY - b.clientY;
-    return Math.sqrt(dx*dx + dy*dy);
-  }
-
-  canvas.addEventListener('touchstart', e => {
-    e.preventDefault();
-    if (e.touches.length === 1) {
-      _t0 = { x: e.touches[0].clientX, y: e.touches[0].clientY };
-      _t1 = null;
-      _touchMoveDist = 0;
-    } else if (e.touches.length === 2) {
-      _t0 = { x: e.touches[0].clientX, y: e.touches[0].clientY };
-      _t1 = { x: e.touches[1].clientX, y: e.touches[1].clientY };
-      _pinchDist0 = _touchDist(e.touches[0], e.touches[1]);
-    }
-  }, { passive: false });
-
-  canvas.addEventListener('touchmove', e => {
-    e.preventDefault();
-    if (e.touches.length === 1 && _t0 && !_t1) {
-      // 1 doigt → rotation
-      const dx = e.touches[0].clientX - _t0.x;
-      const dy = e.touches[0].clientY - _t0.y;
-      _touchMoveDist += Math.abs(dx) + Math.abs(dy);
-      sph.theta -= dx * 0.005;
-      sph.phi = Math.max(0.08, Math.min(1.4, sph.phi + dy * 0.005));
-      _t0 = { x: e.touches[0].clientX, y: e.touches[0].clientY };
-      updateCam();
-    } else if (e.touches.length === 2) {
-      // 2 doigts → pinch zoom
-      const dist = _touchDist(e.touches[0], e.touches[1]);
-      const delta = _pinchDist0 - dist;
-      sph.r = Math.max(18, Math.min(90, sph.r + delta * 0.06));
-      _pinchDist0 = dist;
-      updateCam();
-    }
-  }, { passive: false });
-
-  canvas.addEventListener('touchend', e => {
-    // Tap court (< 10px de mouvement) → raycast
-    if (e.changedTouches.length === 1 && _touchMoveDist < 10 && !_t1) {
-      const t = e.changedTouches[0];
-      mouse.x =  (t.clientX / window.innerWidth)  * 2 - 1;
-      mouse.y = -(t.clientY / window.innerHeight) * 2 + 1;
-      ray.setFromCamera(mouse, camera);
-      const hits = ray.intersectObjects(interactableMeshes);
-      if (hits.length) {
-        const ud = hits[0].object.userData;
-        if (ud.type === 'ship' && ud.species) { openSpeciesPanel(ud.species); return; }
-        if (ud.type === 'ark')                { showArkPanel(); panel.classList.add('open'); return; }
-      }
-      const sm2d = hitTestSailCards(t.clientX, t.clientY);
-      if (sm2d) openSpeciesPanel(sm2d.species);
-    }
-    if (e.touches.length === 0) { _t0 = null; _t1 = null; }
   }, { passive: true });
 
   // ── AURA HOVER ────────────────────────────────────────────────
@@ -2752,9 +2813,8 @@
     introEl.addEventListener('transitionend', () => introEl.remove(), { once: true });
   });
 
-  function toggleSound(e) {
-    e.stopPropagation();
-    e.preventDefault();
+  btn.addEventListener('click', e => {
+    e.stopPropagation(); // ne déclenche pas startAudio une 2e fois
     startAudio();
     muted = !muted;
     if (muted) {
@@ -2766,9 +2826,23 @@
       waves.style.display = '';
       btn.style.opacity = '';
     }
+  });
+
+  // ── THEME TOGGLE ──────────────────────────────────────────────
+  const themeBtn  = document.getElementById('theme-toggle');
+  const iconSun   = document.getElementById('icon-sun');
+  const iconMoon  = document.getElementById('icon-moon');
+  let isLight = localStorage.getItem('sn-theme') === 'light';
+
+  function applyTheme() {
+    document.body.classList.toggle('light', isLight);
+    iconSun.style.display  = isLight ? 'none' : '';
+    iconMoon.style.display = isLight ? ''     : 'none';
+    localStorage.setItem('sn-theme', isLight ? 'light' : 'dark');
   }
-  btn.addEventListener('click', toggleSound);
-  btn.addEventListener('touchend', toggleSound, { passive: false });
+
+  themeBtn.addEventListener('click', () => { isLight = !isLight; applyTheme(); });
+  applyTheme();
 
   updateCam();
   animate();
