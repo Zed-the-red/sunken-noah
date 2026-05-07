@@ -31,8 +31,8 @@
       font-size: 28px;
       font-weight: normal;
       font-style: normal;
-      letter-spacing: 0.08em;
-      text-transform: none;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
       pointer-events: none;
     }
 
@@ -870,8 +870,8 @@
       font-size: clamp(38px, 7vw, 82px);
       font-weight: normal;
       font-style: normal;
-      letter-spacing: 0.06em;
-      text-transform: none;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
       color: rgba(255,255,255,0.88);
       margin-bottom: 28px;
       text-align: center;
@@ -954,6 +954,8 @@
     /* Body + header title */
     body.light { background: #ede8de; }
     body.light #title { color: rgba(10, 30, 50, 0.75); }
+    body.light #counter .num { color: rgba(8, 28, 48, 0.82); }
+    body.light #counter .label { color: rgba(8, 28, 48, 0.50); }
 
     /* Intro */
     body.light #intro { background: #ede8de; }
@@ -1487,6 +1489,7 @@
         uLightPos:  { value: new THREE.Vector3(10, 20, 15) },
         uLightColor:{ value: new THREE.Vector3(0.7, 0.85, 1.0) },
         uAmbient:   { value: 0.28 },
+        uLightMode: { value: 0.0 },
       },
       vertexShader: `
         uniform float uPulse;
@@ -1513,6 +1516,7 @@
         uniform vec3 uLightPos;
         uniform vec3 uLightColor;
         uniform float uAmbient;
+        uniform float uLightMode;
 
         float hash(vec2 p) {
           return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
@@ -1578,15 +1582,17 @@
           float spot3 = 1.0 - smoothstep(0.06, 0.18, v3);
 
           // ── COULEURS ──────────────────────────────────────────
-          // Fond : bleu-gris très sombre, charcoal sous-marin
-          vec3 skinBase = vec3(0.06, 0.10, 0.14);
+          // Fond : dark = charcoal sous-marin, light = gris-bleu nacré
+          vec3 skinBaseDark  = vec3(0.06, 0.10, 0.14);
+          vec3 skinBaseLight = vec3(0.62, 0.72, 0.80);
+          vec3 skinBase = mix(skinBaseDark, skinBaseLight, uLightMode);
           // Variation subtile du fond (peau non uniforme)
           skinBase += noise3(pw * 2.0) * 0.03 * vec3(0.5, 0.8, 1.0);
 
-          // Taches : blanc cassé légèrement bleuté, comme les vrais
-          vec3 spotColor1 = vec3(0.78, 0.84, 0.88);
-          vec3 spotColor2 = vec3(0.72, 0.80, 0.86);
-          vec3 spotColor3 = vec3(0.68, 0.76, 0.82);
+          // Taches : dark = blanc cassé bleuté, light = blanc pur plus vif
+          vec3 spotColor1 = mix(vec3(0.78, 0.84, 0.88), vec3(0.96, 0.98, 1.00), uLightMode);
+          vec3 spotColor2 = mix(vec3(0.72, 0.80, 0.86), vec3(0.90, 0.94, 0.98), uLightMode);
+          vec3 spotColor3 = mix(vec3(0.68, 0.76, 0.82), vec3(0.84, 0.90, 0.95), uLightMode);
 
           // Les taches s'illuminent avec la pulsation
           float spotMask = clamp(spot1 + spot2 * 0.6 + spot3 * 0.35, 0.0, 1.0);
@@ -1615,7 +1621,7 @@
           float spec = pow(max(dot(N, H), 0.0), 48.0) * 0.35;
           vec3 specCol = vec3(0.7, 0.85, 1.0);
 
-          vec3 ambientLight = vec3(0.08, 0.16, 0.28);
+          vec3 ambientLight = mix(vec3(0.08, 0.16, 0.28), vec3(0.42, 0.56, 0.65), uLightMode);
 
           // ── SURBRILLANCE AU SURVOL ────────────────────────────
           // Rim light : bordure lumineuse bleue-blanche
@@ -2819,6 +2825,8 @@
       // Transition douce du hover
       const hv = window._arkMat.uniforms.uHover;
       hv.value += ((window._arkHoverTarget || 0) - hv.value) * 0.10;
+      const lm = window._arkMat.uniforms.uLightMode;
+      lm.value += ((window._arkLightTarget || 0) - lm.value) * 0.035;
     }
     renderer.render(scene, camera);
 
@@ -2888,6 +2896,7 @@
       scene.background = new THREE.Color(0x010609);
       scene.fog = new THREE.FogExp2(0x010d1f, 0.018);
     }
+    window._arkLightTarget = isLight ? 1.0 : 0.0;
   }
 
   themeBtn.addEventListener('click', () => { isLight = !isLight; applyTheme(); });
