@@ -953,7 +953,7 @@
 
     /* Body + header title */
     body.light { background: #ede8de; }
-    body.light #title { color: rgba(15,10,5,0.52); }
+    body.light #title { color: rgba(10, 30, 50, 0.75); }
 
     /* Intro */
     body.light #intro { background: #ede8de; }
@@ -2881,6 +2881,13 @@
     iconSun.style.display  = isLight ? 'none' : '';
     iconMoon.style.display = isLight ? ''     : 'none';
     localStorage.setItem('sn-theme', isLight ? 'light' : 'dark');
+    if (isLight) {
+      scene.background = new THREE.Color(0x8bbfcc);
+      scene.fog = new THREE.FogExp2(0x9ecfdb, 0.018);
+    } else {
+      scene.background = new THREE.Color(0x010609);
+      scene.fog = new THREE.FogExp2(0x010d1f, 0.018);
+    }
   }
 
   themeBtn.addEventListener('click', () => { isLight = !isLight; applyTheme(); });
