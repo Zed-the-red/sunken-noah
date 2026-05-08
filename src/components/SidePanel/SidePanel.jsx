@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import styles from './SidePanel.module.css'
 import { t, speciesName, speciesStatus, speciesText, speciesEpitaphe, speciesHabitat, speciesMilieu, dangerColor, escapeHtml, parseExtinctYear } from '../../data/helpers.js'
 
@@ -36,6 +37,11 @@ export default function SidePanel({
 }) {
   const isOpen = mode !== 'closed'
 
+  const sortedExtinctMemo = useMemo(
+    () => sortedExtinct(extinctData),
+    [extinctData]
+  )
+
   function renderSpeciesContent() {
     if (!species) return null
     const accent       = dangerColor(species.danger, 0.7)
@@ -66,7 +72,7 @@ export default function SidePanel({
         <div className={styles.text}>{speciesText(species, lang)}</div>
         {species.photo_url && (
           <div className={styles.photo}>
-            <img src={species.photo_url} alt={species.name} />
+            <img src={species.photo_url} alt={species.name} loading="lazy" />
           </div>
         )}
       </>
@@ -74,7 +80,7 @@ export default function SidePanel({
   }
 
   function renderArkContent() {
-    const filtered = sortedExtinct(extinctData).filter(({ e }) =>
+    const filtered = sortedExtinctMemo.filter(({ e }) =>
       arkFilter === 'all' || speciesMilieu(e) === arkFilter
     )
     const milieuLabel = (e) => {
@@ -169,7 +175,7 @@ export default function SidePanel({
             <p className={styles.cartelLineFaint}>{sp.composition.forme}</p>
           )}
           {sp.image_url && (
-            <img src={sp.image_url} alt={speciesName(sp, lang)} className={styles.cartelImg} />
+            <img src={sp.image_url} alt={speciesName(sp, lang)} className={styles.cartelImg} loading="lazy" />
           )}
           <button className={styles.expandBtn} onClick={() => onOpenLightbox(sp)}>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: 13, height: 13 }}>

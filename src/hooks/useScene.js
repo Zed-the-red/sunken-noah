@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
+import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 import { dangerColor, escapeHtml, speciesMilieu, speciesName, speciesStatus } from '../data/helpers.js'
 
 // ── ARK VERTEX SHADER ──────────────────────────────────────────
@@ -248,8 +249,13 @@ export function useScene({ canvasRef, sailContainerRef, speciesData, lang, onSpe
     floor.position.y = -18
     scene.add(floor)
 
+    // ── Loaders with Draco compression support
+    const dracoLoader = new DRACOLoader()
+    dracoLoader.setDecoderPath('draco/')
+
     // ── Ark
     const arkLoader = new GLTFLoader()
+    arkLoader.setDRACOLoader(dracoLoader)
     arkLoader.load('models/arkgood2_nacre1.glb', (gltf) => {
       const ark = gltf.scene
       ark.position.set(3.50, -6.00, 2.00)
@@ -356,6 +362,7 @@ export function useScene({ canvasRef, sailContainerRef, speciesData, lang, onSpe
       s.mouseMoveDist = 0
     }
     const onMouseup = () => { s.dragging = false }
+    let _lastRaycast = 0
     const onMousemove = (e) => {
       if (s.dragging) {
         const dx = e.clientX - s.prevMouse.x, dy = e.clientY - s.prevMouse.y
@@ -366,6 +373,9 @@ export function useScene({ canvasRef, sailContainerRef, speciesData, lang, onSpe
         updateCam()
         return
       }
+      const now = performance.now()
+      if (now - _lastRaycast < 32) return // ~30fps max pour le raycasting
+      _lastRaycast = now
       mouse.x = (e.clientX / window.innerWidth) * 2 - 1
       mouse.y = -(e.clientY / window.innerHeight) * 2 + 1
       ray.setFromCamera(mouse, camera)
@@ -586,8 +596,15 @@ export function useScene({ canvasRef, sailContainerRef, speciesData, lang, onSpe
     updateCam()
     animate()
 
+    const onVisibility = () => {
+      if (document.hidden) cancelAnimationFrame(frameId)
+      else animate()
+    }
+    document.addEventListener('visibilitychange', onVisibility)
+
     return () => {
       cancelAnimationFrame(frameId)
+      document.removeEventListener('visibilitychange', onVisibility)
       canvas.removeEventListener('mousedown',  onMousedown)
       window.removeEventListener('mouseup',    onMouseup)
       window.removeEventListener('mousemove',  onMousemove)
@@ -616,6 +633,7 @@ export function useScene({ canvasRef, sailContainerRef, speciesData, lang, onSpe
     }
 
     const loader = new GLTFLoader()
+    loader.setDRACOLoader(dracoLoader)
     loader.load('models/boat.glb', (gltf) => {
       const boatTemplate = gltf.scene
 

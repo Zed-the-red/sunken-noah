@@ -8,14 +8,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "cors": "^2.8.6",
-    "express": "^5.2.1",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "three": "^0.160.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^6.0.1",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
     "vite": "^8.0.8",
     "vite-plugin-static-copy": "^3.4.0"
   }

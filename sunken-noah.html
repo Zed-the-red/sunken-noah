@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Sunken Noah</title>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preload" href="models/boat.glb" as="fetch" crossorigin>
+  <link rel="preload" href="models/noah_realist_1.glb" as="fetch" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
   <style>
     @font-face {
@@ -1049,8 +1054,20 @@
     body.light .sail-scount { color: rgba(15,10,5,0.52); }
 
     /* Panel ark-row sliders */
+    body.light .ark-row label { color: rgba(0,150,180,0.65); }
+    body.light .ark-row input[type=range] { accent-color: rgba(0,150,180,0.7); }
     body.light .ark-row span { color: rgba(15,10,5,0.45); }
+    body.light #ark-copy { color: rgba(0,150,180,0.55); border-color: rgba(0,150,180,0.2); }
+    body.light #ark-copy:hover { color: rgba(0,150,180,0.9); border-color: rgba(0,150,180,0.45); }
     body.light #panel-status { color: rgba(0,120,155,0.88); }
+
+    /* Textes cartel (espèces éteintes — panneau et lightbox) */
+    .cartel-titre { color: rgba(0,208,255,0.7); }
+    .cartel-son   { color: rgba(255,255,255,0.38); }
+    .cartel-forme { color: rgba(255,255,255,0.28); }
+    body.light .cartel-titre { color: rgba(0,150,180,0.82); }
+    body.light .cartel-son   { color: rgba(15,10,5,0.62); }
+    body.light .cartel-forme { color: rgba(15,10,5,0.45); }
 
     /* Mobile panel border-top */
     @media (max-width: 767px) {
@@ -2306,6 +2323,7 @@
     dragging = true; prev = { x: e.clientX, y: e.clientY }; mouseMoveDist = 0;
   });
   window.addEventListener('mouseup', () => { dragging = false; });
+  let _lastRaycast = 0;
   window.addEventListener('mousemove', e => {
     if (dragging) {
       const dx = e.clientX - prev.x, dy = e.clientY - prev.y;
@@ -2316,6 +2334,9 @@
       updateCam();
       return;
     }
+    const now = performance.now();
+    if (now - _lastRaycast < 32) return; // ~30fps max pour le raycasting
+    _lastRaycast = now;
     mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
     mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
     ray.setFromCamera(mouse, camera);
@@ -2627,7 +2648,7 @@
     document.getElementById('panel-label').textContent = t('extinctLabel', sp.date || '');
     document.getElementById('panel-name').textContent = speciesName(sp);
     document.getElementById('panel-habitat').textContent = speciesHabitat(sp);
-    document.getElementById('panel-habitat').style.color = 'rgba(0,208,255,0.4)';
+    document.getElementById('panel-habitat').style.color = document.body.classList.contains('light') ? '' : 'rgba(0,208,255,0.4)';
     document.getElementById('panel-status').textContent = '';
     document.getElementById('panel-status').style.color = '';
     document.getElementById('panel-iucn-row').style.display = 'none';
@@ -2641,7 +2662,7 @@
     let cartelHtml = '';
     // Titre de l'œuvre
     if (sp.cartel?.titre) {
-      cartelHtml += `<p style="font-family:Cormorant,serif;font-size:15px;font-style:italic;color:rgba(0,208,255,0.7);margin-bottom:14px;letter-spacing:0.04em">${escapeHtml(sp.cartel.titre)}</p>`;
+      cartelHtml += `<p class="cartel-titre" style="font-family:Cormorant,serif;font-size:15px;font-style:italic;margin-bottom:14px;letter-spacing:0.04em">${escapeHtml(sp.cartel.titre)}</p>`;
     }
     if (sp.composition?.palette) {
       const pal = sp.composition.palette.map(c =>
@@ -2649,8 +2670,8 @@
       ).join('');
       cartelHtml += `<div style="margin-bottom:16px">${pal}</div>`;
     }
-    if (sp.composition?.son) cartelHtml += `<p style="font-family:Cormorant,serif;font-size:14px;font-style:italic;color:rgba(255,255,255,0.38);line-height:1.8;margin-bottom:12px">♪ ${escapeHtml(sp.composition.son)}</p>`;
-    if (sp.composition?.forme) cartelHtml += `<p style="font-family:Cormorant,serif;font-size:14px;font-style:italic;color:rgba(255,255,255,0.28);line-height:1.8;margin-bottom:20px">${escapeHtml(sp.composition.forme)}</p>`;
+    if (sp.composition?.son) cartelHtml += `<p class="cartel-son" style="font-family:Cormorant,serif;font-size:14px;font-style:italic;line-height:1.8;margin-bottom:12px">♪ ${escapeHtml(sp.composition.son)}</p>`;
+    if (sp.composition?.forme) cartelHtml += `<p class="cartel-forme" style="font-family:Cormorant,serif;font-size:14px;font-style:italic;line-height:1.8;margin-bottom:20px">${escapeHtml(sp.composition.forme)}</p>`;
     if (sp.image_url) cartelHtml += `<img src="${escapeHtml(sp.image_url)}" alt="${escapeHtml(speciesName(sp))}" style="width:100%;border-radius:4px;margin-bottom:16px;opacity:0.88;display:block">`;
     cartelHtml += `<button class="expand-btn" data-idx="${idx}">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
@@ -2709,8 +2730,9 @@
 
   // ── ANIMATE ───────────────────────────────────────────────────
   const clock = new THREE.Clock();
+  let animFrameId;
   function animate() {
-    requestAnimationFrame(animate);
+    animFrameId = requestAnimationFrame(animate);
     const t = clock.getElapsedTime();
 
     // Button-driven camera
@@ -2926,6 +2948,11 @@
 
   updateCam();
   animate();
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) cancelAnimationFrame(animFrameId);
+    else animate();
+  });
 
   window.addEventListener('resize', () => {
     camera.aspect = window.innerWidth / window.innerHeight;
