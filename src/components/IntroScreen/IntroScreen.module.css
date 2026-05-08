@@ -7,13 +7,18 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  transition: opacity 0.68s ease;
+}
+.hiding {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .title {
-  font-family: 'Cormorant', serif;
+  font-family: 'Anthony', serif;
   font-size: clamp(38px, 7vw, 82px);
-  font-weight: 300;
-  font-style: italic;
+  font-weight: normal;
+  font-style: normal;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.88);
@@ -29,7 +34,7 @@
 }
 
 .desc {
-  font-family: 'Cormorant', serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: clamp(13px, 1.8vw, 17px);
   font-weight: 300;
   font-style: italic;
@@ -42,7 +47,7 @@
 }
 
 .cta {
-  font-family: 'Cormorant', serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 11px;
   letter-spacing: 0.52em;
   text-transform: uppercase;
@@ -62,11 +67,23 @@
 
 .depth {
   position: absolute;
-  bottom: 36px;
-  font-family: 'Cormorant', serif;
+  bottom: max(36px, calc(20px + env(safe-area-inset-bottom)));
+  font-family: 'Ubuntu', sans-serif;
   font-size: 9px;
   letter-spacing: 0.42em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.12);
   pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .desc {
+    font-size: clamp(13px, 3.5vw, 16px);
+    max-width: 88vw;
+    margin-bottom: 44px;
+  }
+  .cta {
+    padding: 16px 40px;
+    font-size: 10px;
+  }
 }

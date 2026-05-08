@@ -190,10 +190,10 @@ export default function SidePanel({
 
   return (
     <div className={`${styles.panel} ${isOpen ? styles.open : ''}`}>
-      <button className={styles.close} onClick={onClose}>✕</button>
+      <button className={styles.close} onClick={onClose} aria-label={lang === 'en' ? 'Close panel' : 'Fermer le panneau'}>✕</button>
       {mode === 'extinct' && (
-        <button className={styles.back} onClick={onBack}>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: 14, height: 14 }}>
+        <button className={styles.back} onClick={onBack} aria-label={lang === 'en' ? 'Back to ark' : "Retour à l'arche"}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: 14, height: 14 }} aria-hidden="true">
             <path d="M19 12H5M12 5l-7 7 7 7"/>
           </svg>
           <span>{t('panelBackLabel', lang)}</span>

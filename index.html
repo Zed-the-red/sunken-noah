@@ -1620,15 +1620,15 @@
           // ── COULEURS ──────────────────────────────────────────
           // Fond : dark = charcoal sous-marin, light = gris-bleu nacré
           vec3 skinBaseDark  = vec3(0.06, 0.10, 0.14);
-          vec3 skinBaseLight = vec3(0.62, 0.72, 0.80);
+          vec3 skinBaseLight = vec3(0.32, 0.42, 0.52);
           vec3 skinBase = mix(skinBaseDark, skinBaseLight, uLightMode);
           // Variation subtile du fond (peau non uniforme)
           skinBase += noise3(pw * 2.0) * 0.03 * vec3(0.5, 0.8, 1.0);
 
-          // Taches : dark = blanc cassé bleuté, light = blanc pur plus vif
-          vec3 spotColor1 = mix(vec3(0.78, 0.84, 0.88), vec3(0.96, 0.98, 1.00), uLightMode);
-          vec3 spotColor2 = mix(vec3(0.72, 0.80, 0.86), vec3(0.90, 0.94, 0.98), uLightMode);
-          vec3 spotColor3 = mix(vec3(0.68, 0.76, 0.82), vec3(0.84, 0.90, 0.95), uLightMode);
+          // Taches : dark = blanc cassé bleuté, light = gris-bleu nacré (non éblouissant)
+          vec3 spotColor1 = mix(vec3(0.78, 0.84, 0.88), vec3(0.64, 0.72, 0.80), uLightMode);
+          vec3 spotColor2 = mix(vec3(0.72, 0.80, 0.86), vec3(0.56, 0.64, 0.72), uLightMode);
+          vec3 spotColor3 = mix(vec3(0.68, 0.76, 0.82), vec3(0.48, 0.56, 0.64), uLightMode);
 
           // Les taches s'illuminent avec la pulsation
           float spotMask = clamp(spot1 + spot2 * 0.6 + spot3 * 0.35, 0.0, 1.0);
@@ -1657,7 +1657,7 @@
           float spec = pow(max(dot(N, H), 0.0), 48.0) * 0.35;
           vec3 specCol = vec3(0.7, 0.85, 1.0);
 
-          vec3 ambientLight = mix(vec3(0.08, 0.16, 0.28), vec3(0.42, 0.56, 0.65), uLightMode);
+          vec3 ambientLight = mix(vec3(0.08, 0.16, 0.28), vec3(0.10, 0.16, 0.22), uLightMode);
 
           // ── SURBRILLANCE AU SURVOL ────────────────────────────
           // Rim light : bordure lumineuse bleue-blanche
@@ -2040,6 +2040,7 @@
 
   // Charge le GLB une fois, puis instancie pour chaque espèce
   const loader = new THREE.GLTFLoader();
+  loader.setDRACOLoader(dracoLoader);
   loader.load('models/boat.glb', function(gltf) {
     const boatTemplate = gltf.scene;
     window._boatTemplate = boatTemplate;
@@ -2079,12 +2080,15 @@
       const boatColor = new THREE.Color(0.78, 0.84, 0.88);
 
       const meshList = [];
+      const rgb = dangerColor(danger, 1).match(/\d+/g).map(Number);
+      const emissiveColor = new THREE.Color(rgb[0]/255, rgb[1]/255, rgb[2]/255);
+
       boat.traverse(child => {
         if (child.isMesh) {
           child.material = child.material.clone();
           child.material.color = boatColor;
           child.material.roughness = 0.9;
-          child.material.emissive = new THREE.Color(0.55, 0.65, 0.72);
+          child.material.emissive = emissiveColor;
           child.material.emissiveIntensity = 0.3;
           child.userData = { type: 'ship', species: s };
           meshList.push(child);
@@ -2812,7 +2816,7 @@
       const echoLub = Math.exp(-Math.pow((echoCycle - 0.15) * 24, 2));
       const echoDub = Math.exp(-Math.pow((echoCycle - 0.33) * 30, 2)) * 0.6;
       const echoPulse = echoLub + echoDub;
-      const glow = 0.10 + echoPulse * 0.52;
+      const glow = 0.08 + echoPulse * (0.35 + danger * 0.40);
       meshList.forEach(m => { m.material.emissiveIntensity = glow; });
 
       // ── Positionnement et inclinaison de la voile HTML ───────

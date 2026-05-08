@@ -334,6 +334,18 @@ BOATS_TO_ADD = [
      "Critically endangered elasmobranch. Caught as bycatch across Indo-Pacific."),
     ("Singe araignée de Geoffroy","Black-handed Spider Monkey","Ateles geoffroyi",          "EN",
      "Endangered by deforestation in Central America. Highly sensitive to forest fragmentation."),
+    ("Rhinocéros de Sumatra",  "Sumatran Rhinoceros",    "Dicerorhinus sumatrensis",        "CR",
+     "Fewer than 80 individuals remain. The smallest and most ancient rhinoceros. Victim of deforestation and poaching."),
+    ("Kakapo",                 "Kakapo",                 "Strigops habroptilus",            "CR",
+     "The world's only flightless parrot. Fewer than 250 individuals, all in New Zealand. An ancient species, survivor of 80 million years."),
+    ("Jaguar",                 "Jaguar",                 "Panthera onca",                   "VU",
+     "The Americas' largest cat. Habitat fragmented by deforestation and ranching. Increasingly confined to Amazonia."),
+    ("Ours polaire",           "Polar Bear",             "Ursus maritimus",                 "VU",
+     "Sea ice loss reduces hunting range by 40% in some areas. Projected to lose two-thirds of its population by 2050."),
+    ("Lamantin des Caraïbes",  "West Indian Manatee",    "Trichechus manatus",              "VU",
+     "Killed by boat propellers, entangled in fishing nets. Seagrass meadows, their only food, disappear with warming oceans."),
+    ("Requin blanc",           "Great White Shark",      "Carcharodon carcharias",          "VU",
+     "Feared but vanishing. Fewer than 3,500 remain worldwide. Caught for fins, jaws, and unintentional bycatch."),
 ]
 
 # Espèces à ajouter à l'Arche si absentes
@@ -362,6 +374,26 @@ ARK_TO_ADD = [
         "nom": "Tapir des cavernes",
         "date": "~11 000 av. J.-C.",
         "description": "Tapirus augustus. Grand tapir de l'Amérique du Sud préhistorique. Disparu à la fin du Pléistocène, probablement par chasse humaine et changement climatique. Ses dents fossilisées ont été trouvées dans des grottes aux côtés de restes humains."
+    },
+    {
+        "nom": "Ours des cavernes",
+        "date": "~24 000 av. J.-C.",
+        "description": "Ursus spelaeus. L'un des plus grands ursidés ayant jamais existé — jusqu'à 1 200 kg. Peuplait les grottes d'Europe pendant 800 000 ans. Présent dans l'art rupestre de Chauvet et Lascaux. Disparu à la fin du dernier maximum glaciaire, probablement par combinaison de refroidissement climatique et de pression humaine."
+    },
+    {
+        "nom": "Grand Cerf d'Irlande",
+        "date": "~5 700 av. J.-C.",
+        "description": "Megaloceros giganteus. Le plus grand cervidé de tous les temps. Ses bois pouvaient atteindre 3,7 mètres d'envergure et peser 40 kg. Peuplait les steppes d'Europe et d'Asie centrale pendant des millénaires. Disparu à la fin du Pléistocène, victime du réchauffement et de la disparition des prairies ouvertes dont il dépendait."
+    },
+    {
+        "nom": "Smilodon",
+        "date": "~10 000 av. J.-C.",
+        "description": "Smilodon fatalis. Le tigre à dents de sabre. Canines de 28 centimètres. Prédateur apex des Amériques pendant deux millions d'années. Des milliers de squelettes retrouvés dans les puits de goudron de La Brea, en Californie. Disparu avec la mégafaune américaine à la fin du Pléistocène — peut-être trop spécialisé pour s'adapter."
+    },
+    {
+        "nom": "Ara de Cuba",
+        "date": "~1885",
+        "description": "Ara tricolor. Le seul ara endémique de Cuba. Plumage rouge, bleu et jaune éclatants. Chassé intensivement pour ses plumes et la volière. Les derniers individus observés au milieu du XIXe siècle. Aucune peau complète ne subsiste — seulement des illustrations fragmentaires."
     },
 ]
 
@@ -406,8 +438,13 @@ def populate_all():
 # ── IUCN SYNC ─────────────────────────────────────────────────
 
 def iucn_get(path, params=None):
-    headers = {"Authorization": f"Bearer {IUCN_KEY}"}
-    r = requests.get(f"{IUCN_BASE}{path}", headers=headers, params=params or {})
+    headers = {
+        "Authorization": f"Bearer {IUCN_KEY}",
+        "Accept": "application/json",
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Referer": "https://api.iucnredlist.org/",
+    }
+    r = requests.get(f"{IUCN_BASE}{path}", headers=headers, params=params or {}, timeout=15)
     if r.status_code != 200:
         raise Exception(f"IUCN API {r.status_code}: {r.text[:200]}")
     return r.json()
@@ -419,7 +456,8 @@ def sync_iucn():
     with open(DATA_FILE, encoding="utf-8") as f:
         data = json.load(f)
 
-    SCIENTIFIC = {
+    # Fallback pour espèces sans scientific_name dans le JSON
+    SCIENTIFIC_FALLBACK = {
         "Rhinocéros de Java": ("Rhinoceros","sondaicus"),
         "Vaquita marina":     ("Phocoena","sinus"),
         "Tigre de Sumatra":   ("Panthera","tigris"),
@@ -445,17 +483,32 @@ def sync_iucn():
         "Tapir de Baird":     ("Tapirus","bairdii"),
         "Requin pèlerin":     ("Cetorhinus","maximus"),
         "Macaque de Barbarie":("Macaca","sylvanus"),
+        "Grue américaine":    ("Grus","americana"),
+        "Cacatoès noir de Baudin":("Zanda","baudinii"),
+        "Orque de l'Atlantique Nord":("Orcinus","orca"),
+        "Tortue de mer de Kemp":("Lepidochelys","kempii"),
+        "Amblystome de Jefferson":("Ambystoma","jeffersonianum"),
     }
 
     updated = 0
     for sp in data.get("endangered", []):
-        sci = SCIENTIFIC.get(sp["name"])
-        if not sci or sp.get("status_manual"):
+        if sp.get("status_manual"):
             continue
+        # Utilise scientific_name du JSON en priorité, sinon fallback hardcodé
+        sci_full = sp.get("scientific_name", "")
+        if sci_full and " " in sci_full:
+            parts = sci_full.split()
+            sci = (parts[0], parts[1])
+        else:
+            fb = SCIENTIFIC_FALLBACK.get(sp["name"])
+            if not fb:
+                continue
+            sci = fb
         try:
             res = iucn_get("/taxa/scientific_name", {"genus_name": sci[0], "species_name": sci[1]})
             assessments = res.get("assessments", [])
             if not assessments:
+                print(f"  ✗ {sp['name']} ({sci[0]} {sci[1]}) — aucune évaluation")
                 continue
             latest = next((a for a in assessments if a.get("latest")), assessments[0])
             code = latest.get("red_list_category_code","")
@@ -467,7 +520,7 @@ def sync_iucn():
                     "iucn_url":  latest.get("url",""),
                 }
                 updated += 1
-                print(f"  ✓ {sp['name']} → {code}")
+                print(f"  ✓ {sp['name']} ({sci[0]} {sci[1]}) → {code}")
             time.sleep(0.5)
         except Exception as e:
             print(f"  ⚠ {sp['name']}: {e}")

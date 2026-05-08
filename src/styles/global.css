@@ -3,6 +3,10 @@ body { background: #020810; overflow: hidden; cursor: grab; }
 body:active { cursor: grabbing; }
 canvas { display: block; }
 
+@media (hover: none) {
+  body { cursor: default; }
+}
+
 /* ── SAIL CARDS (created imperatively in useScene) ── */
 #sail-container {
   position: fixed;
@@ -76,7 +80,7 @@ canvas { display: block; }
   padding: 10px 12px 12px;
 }
 .sail-sname {
-  font-family: 'Cormorant', serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 15px;
   font-weight: 400;
   font-style: italic;
@@ -85,14 +89,14 @@ canvas { display: block; }
   margin-bottom: 5px;
 }
 .sail-sbadge {
-  font-family: 'Cormorant', serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 9px;
   letter-spacing: 0.32em;
   text-transform: uppercase;
   margin-bottom: 4px;
 }
 .sail-scount {
-  font-family: 'Cormorant', serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 11px;
   color: rgba(255,255,255,0.3);
   font-style: italic;

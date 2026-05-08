@@ -20,7 +20,7 @@ export default function Lightbox({ species: sp, lang, onClose }) {
 
   return (
     <div className={`${styles.lightbox} ${styles.open}`} onClick={(e) => { if (e.target === e.currentTarget) onClose() }}>
-      <button className={styles.close} onClick={onClose}>✕</button>
+      <button className={styles.close} onClick={onClose} aria-label={lang === 'en' ? 'Close' : 'Fermer'}>✕</button>
       <div className={styles.inner}>
         <div className={styles.imgWrap}>
           {displayUrl ? (

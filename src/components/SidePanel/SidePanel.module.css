@@ -34,7 +34,7 @@
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.06);
   border-radius: 50%;
-  font-family: 'Cormorant', serif;
+  font-family: 'Ubuntu', sans-serif;
   transition: all 0.2s;
 }
 .close:hover { color: rgba(200,132,58,0.9); border-color: rgba(200,132,58,0.3); background: rgba(200,132,58,0.06); }
@@ -47,7 +47,7 @@
   border: none;
   cursor: pointer;
   color: rgba(200,132,58,0.45);
-  font-family: 'Cormorant', serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 10px;
   letter-spacing: 0.38em;
   text-transform: uppercase;
@@ -58,7 +58,7 @@
 .back:hover { color: rgba(200,132,58,0.85); }
 
 .label {
-  font-family: 'Cormorant', serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 9px;
   letter-spacing: 0.5em;
   text-transform: uppercase;
@@ -66,7 +66,7 @@
   margin-bottom: 14px;
 }
 .name {
-  font-family: 'Cormorant', serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 34px;
   font-weight: 300;
   font-style: italic;
@@ -75,7 +75,7 @@
   line-height: 1.15;
 }
 .habitat {
-  font-family: 'Cormorant', serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 12px;
   letter-spacing: 0.22em;
   color: rgba(200,132,58,0.5);
@@ -83,7 +83,7 @@
   margin-bottom: 20px;
 }
 .status {
-  font-family: 'Cormorant', serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 10px;
   letter-spacing: 0.32em;
   text-transform: uppercase;
@@ -99,14 +99,14 @@
   border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 .iucnPop {
-  font-family: 'Cormorant', serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 11px;
   line-height: 1.6;
   color: rgba(255,255,255,0.32);
   flex: 1;
 }
 .iucnLink {
-  font-family: 'Cormorant', serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 8px;
   letter-spacing: 0.28em;
   text-transform: uppercase;
@@ -122,7 +122,7 @@
 .iucnLink:hover { color: rgba(200,132,58,0.7); border-color: rgba(200,132,58,0.3); }
 
 .text {
-  font-family: 'Cormorant', serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 17px;
   font-weight: 400;
   line-height: 2;
@@ -148,7 +148,7 @@
 .photo img:hover { filter: saturate(0.75) brightness(0.9); }
 
 .sectionLabel {
-  font-family: 'Cormorant', serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 9px;
   letter-spacing: 0.46em;
   text-transform: uppercase;
@@ -183,7 +183,7 @@
   transition: all 0.18s;
 }
 .filterBtn span {
-  font-family: 'Cormorant', serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 8px;
   letter-spacing: 0.32em;
   text-transform: uppercase;
@@ -193,7 +193,7 @@
 .filterBtn.filterActive { color: rgba(200,132,58,0.9); border-color: rgba(200,132,58,0.35); background: rgba(200,132,58,0.06); }
 
 .artifactText {
-  font-family: 'Cormorant', serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 10px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -212,7 +212,7 @@
 .extinctEntry:last-child { border-bottom: none; }
 
 .extinctName {
-  font-family: 'Cormorant', serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 17px;
   font-weight: 400;
   font-style: italic;
@@ -241,7 +241,7 @@
 
 /* Extinct species detail panel */
 .cartelTitre {
-  font-family: 'Cormorant', serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 15px;
   font-style: italic;
   color: rgba(200,132,58,0.7);
@@ -257,7 +257,7 @@
   margin-right: 6px;
 }
 .cartelLine {
-  font-family: 'Cormorant', serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 14px;
   font-style: italic;
   color: rgba(255,255,255,0.38);
@@ -265,7 +265,7 @@
   margin-bottom: 12px;
 }
 .cartelLineFaint {
-  font-family: 'Cormorant', serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 14px;
   font-style: italic;
   color: rgba(255,255,255,0.28);
@@ -288,7 +288,7 @@
   border: 1px solid rgba(200,132,58,0.22);
   border-radius: 4px;
   color: rgba(200,132,58,0.6);
-  font-family: 'Cormorant', serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 11px;
   letter-spacing: 0.38em;
   text-transform: uppercase;
@@ -303,4 +303,45 @@
   color: rgba(200,132,58,0.95);
   border-color: rgba(200,132,58,0.45);
   background: rgba(200,132,58,0.05);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .panel {
+    right: 0;
+    bottom: -100%;
+    top: auto;
+    width: 100%;
+    height: 78vh;
+    max-height: 78dvh;
+    border-left: none;
+    border-top: 1px solid rgba(200,132,58,0.14);
+    border-radius: 14px 14px 0 0;
+    padding: 52px 24px 32px;
+    padding-bottom: calc(32px + env(safe-area-inset-bottom));
+    transition: bottom 0.55s cubic-bezier(0.16,1,0.3,1);
+  }
+  .panel::before {
+    content: '';
+    position: absolute;
+    top: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 36px;
+    height: 3px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+  }
+  .panel.open {
+    right: 0;
+    bottom: 0;
+  }
+  .close {
+    top: 22px;
+    right: 20px;
+  }
+  .name { font-size: 26px; }
+  .text { font-size: 15px; line-height: 1.85; }
+  .extinctName { font-size: 15px; }
+  .filters { flex-wrap: wrap; gap: 6px; }
 }

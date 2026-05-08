@@ -3,10 +3,9 @@
   top: 32px;
   left: 48px;
   color: rgba(255,255,255,0.22);
-  font-family: 'Cormorant', serif;
+  font-family: 'Anthony', serif;
   font-size: 28px;
-  font-weight: 300;
-  font-style: italic;
+  font-weight: normal;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   pointer-events: none;
@@ -24,14 +23,14 @@
   z-index: 10;
 }
 .num {
-  font-family: 'Cormorant', serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 42px;
   font-weight: 300;
   color: rgba(200,132,58,0.55);
   line-height: 1;
 }
 .label {
-  font-family: 'Cormorant', serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 9px;
   letter-spacing: 0.42em;
   text-transform: uppercase;
@@ -48,7 +47,7 @@
   z-index: 10;
 }
 .langBtn {
-  font-family: 'Cormorant', serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 10px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -62,3 +61,31 @@
 }
 .langBtn:hover { color: rgba(255,255,255,0.5); border-color: rgba(255,255,255,0.18); }
 .langBtn.active { color: rgba(200,132,58,0.8); border-color: rgba(200,132,58,0.3); }
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 16px;
+    top: 20px;
+    left: 20px;
+    letter-spacing: 0.12em;
+  }
+  .counter {
+    top: 14px;
+  }
+  .num {
+    font-size: 28px;
+  }
+  .label {
+    font-size: 8px;
+    letter-spacing: 0.32em;
+  }
+  .langSwitcher {
+    top: 20px;
+    right: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title { display: none; }
+  .counter { top: 18px; }
+}

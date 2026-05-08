@@ -31,7 +31,7 @@
   color: rgba(255,255,255,0.3);
   font-size: 18px;
   cursor: pointer;
-  font-family: 'Cormorant', serif;
+  font-family: 'Ubuntu', sans-serif;
   transition: all 0.2s;
 }
 .close:hover { color: rgba(200,132,58,0.9); border-color: rgba(200,132,58,0.3); }
@@ -65,7 +65,7 @@
 .img.loaded { display: block; }
 
 .noImg {
-  font-family: 'Cormorant', serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 10px;
   letter-spacing: 0.4em;
   text-transform: uppercase;
@@ -85,7 +85,7 @@
 .info::-webkit-scrollbar-thumb { background: rgba(200,132,58,0.2); border-radius: 2px; }
 
 .date {
-  font-family: 'Cormorant', serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 9px;
   letter-spacing: 0.5em;
   text-transform: uppercase;
@@ -93,7 +93,7 @@
   margin-bottom: 10px;
 }
 .title {
-  font-family: 'Cormorant', serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 38px;
   font-weight: 300;
   font-style: italic;
@@ -102,7 +102,7 @@
   margin-bottom: 20px;
 }
 .habitat {
-  font-family: 'Cormorant', serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 12px;
   letter-spacing: 0.22em;
   color: rgba(200,132,58,0.5);
@@ -122,7 +122,7 @@
   margin-right: 7px;
 }
 .animalLabel {
-  font-family: 'Cormorant', serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 9px;
   letter-spacing: 0.46em;
   text-transform: uppercase;
@@ -130,7 +130,7 @@
   margin-bottom: 10px;
 }
 .epitaphe {
-  font-family: 'Cormorant', serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 17px;
   font-style: italic;
   line-height: 1.95;
@@ -144,7 +144,7 @@
   margin-bottom: 28px;
 }
 .artworkLabel {
-  font-family: 'Cormorant', serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 9px;
   letter-spacing: 0.46em;
   text-transform: uppercase;
@@ -152,7 +152,7 @@
   margin-bottom: 10px;
 }
 .medium {
-  font-family: 'Cormorant', serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 9px;
   letter-spacing: 0.38em;
   text-transform: uppercase;
@@ -160,7 +160,7 @@
   margin-bottom: 14px;
 }
 .intention {
-  font-family: 'Cormorant', serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 14px;
   font-style: italic;
   color: rgba(255,255,255,0.32);
@@ -168,7 +168,7 @@
   margin-bottom: 20px;
 }
 .son {
-  font-family: 'Cormorant', serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 13px;
   font-style: italic;
   color: rgba(255,255,255,0.28);
@@ -176,7 +176,7 @@
   margin-bottom: 14px;
 }
 .forme {
-  font-family: 'Cormorant', serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 13px;
   font-style: italic;
   color: rgba(255,255,255,0.22);
@@ -184,9 +184,38 @@
   margin-bottom: 24px;
 }
 .sources {
-  font-family: 'Cormorant', serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 9px;
   letter-spacing: 0.25em;
   color: rgba(200,132,58,0.2);
   line-height: 1.9;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .inner {
+    grid-template-columns: 1fr;
+    grid-template-rows: 42vh 1fr;
+    width: 100vw;
+    height: 100vh;
+    max-height: none;
+    max-width: none;
+    border-radius: 0;
+    border: none;
+  }
+  .imgWrap {
+    border-right: none;
+    border-bottom: 1px solid rgba(200,132,58,0.08);
+  }
+  .info {
+    padding: 28px 24px;
+    padding-bottom: calc(28px + env(safe-area-inset-bottom));
+  }
+  .title { font-size: 28px; }
+  .close {
+    top: 20px;
+    right: 20px;
+    width: 36px;
+    height: 36px;
+  }
 }

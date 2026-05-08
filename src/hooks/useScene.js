@@ -252,6 +252,7 @@ export function useScene({ canvasRef, sailContainerRef, speciesData, lang, onSpe
     // ── Loaders with Draco compression support
     const dracoLoader = new DRACOLoader()
     dracoLoader.setDecoderPath('draco/')
+    s.dracoLoader = dracoLoader
 
     // ── Ark
     const arkLoader = new GLTFLoader()
@@ -633,7 +634,7 @@ export function useScene({ canvasRef, sailContainerRef, speciesData, lang, onSpe
     }
 
     const loader = new GLTFLoader()
-    loader.setDRACOLoader(dracoLoader)
+    loader.setDRACOLoader(s.dracoLoader)
     loader.load('models/boat.glb', (gltf) => {
       const boatTemplate = gltf.scene
 
@@ -734,6 +735,8 @@ export function useScene({ canvasRef, sailContainerRef, speciesData, lang, onSpe
       })
 
       s.rebuildMeshCache()
+    }, undefined, (err) => {
+      console.error('[boats] Erreur chargement boat.glb:', err)
     })
   }, [speciesData]) // eslint-disable-line react-hooks/exhaustive-deps
 

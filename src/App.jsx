@@ -78,7 +78,6 @@ export default function App() {
   }
 
   function handleDiscover() {
-    startAudio()
     setIntroVisible(false)
   }
 
@@ -115,7 +114,7 @@ export default function App() {
         <source src="audio/ambient.m4a" type="audio/mp4" />
       </audio>
 
-      {introVisible && <IntroScreen onDiscover={handleDiscover} />}
+      {introVisible && <IntroScreen onStart={startAudio} onDiscover={handleDiscover} lang={lang} />}
 
       {!introVisible && (
         <>

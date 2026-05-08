@@ -14,7 +14,7 @@
   background: rgba(2,8,16,0.75);
   border: 1px solid rgba(255,255,255,0.08);
   color: rgba(255,255,255,0.3);
-  font-family: 'Cormorant', serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 18px;
   cursor: pointer;
   border-radius: 4px;
@@ -44,4 +44,20 @@
   width: 1px;
   background: rgba(255,255,255,0.06);
   margin: 6px 3px;
+}
+
+@media (max-width: 768px) {
+  .controls {
+    bottom: calc(20px + env(safe-area-inset-bottom));
+    gap: 3px;
+  }
+  .btn {
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+  }
+  .soundBtn {
+    width: 48px;
+    height: 48px;
+  }
 }
