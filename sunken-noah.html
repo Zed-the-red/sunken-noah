@@ -1034,6 +1034,24 @@
     body.light #lightbox-forme { color: rgba(15,10,5,0.42); }
     body.light #lightbox-sources { color: rgba(0,150,180,0.45); }
 
+    /* Contrôles canvas */
+    body.light .ctrl-btn { background: rgba(240,236,228,0.88); border-color: rgba(15,10,5,0.14); color: rgba(15,10,5,0.52); }
+    body.light .ctrl-btn:hover { color: rgba(0,120,155,0.9); border-color: rgba(0,120,155,0.38); background: rgba(0,120,155,0.08); }
+    body.light .ctrl-btn.active { color: rgba(0,120,155,1); border-color: rgba(0,120,155,0.52); background: rgba(0,120,155,0.13); }
+    body.light #sound-toggle { background: rgba(240,236,228,0.88); border-color: rgba(15,10,5,0.14); color: rgba(15,10,5,0.52); }
+    body.light #sound-toggle:hover { color: rgba(0,120,155,0.9); border-color: rgba(0,120,155,0.38); background: rgba(0,120,155,0.08); }
+
+    /* Voiles / sail cards */
+    body.light .sail-photo-wrap { background: rgba(230,226,218,0.82); border-color: rgba(0,120,155,0.22); }
+    body.light .sail-card.hovered .sail-photo-wrap { border-color: rgba(0,120,155,0.55); }
+    body.light .sail-info-wrap { background: rgba(240,236,228,0.96); border-color: rgba(0,120,155,0.38); }
+    body.light .sail-sname { color: rgba(15,10,5,0.88); }
+    body.light .sail-scount { color: rgba(15,10,5,0.52); }
+
+    /* Panel ark-row sliders */
+    body.light .ark-row span { color: rgba(15,10,5,0.45); }
+    body.light #panel-status { color: rgba(0,120,155,0.88); }
+
     /* Mobile panel border-top */
     @media (max-width: 767px) {
       body.light #panel { border-top-color: rgba(0,150,180,0.2); }
@@ -1443,6 +1461,7 @@
   floor.rotation.x = -Math.PI / 2;
   floor.position.y = -18;
   scene.add(floor);
+  window._floorMesh = floor;
 
   // (oval removed)
 
@@ -2897,6 +2916,9 @@
       scene.fog = new THREE.FogExp2(0x010d1f, 0.018);
     }
     window._arkLightTarget = isLight ? 1.0 : 0.0;
+    if (window._floorMesh) {
+      window._floorMesh.material.color.set(isLight ? 0x080e08 : 0x1a3448);
+    }
   }
 
   themeBtn.addEventListener('click', () => { isLight = !isLight; applyTheme(); });
