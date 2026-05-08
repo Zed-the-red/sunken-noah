@@ -1,7 +1,10 @@
 node_modules/
+dist/
+.vscode/
 .DS_Store
 .env
 __pycache__/
 *.pyc
 enrich_iucn.py
 audio/*.wav
+vite
