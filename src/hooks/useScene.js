@@ -261,7 +261,7 @@ export function useScene({ canvasRef, sailContainerRef, speciesData, lang, onSpe
       const ark = gltf.scene
       ark.position.set(3.50, -6.00, 2.00)
       ark.rotation.set(0.19, 0.30, -0.13)
-      ark.scale.setScalar(2.2)
+      ark.scale.setScalar(1.85)
 
       const nacreMat = new THREE.ShaderMaterial({
         side: THREE.DoubleSide,
